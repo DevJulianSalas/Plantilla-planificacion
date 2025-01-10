@@ -59,7 +59,7 @@ Este instructivo te guiará en el proceso de comenzar a trabajar con la plantill
    - Corregir los datos necesarios y guardar los cambios.
    - Volver a compilar el documento haciendo clic en **Recompile**.
 
-## 8. Exportar o descargar el documento
+## Paso 8. Exportar o descargar el documento
 
 1. Una vez que el documento esté listo y sin errores, podés descargar el PDF final.
 2. Para descargarlo:
