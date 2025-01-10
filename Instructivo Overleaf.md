@@ -32,7 +32,7 @@ Este instructivo te guiará en el proceso de comenzar a trabajar con la plantill
    - **Director**: agregar el nombre completo del director con su título de grado o posgrado y pertenencia (ejemplo: *Mg. Ing. Ana Rodríguez (UTN)*).
    - **Jurados**: completar los nombres de los jurados con sus títulos y pentenencia.
 
-## 5. Completar `memorianueva.tex`
+## Paso 5. Completar `memorianueva.tex`
 
 1. Abrir el archivo `memorianueva.tex`.
 2. Completar las siguientes secciones:
@@ -40,13 +40,13 @@ Este instructivo te guiará en el proceso de comenzar a trabajar con la plantill
    - **Agradecimientos**: escribir tus agradecimientos personales (opcional).
    - **Dedicado a**: dedicatoria personal (opcional).
 
-## 6. Completar los capítulos
+## Paso 6. Completar los capítulos
 
 1. Ir a la carpeta `Chapters/`.
 2. Abrir los archivos `Chapter1.tex`, `Chapter2.tex`, etc.
 3. Escribir el contenido correspondiente a cada capítulo según la estructura de tu memoria.
 
-## 7. Compilar el proyecto
+## Paso 7. Compilar el proyecto
 
 1. Una vez completados los datos en **memorianueva.tex**, **portada.tex** y los capítulos, regresá al panel principal de Overleaf.
 2. Hacer clic en el botón **Recompile** para generar el PDF del documento completo.
@@ -59,7 +59,7 @@ Este instructivo te guiará en el proceso de comenzar a trabajar con la plantill
    - Corregir los datos necesarios y guardar los cambios.
    - Volver a compilar el documento haciendo clic en **Recompile**.
 
-## 9. Exportar o descargar el documento
+## 8. Exportar o descargar el documento
 
 1. Una vez que el documento esté listo y sin errores, podés descargar el PDF final.
 2. Para descargarlo:
