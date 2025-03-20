@@ -5,7 +5,7 @@
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Título del proyecto} 
+\titulo{Interfaces Cerebro-Cloud para la predicción de actividades de imaginación motriz}
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
 \posgrado{Carrera de Especialización en Sistemas Embebidos} 
@@ -16,21 +16,21 @@
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
 % IMPORTANTE: no omitir titulaciones ni tildación en los nombres, también se recomienda escribir los nombres completos (tal cual los tienen en su documento)
-\autor{Título y Nombre del autor}
+\autor{Freddy Julian Riascos Salas}
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{Título y Nombre del director}
+\director{Jaime Andrés Riascos Salas}
 \pertenenciaDirector{pertenencia} 
 \codirector{} % para que aparezca en la portada se debe descomentar la opción codirector en los parámetros de documentclass
 \pertenenciaCoDirector{FIUBA}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Nombre del cliente}
-\empresaCliente{Empresa del cliente}
+\cliente{Xprende}
+\empresaCliente{Xprendetech S.A}
  
-\fechaINICIO{30 de abril de 2023}		%Fecha de inicio de la cursada de GdP \fechaInicioName
-\fechaFINALPlan{18 de junio de 2023} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{15 de mayo de 2024}	%Fecha de defensa pública del trabajo final
+\fechaINICIO{11 de marzo de 2025}		%Fecha de inicio de la cursada de GdP \fechaInicioName
+\fechaFINALPlan{22 de abril de 2025} 	%Fecha de final de cursada de GdP
+\fechaFINALTrabajo{20 de julio de 2025}	%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -85,7 +85,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en \textcolor{red}{la implementación de un prototipo de un sistema de control de temperatura de una caldera industrial}. El trabajo tendrá un presupuesto preliminar estimado de \textcolor{red}{600} horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en \textcolor{red}{evaluar una interfaz cerebro-computadora (Brain-Computer Interface, BCI) con soporte en la nube para la detección de patrones de imaginación motriz}. El trabajo tendrá un presupuesto preliminar estimado de \textcolor{red}{600} horas y un costo estimado de \textcolor{red}{\$ -}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -106,47 +106,90 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-El objetivo es que el lector, en una o dos páginas, exponga de qué se trata el proyecto y cuáles son sus desafíos, cuál es la motivación para realizarlo y su importancia.
+% ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+Las interfaces cerebro-computadora (Brain-Computer Interfaces, BCI) han emergido como una tecnología innovadora que permite la comunicación directra entre el cerebro humano y dispositivos externos.
+En particular, la predicción de actividades de imaginación motriz a través de BCI han cobrado relevancia en campos que varian desde la rehabilitación, robótica, control de protésis hasta sistemas domóticos, videojuegos y realidad virtual.
 
-Se debe introducir el contexto del proyecto, el estado del arte en la temática, describir la propuesta de valor, cuál es el problema que atiende y cuál es la solución que se propone. Se debe dar una descripción funcional de la solución que incluya un diagrama en bloques.
+La integración de las BCI con tecnologías en la nube permite el almaceniamiento, procesamiento y análisis eficiente de grandes volúmenes de datos cerebrales, favoreciendo la aplicación de algoritmos avanzados de aprendizaje automático y mejorando la precisión de la interpretación de señales cerebrales.
 
-Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
+\textbf{1.1 Conceptos Fundamentales}
 
+\textbf{Interfaces Cerebro-Computadora}
+
+Los BCI son sistemas que registran la actividad cerebral mediante técnicas como la electroencefalografía (EEG) y traducen estas señales en comandos computacionales. Existen distintos tipos de BCI:
 \begin{itemize}
-	\item ¿Cuál es el contexto del proyecto, es un emprendimiento personal, un proyecto para una empresa, es parte del programa de vinculación con empresas del posgrado?
-	\item ¿Existen o aplican condiciones especiales al proyecto, financiamiento de algún programa público o privado, acuerdos de confidencialidad, acuerdos sobre la propiedad intelectual de los entregables u otros?
-	\item ¿Cómo se compara la solución propuesta con el estado del arte en el campo de aplicación? ¿En qué aspectos destaca?
-	\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-	\item ¿En qué estado del ciclo de vida está la solución que se propone?
-	\item ¿Cuáles son las características del cliente (el adoptante de los entregables del proyecto) qué valora, qué necesita?
-	\item ¿Por dónde pasa la innovación?
+	\item \textbf{Invasivas}: Electrodos implantados directamente en el cerebro.
+	\item \textbf{No invasivas}: Uso de sensores externos como EEG, MEG o fNIRS.
 \end{itemize}
 
-La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y descripción funcional de la solución propuesta.
+\textbf{Imaginación Motriz}
 
-Las figuras se deben mencionar en el texto ANTES de que aparezcan con una frase como la siguiente: ``En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''.  La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
+La imaginación motriz se refiere a la capacidad de representar mentalmente movimientos sin ejecutarlos físicamente. Durante este proceso, se activan patrones específicos en la corteza motora, los cuales pueden ser detectados mediante EEG y utilizados para el control de dispositivos externos.
+
+\textbf{Computación en la Nube y BCI}
+
+El uso de servicios en la nube permite procesar grandes volúmenes de datos EEG en tiempo real obteniendo beneficios como:
+\begin{itemize}
+	\item Almacenamiento y procesamiento escalable de datos cerebrales.
+	\item Acceso remoto para análisis colaborativo.
+	\item Implementación de modelos de aprendizaje automático en infraestructura distribuida.
+\end{itemize}
+
+\textbf{1.2 Problema Actual}
+
+Al presente, las personas con discapacidades motoras severas enfrentan grandes dificultades en la interración con su entorno. Los sistemas actuales de BCI presentan limitaciones en términos de precisión, latencia, accesibilidad, recopilación,
+análisis y clasificación de las señales EEG. Normalmente, estos datos se encuentran contaminados por distintos artefactos biológicos (señales cardiacas, respiratorias, músculos) como también por ruidos externos.
+
+Así mismo, la dimensión de estos datos (n-canales x señal del tiempo) crea una problematica latente en su procesamiento eficaz de tal manera que el clasificador reciba características latentes de la señal y así realizar la predicción de forma adecuada y rápida.
+
+\textbf{1.3 Solución Propuesta}
+
+La interfaz Cerebro-Cloud sugerida integra un modelo de predicción basado en aprendizaje automático con una arquitectura en la nube que permita la adquisición, procesamiento y transmisión de señales cerebrales en tiempo real. Esto proporcionará una solución más precisa, escalable y accesible para el control
+de dispositivos mediante imaginación motriz.
+
+
+
+En comparación con el estado del arte actual, la solución se destaca en:
+
+\begin{itemize}
+	\item \textbf{Precisión mejorada}: Uso de modelos de inteligencia artificial optimizados para la interpretación de señales eléctricas (electroencefalografía, EEG).
+	\item \textbf{Reducción de latencia}: Procesamiento distribuido en la nube.
+	\item \textbf{Accesibilidad}: Plataforma escalable con acceso a la información para usuarios y especialistas.
+\end{itemize}
+
+Este interfaz BCI-Cloud tiene como objetivo mejorar la calidad de vida de personas con discapacidades motoras
+al proporcionar una herramienta en la nube para la comunicación y control de dispositivos protésicos.
+
+El proyecto se enmarca dentro de un programa de innovación tecnológica de la empresa \clientename y es financiado por la misma.
+
+\textbf{1.4 Descripción Funcional y Diagrama en Bloques}
+
+La solución propuesta consta de los siguientes módulos principales:
+\begin{itemize}
+	\item \textbf{Adquisición de Señales EEG}: Sensores no invasivos capturan la actividad cerebral del usuario.
+	\item \textbf{Preprocesamiento de Datos}: Filtrado y eliminación de ruido en las señales EEG.
+	\item \textbf{Modelo de Predicción}: Algoritmos de aprendizaje automático analizan los datos y determinan la intención motriz.
+	\item \textbf{Transmisión en la Nube}:  Los datos procesados se envían a servidores remotos para análisis y almacenamiento.
+	\item \textbf{Interfaz Usuario-Dispositivo}: Una interfaz que traduce la predicción en comandos para dispositivos externos, como prótesis o interfaces de control.
+\end{itemize}
+
+En la figura 1 se presenta el diagrama de bloques del sistema BCI-CLOUD, se observa que el usuario inicial genera datos con el sensor EEG, para luego enviar los datos a un sistema de preprocesamiento, una vez estan óptimos se envian a la nube y posteriormente el modelo seleccionado se entrena, para finalmente predecir el movimiento imaginado en la interfaz de usaurio.
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.65\textwidth]{./Figuras/diagBloques.png}
-\caption{Diagrama en bloques del sistema.}
+\includegraphics[width=.65\textwidth]{./Figuras/block_diagram.png}
+\caption{Diagrama del sistema BCI-CLOUD.}
 \label{fig:diagBloques}
 \end{figure}
 
 \vspace{25px}
 
-El tamaño del texto en TODAS las figuras debe ser adecuado \textbf{para que NO pase lo que ocurre en la figura \ref{fig:diagBloques}}, donde el lector debe esforzarse para poder leer el texto. 
-
-Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama. Se recomienda evitar colores primarios (como rojo, verde o cyan) y usar la gama de colores pastel.
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+% ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-\textbf{Nota importante:} borrar esto y todas las consignas en color rojo antes de entregar este documento). Esto se hace eliminando el par de comandos que forman el bloque consigna, \verb!\begin{consigna}{red}! y \verb!\end{consigna}{red}! del código. 
+A continuación, se presentan los principales actores involucrados en el desarollo del proyecto y su respectiva función:
  
 Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos. Si se considera que una persona cumple dos o más roles, entonces \textbf{solo dejarla en el rol más importante}. 
 
@@ -160,90 +203,63 @@ Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-Auspiciante   &                   &              	&        	\\ \hline
-Cliente       & \clientename      &\empclientename	&        	\\ \hline
-Impulsor      &                   &              	&        	\\ \hline
+Cliente       & \clientename      &\empclientename	& -       	\\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores &                   &              	&        	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director del Trabajo Final \\ \hline
-Equipo        & miembro1 \newline 
-				miembro2          &              	&        	\\ \hline
-Opositores    &                   &              	&        	\\ \hline
-Usuario final &                   &              	&        	\\ \hline
+Usuario final & Paciente          & -             	& -        	\\ \hline
 \end{tabularx}
 \end{table}
 
-El Director suele ser uno de los orientadores.
-
-No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
-
-No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
-
-Es deseable listar a continuación las principales características de cada interesado.
+A continuación las principales características de cada interesado.
  
-Por ejemplo:
 \begin{itemize}
-	\item Orientador: la Dra. Ing. María Gómez es experta en la temática y va a ayudar con la definición de los requerimientos y el desarrollo del firmware del embebido.
-	\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
-	\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
+	\item Orientador: Mag. Ing. Andrés Salas es experto en desarrollar interfaces cerebro-maquina y va a orientar con la definición de los requerimientos y el desarrollo del sistema BCI-Cloud.
+	\item Usuario Final: Usuario con discapacidad motora severa, quien se beneficiaría directamente del control del dispositivo y la interfaz.
 \end{itemize}
 
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-
-
+% ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
-
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-
-¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
-
-Se recomienda que sea solo un párrafo que continúe con la idea de la frase ``el propósito de este proyecto es...'' (omitir la frase, ya que está en el título de la sección).
-\end{consigna}
+La intención del proyecto es diseñar y desarrollar una plataforma basada en BCI-Cloud que facilite la predicción de actividades de imaginación motriz en personas con discapacidades motoras severas. A través de la integración de inteligencia artificial y computación en la nube, se busca ofrecer una solución innovadora que permita mejorar la interacción con el entorno mediante el control preciso de dispositivos electrónicos y protésicos.
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
 
-\begin{consigna}{red}
-¿Qué se incluye y que no se incluye en este proyecto?
-
-Se refiere al trabajo que se va a hacer para entregar el producto o resultado especificado. 
-
-Explicitar todo lo quede comprendido dentro del alcance del proyecto. Por ejemplo:
-
-El proyecto incluye:
+El proyecto comprenderá los siguientes componentes:
 \begin{itemize}
-	\item Ítem 1.
-	\item Ítem 2.
-		\begin{itemize}
-		\item Subítem 1.
-		\item Subítem 2.
-		\item ...
-		\end{itemize}
-	\item ...
-	
+	\item Modelo de predicción basado en algoritmos de aprendizaje automático para la interpretación de señales EEG. Se evaluarán distintos modelos como CNNs, RNNs y Transformers para determinar el que mejor performe en términos de precisión y latencia.
+	\item Datos adquiridos de sensores EEG, los cuales se utilizarán para entrenar y validar el modelo. Se garantizará que la adquisición de datos cumpla con estándares de calidad y se preprocesen para eliminar ruido.
+	\item Código de la infraestructura en la nube.
+	\item Documentación técnica y científica, que detalla el diseño, implementación y validación del sistema.
+	\item Pruebas y validaciones realizadas con usuarios objetivo para evaluar el desempeño y precisión del modelo. Se incluirán métricas clave que garanticen el óptimo performance del sistema.
+	\item Desarrollo y entrenamiento del modelo de predicción de actividades de imaginación motriz, con comparaciones entre distintos enfoques de IA.
+	\item Integración con una infraestructura en la nube escalable y segura en AWS.
+	\item Adquisición y procesamiento de señales cerebrales mediante sensores EEG.
+	\item Evaluación del sistema con usuarios finales para validar su precisión y usabilidad.
+	\item Generación de documentación técnica para futuras mejoras e implementación.
+	\item Optimización del procesamiento en la nube para reducir latencia y mejorar la eficiencia del sistema.
+\end{itemize}
+El presente proyecto no incluye:
+\begin{itemize}
+	\item Desarrollo de hardware EEG propio (se utilizarán dispositivos comerciales disponibles en el mercado).
+	\item Implementación de interfaces cerebro-máquina más allá de la imaginación motriz.
+	\item Integración con sistemas de salud o bases de datos clínicas.
 \end{itemize}
 
-Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+% ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 
 \section{5. Supuestos del proyecto}
 \label{sec:supuestos}
-
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-``Para el desarrollo del presente proyecto se supone que: ...''
-
 \begin{itemize}
-	\item Supuesto 1.
-	\item Supuesto 2.
-	\item ...
+	\item Disponibilidad de datos EEG de calidad: Se asume que los datos recopilados mediante sensores EEG serán suficientes y de calidad adecuada para el entrenamiento del modelo sin necesidad de un preprocesamiento excesivo.
+	\item Recursos computacionales: Se cuenta con acceso a instancias de cómputo en la nube (AWS) que permitan el entrenamiento y despliegue del modelo de inteligencia artificial sin limitaciones de procesamiento o almacenamiento.
+	\item Factibilidad técnica de integración: Se considera viable la integración entre los sensores EEG, la infraestructura en la nube y la interfaz de usuario.
+	\item Condiciones regulatorias favorables: No existen restricciones legales o normativas que impidan la recopilación y procesamiento de datos EEG.
+	\item Adopción del sistema por parte de los usuarios: Se espera que los usuarios finales (personas con discapacidades motoras) puedan adaptarse y beneficiarse de la solución sin requerir un entrenamiento extenso.
 \end{itemize}
 
-Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+% ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 \section{6. Requerimientos}
 \label{sec:requerimientos}
