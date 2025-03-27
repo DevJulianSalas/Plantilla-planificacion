@@ -8,9 +8,9 @@
 \titulo{Interfaces Cerebro-Cloud para la predicción de actividades de imaginación motriz}
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
-\posgrado{Carrera de Especialización en Sistemas Embebidos} 
+%\posgrado{Carrera de Especialización en Sistemas Embebidos} 
 %\posgrado{Carrera de Especialización en Internet de las Cosas} 
-%\posgrado{Carrera de Especialización en Inteligencia Artificial}
+\posgrado{Carrera de Especialización en Inteligencia Artificial}
 %\posgrado{Maestría en Sistemas Embebidos} 
 %\posgrado{Maestría en Internet de las cosas}
 
@@ -261,68 +261,118 @@ El presente proyecto no incluye:
 
 % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
-\section{6. Requerimientos}
-\label{sec:requerimientos}
+\section{6. Product backlog}
+\label{sec:backlog}
+\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+	
+El Product Backlog debe organizarse en cuatro épicas fundamentales del proyecto. Cada épica debe contener al menos dos historias de usuario que describan funcionalidades clave.
+
+El Product Backlog debe permitir interpretar cómo será el proyecto y su funcionalidad. Se deben indicar claramente las prioridades entre las historias de usuario y si hay alguna opcional.
+ 
+Las historias de usuario deben ser breves, claras y medibles, expresando el rol, la necesidad y el propósito de cada funcionalidad. También deben tener una prioridad definida para facilitar la planificación de los sprints. Además, cada historia de usuario debe incluir una ponderación en Story Points, un número entero que representa el tamaño de la historia en relación con otras de similar tipo. El criterio para calcular los Story Points debe indicarse explícitamente.
+
+Las historias de usuario deben seguir el siguiente formato: ``Como [rol], quiero [tal cosa] para [tal otra cosa]''.
+
+Las épicas deben estructurarse de la siguiente forma:
 \begin{enumerate}
-	\item Requerimientos funcionales:
-		\begin{enumerate}
-			\item El sistema debe permitir la adquisición de señales EEG en tiempo real.
-			\item El sistema debe realizar el procesamiento de datos para alimentar el modelo.
-			\item La infraestructura en la nube debe procesar y devolver predicciones con una latencia menor a 800ms. 
-			\item El sistema debe tener una integración para la comunicación y envió de datos EEG a la nube.
-		\end{enumerate}
-	\item Requerimientos de documentación:
-		\begin{enumerate}
-			\item Se debe entregar documentación técnica sobre la arquitectura del sistema, modelos utilizados y configuración en la nube.
-			\item Se debe incluir una memoria técnica con los resultados del entrenamiento del modelo.
-		\end{enumerate}
-	\item Requerimiento de testing:
-		\begin{enumerate}
-			\item El modelo debe ser validado con un conjunto de datos independientes.
-			\item La API debe ser sometida a pruebas de carga para garantizar la estabilidad de solicitudes concurrentes.
-		\end{enumerate}
-	\item Requerimientos de la interfaz:
-		\begin{enumerate}
-			\item La interfaz debe permitir la interpretación de las señales para mostrar la acción imaginada. (esto no se si es posible pero para añadir una web o algo grafico )
-			\item La interfaz debe permitir exportar los datos procesados en formatos CSV y JSON.
-		\end{enumerate}
-	\item Requerimientos Regulatorios y de Seguridad:
-		\begin{enumerate}
-			\item Toda la comunicación de datos entre los dispositivos y la nube debe estar cifrada con TLS/SSL.
-		\end{enumerate}
+	\item EPICA 1
+	\begin{enumerate}
+		\item HU1
+		\item HU2
+	\end{enumerate}
+	\item EPICA 2
+	\begin{enumerate}
+		\item HU3
+		\item HU4
+	\end{enumerate}
+	\item EPICA 4
+	\begin{enumerate}
+		\item HU5
+		\item HU6
+	\end{enumerate}
+	\item EPICA 4
+	\begin{enumerate}
+		\item HU7
+		\item HU8
+	\end{enumerate}
 \end{enumerate}
 
+Reglas para definir historias de usuario:
 
-\section{7. Historias de usuarios (\textit{Product backlog})}
-\label{sec:backlog}
+\begin{itemize}
+	\item Concisas y claras.
+	\item Expresarlas en términos cuantificables y medibles.
+	\item No dejar margen para interpretaciones ambiguas.
+	\item Indicar claramente su prioridad y si son opcionales.
+	\item Considerar regulaciones y normas vigentes.
+\end{itemize}
+
+\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+
+
+\section{7. Criterios de aceptación de historias de usuario}
+\label{sec:criteriosAceptacion}
 
 \begin{consigna}{red}
-Descripción: en esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
+Los criterios de aceptación deben establecerse para cada historia de usuario, asegurando que se cumplan las condiciones necesarias para que la funcionalidad sea validada correctamente.
 
-Se debe indicar explícitamente el criterio para calcular los \textit{story points} de cada historia.
+Cada historia de usuario debe incluir criterios de aceptación que definan claramente los parámetros para su aprobación. Estos criterios deben ser medibles, específicos y verificables, y deben permitir validar que la historia cumple con las necesidades del usuario.
 
-El formato propuesto es: 
+Las historias de usuario y sus criterios de aceptación deben estructurarse de la siguiente forma:
 \begin{enumerate}
-\item ``Como [rol] quiero [tal cosa] para [tal otra cosa]."
-
-\textit{Story points}: 8 (complejidad: 3, dificultad: 2, incertidumbre: 3)
+	\item EPICA 1
+	\begin{enumerate}
+		\item Criterios de aceptación HU1
+		\item Criterios de aceptación HU2
+	\end{enumerate}
+	\item EPICA 2
+	\begin{enumerate}
+		\item Criterios de aceptación HU3
+		\item Criterios de aceptación HU4
+	\end{enumerate}
+	\item EPICA 4
+	\begin{enumerate}
+		\item Criterios de aceptación HU5
+		\item Criterios de aceptación HU6
+	\end{enumerate}
+	\item EPICA 4
+	\begin{enumerate}
+		\item Criterios de aceptación HU7
+		\item Criterios de aceptación HU8
+	\end{enumerate}
 \end{enumerate}
+
+Reglas para definir criterios de aceptación:
+\begin{itemize}
+	\item Deben ser medibles y verificables.
+	\item Especificar claramente cuándo una historia de usuario se considera completada.
+	\item Incluir condiciones específicas que garanticen la funcionalidad requerida.
+	\item No dejar margen para interpretaciones ambiguas.
+	\item Deben poder probarse mediante tests funcionales o revisiones técnicas.
+\end{itemize}
 \end{consigna}
 
-\section{8. Entregables principales del proyecto}
+\section{8. Fases de CRISP-DM}
 \label{sec:entregables}
 
 \begin{consigna}{red}
-Los entregables del proyecto son (ejemplo):
+En esta sección debe definir las 6 fases de la metodología CRISP-DM. Se pueden ayudar con las siguientes preguntas de guía:
 
-\begin{itemize}
-	\item Manual de usuario.
-	\item Diagrama de circuitos esquemáticos.
-	\item Código fuente del firmware.
-	\item Diagrama de instalación.
-	\item Memoria del trabajo final.
-	\item etc...
-\end{itemize}
+\begin{enumerate}
+	\item Comprensión del negocio.
+	¿Qué objetivo se intenta cumplir? ¿Qué valor agrega la implementación de IA al problema del 			negocio? ¿Cuáles son las métricas de éxito que se utilizarán para medir el impacto del 				producto o servicio?
+	\item Comprensión de los datos
+	¿Con qué tipo de datos se trabajará? ¿Cuáles son las fuentes? ¿Qué cantidad? ¿Qué podría 				decir acerca de su calidad?
+	\item Preparación de los datos 
+	¿Cuáles consideras que son las características clave? ¿Qué tipo de transformaciones serán 				necesarias aplicar?
+	\item Modelado 
+	¿Qué tipo de problema se busca resolver? ¿Clasificación? ¿Predicción? ¿Qué arquitecturas 				podrían utilizarse?
+	\item Evaluación del modelo 
+	¿Con qué métricas se evaluará el desempeño del modelo?
+	\item Despliegue del modelo [opcional]
+	¿Qué tipo de despliegue se llevará a cabo? ¿Con qué herramientas? 
+\end{enumerate}
+La fase 6 es opcional ya que es posible que aún no cuenten con los conocimientos necesarios para definirla.
 \end{consigna}
 
 \section{9. Desglose del trabajo en tareas}
