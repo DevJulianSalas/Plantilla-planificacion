@@ -263,94 +263,188 @@ El presente proyecto no incluye:
 
 \section{6. Product backlog}
 \label{sec:backlog}
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-	
-El Product Backlog debe organizarse en cuatro épicas fundamentales del proyecto. Cada épica debe contener al menos dos historias de usuario que describan funcionalidades clave.
-
-El Product Backlog debe permitir interpretar cómo será el proyecto y su funcionalidad. Se deben indicar claramente las prioridades entre las historias de usuario y si hay alguna opcional.
- 
-Las historias de usuario deben ser breves, claras y medibles, expresando el rol, la necesidad y el propósito de cada funcionalidad. También deben tener una prioridad definida para facilitar la planificación de los sprints. Además, cada historia de usuario debe incluir una ponderación en Story Points, un número entero que representa el tamaño de la historia en relación con otras de similar tipo. El criterio para calcular los Story Points debe indicarse explícitamente.
-
-Las historias de usuario deben seguir el siguiente formato: ``Como [rol], quiero [tal cosa] para [tal otra cosa]''.
-
-Las épicas deben estructurarse de la siguiente forma:
 \begin{enumerate}
-	\item EPICA 1
+	\item Épica 1 - Adquisición y Procesamiento de Señales EEG
 	\begin{enumerate}
-		\item HU1
+		\item HU1 
+		
+		Como ingeniero, quiero capturar señales EEG para alimentar el modelo de predicción.\newline
+		
+		
+		Dificultad: 5
+		
+		Complejidad: 4 
+		
+		Incertidumbre: 3
+		
+		Suma: 12 → Story Points: 12
+		
+		Prioridad: 1\newline
+		
+		
 		\item HU2
+		
+		Como ingeniero, quiero que las señales EEG sean filtradas y normalizadas automáticamente para mejorar la calidad del entrenamiento del modelo.\newline
+
+		Dificultad: 4 
+		
+		Complejidad: 2 
+		
+		Incertidumbre: 2 
+		
+		Suma: 8 → Story Points: 8
+
+		Prioridad: 2\newline
+
+		
 	\end{enumerate}
-	\item EPICA 2
+	\item Épica 2 - Inteligencia Artificial y Modelado
 	\begin{enumerate}
-		\item HU3
-		\item HU4
+		\item Como ingeniero, quiero entrenar un modelo de IA con señales EEG preprocesadas para predecir actividades de imaginación motriz con alta precisión.\newline
+		
+		Dificultad: 5
+		
+		Complejidad: 5
+		
+		Incertidumbre: 4
+		
+		Suma: 14 → Story Points: 14
+		
+		Prioridad: 3\newline
+		
+		\item Como ingeniero, quiero optimizar el modelo de IA para que el tiempo de respuesta sea menor a 5000ms, una precisión de 80\% y mejorar la experiencia del usuario.\newline
+		
+		Dificultad: 4
+		
+		Complejidad: 3
+		
+		Incertidumbre: 3
+		
+		Suma: 10 → Story Points: 10
+
+		Prioridad: 4\newline
 	\end{enumerate}
-	\item EPICA 4
+	\item Épica 3 - Infraestructura en la Nube
 	\begin{enumerate}
-		\item HU5
-		\item HU6
+		\item Como ingeniero, quiero que el procesamiento de datos EEG ocurra en AWS Lambda para mejorar la escalabilidad del sistema.\newline
+		
+		Dificultad: 5
+		
+		Complejidad: 4
+		
+		Incertidumbre: 3
+		
+		Suma: 12 → Story Points: 12
+
+		Prioridad: 5\newline
+		
+		\item Como ingeniero, quiero una API REST para conectar los dispositivos EEG con la nube y enviar los datos en tiempo real.\newline
+		
+		Dificultad: 4
+		
+		Complejidad: 3
+		
+		Incertidumbre: 3
+		
+		Suma: 10 → Story Points: 10
+
+		Prioridad: 6\newline
 	\end{enumerate}
-	\item EPICA 4
+	\item Épica 4 - Interfaz de Usuario y Seguridad
 	\begin{enumerate}
-		\item HU7
-		\item HU8
+		\item Como usuario final, quiero visualizar mis señales EEG en una interfaz gráfica para entender cómo se interpretan mis actividades cerebrales.\newline
+		
+		Dificultad: 5
+		
+		Complejidad: 3
+		
+		Incertidumbre: 2
+		
+		Suma: 10 → Story Points: 10
+		
+		Prioridad: 7\newline
+		
+		\item Como ingeniero, quiero que los datos EEG sean almacenados y transmitidos de manera segura para cumplir con las normativas de privacidad."\newline
+		
+		Dificultad: 5
+		
+		Complejidad: 5
+		
+		Incertidumbre: 2
+		
+		Suma: 12 → Story Points: 12
+
+		Prioridad: 8\newline
 	\end{enumerate}
 \end{enumerate}
-
-Reglas para definir historias de usuario:
-
-\begin{itemize}
-	\item Concisas y claras.
-	\item Expresarlas en términos cuantificables y medibles.
-	\item No dejar margen para interpretaciones ambiguas.
-	\item Indicar claramente su prioridad y si son opcionales.
-	\item Considerar regulaciones y normas vigentes.
-\end{itemize}
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-
 
 \section{7. Criterios de aceptación de historias de usuario}
 \label{sec:criteriosAceptacion}
-
-\begin{consigna}{red}
-Los criterios de aceptación deben establecerse para cada historia de usuario, asegurando que se cumplan las condiciones necesarias para que la funcionalidad sea validada correctamente.
-
-Cada historia de usuario debe incluir criterios de aceptación que definan claramente los parámetros para su aprobación. Estos criterios deben ser medibles, específicos y verificables, y deben permitir validar que la historia cumple con las necesidades del usuario.
-
-Las historias de usuario y sus criterios de aceptación deben estructurarse de la siguiente forma:
 \begin{enumerate}
-	\item EPICA 1
+	\item Épica 1 - Adquisición y Procesamiento de Señales EEG
+
 	\begin{enumerate}
-		\item Criterios de aceptación HU1
+		\item Criterios de aceptación - HU1
+			\begin{itemize}
+				\item Se debe capturar datos EEG con una frecuencia mínima de 250 Hz.
+				\item Los datos deben ser transmitidos a la nube con una latencia máxima de 5000 ms.
+				\item La adquisición de datos debe ser continua y sin interrupciones durante al menos 30 minutos de prueba.
+				\item Los archivos generados deben almacenarse en AWS seleccionando el mejor sistema de almacenamiento teniendo en cuenta costo y beneficio.
+			\end{itemize}
+			  
 		\item Criterios de aceptación HU2
+			\begin{itemize}
+			\item Las señales EEG deben ser preprocesadas eliminando ruido y artefactos antes del almacenamiento.
+			\item Los datos normalizados deben ser accesibles en una base de datos en la nube.
+			\item  La precisión del filtrado debe validarse con al menos un 95\% de efectividad en la eliminación de ruido.
+			\end{itemize}
 	\end{enumerate}
-	\item EPICA 2
+	\item Épica 2 - Inteligencia Artificial y Modelado
 	\begin{enumerate}
 		\item Criterios de aceptación HU3
+			\begin{itemize}
+			\item  El modelo de predicción debe alcanzar una precisión mínima del 85\% en validación cruzada.
+			\item  Se deben entrenar al menos tres arquitecturas y seleccionar la mejor.
+			\item  Se deben generar logs detallados del proceso de entrenamiento con métricas de desempeño.
+			\end{itemize}
 		\item Criterios de aceptación HU4
+			\begin{itemize}
+			\item  El modelo optimizado debe tener un tiempo de inferencia menor a 5000 ms.
+			\item  La implementación debe utilizar hardware optimizado en la nube.
+			\item  Se debe medir la latencia en diferentes condiciones de carga y garantizar estabilidad.
+			\item Los resultados de predicción deben ser accesibles en tiempo real a través de una API.
+			\end{itemize}
 	\end{enumerate}
-	\item EPICA 4
+	\item Épica 3 - Infraestructura en la Nube
 	\begin{enumerate}
 		\item Criterios de aceptación HU5
+			\begin{itemize}
+			\item  La infraestructura debe ser escalable, permitiendo hasta 1000 eventos concurrentes.
+			\item  Se debe garantizar un 85.9\% de disponibilidad del servicio en producción.
+			\item  AWS Lambda debe procesar eventos EEG en tiempo real con ejecución máxima de 15 segundos.
+			\end{itemize}
 		\item Criterios de aceptación HU6
+			\begin{itemize}
+			\item  La API REST debe permitir la recepción de datos EEG con un endpoint dedicado.
+			\item  Debe incluir autenticación y autorización mediante tokens JWT.
+			\item  La API debe responder con código 200 OK en menos de 300 ms en condiciones normales.
+			\item La documentación de la API debe estar disponible con ejemplos de uso.
+			\end{itemize}
 	\end{enumerate}
-	\item EPICA 4
+	\item Épica 4 - Interfaz de Usuario y Seguridad
 	\begin{enumerate}
 		\item Criterios de aceptación HU7
+			\begin{itemize}
+			\item La interfaz debe permitir visualizar las señales EEG en gráficos.
+			\item Se debe permitir la exportación de datos en formatos CSV y JSON.
+			\end{itemize}
 		\item Criterios de aceptación HU8
+			\begin{itemize}
+			\item Los datos EEG deben ser cifrados en tránsito y en reposo.
+			\item El sistema debe incluir una política de retención y eliminación de datos.
+			\end{itemize}
 	\end{enumerate}
 \end{enumerate}
-
-Reglas para definir criterios de aceptación:
-\begin{itemize}
-	\item Deben ser medibles y verificables.
-	\item Especificar claramente cuándo una historia de usuario se considera completada.
-	\item Incluir condiciones específicas que garanticen la funcionalidad requerida.
-	\item No dejar margen para interpretaciones ambiguas.
-	\item Deben poder probarse mediante tests funcionales o revisiones técnicas.
-\end{itemize}
-\end{consigna}
 
 \section{8. Fases de CRISP-DM}
 \label{sec:entregables}
