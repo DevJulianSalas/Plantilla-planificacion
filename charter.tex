@@ -515,145 +515,77 @@ de almacenamiento que proporcione un costo beneficio en los datos durante el tie
 
 \section{9. Desglose del trabajo en tareas}
 \label{sec:wbs}
-
-\begin{consigna}{red}
-El WBS debe tener relación directa o indirecta con los requerimientos.  Son todas las actividades que se harán en el proyecto para dar cumplimiento a los requerimientos. Se recomienda mostrar el WBS mediante una lista indexada:
-
 \begin{enumerate}
-\item Grupo de tareas 1 (suma h)
+\item Formación técnica (140h)
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
+	\item Estudio del estado del arte. (40h)
+	\item Capacitación en señales de series de tiempo EGG. (40h)
+	\item Capacitación en el uso de BCI basada en imaginación motora. (40h)
+	\item Capacitación en el uso de AWS para el procesamiento y despleigue de los modelos. (20h)
 	\end{enumerate}
-\item Grupo de tareas 2 (suma h)
+\item Preparación de los datos para desarrollar el modelo (20h)
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
+	\item Busqueda de fuentes. (4h)
+	\item Implementación de descarga de datos (4h)
+	\item Preparación de los datos. (12h)
 	\end{enumerate}
-\item Grupo de tareas 3 (suma h)
+\item Busqueda e implementación de 3 modelos de aprendizaje(124h)
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
-	\item Tarea 4 (tantas h)
-	\item Tarea 5 (tantas h)
+	\item Estudio de bibliografía del primero modelo. (10h)
+	\item Implementación del primero modelo. (40h)
+	\item Estudio de bibliografía del segundo modelo. (10h)
+	\item Implementación del segundo modelo. (20h)
+	\item Estudio de bibliografía del tercer modelo. (10h)
+	\item Implementación del tercer modelo. (20h)
+	\item Análisis de ventajas y desventajas de cada implementación. (10h)
+	\item Selección del mejor modelo basado en el análisis de cada implementación. (4h)
 	\end{enumerate}
+\item Implementación de la infraestructura en AWS(120h)
+	\begin{enumerate}
+	\item Configuración del almacenamiento de datos. (20h)
+	\item Configuración de la arquitectura escalable. (20h)
+	\item Configuración del procesamiento de datos. (20h)
+	\item Configuración de la seguridad en los datos. (20h)
+	\item Configuración de la politica de retención y eliminación de datos. (20h)
+	\item Añadir los \textit{endpoints} para comunicación de los datos. (10h)
+	\item Elaboración de la documentación del código de infraestructura (10h)
+	\end{enumerate}
+\item Implementación de la interfaz de usuario (100h)
+	\begin{enumerate}
+	\item Desarrollo de código para exportar datos. (40h)
+	\item Desarrollo de código para visualizar las señales EEG. (40h) 
+	\item Desarrollo de código para visualizar la predicción de imaginación motora. (10h)
+	\item Elaboración de la documentación del código de interfaz de usuario. (10h)
+	\end{enumerate}
+\item Elaboración de la documentación y presentación (56h)
+	\begin{enumerate}
+	\item Escritura de las memorias del proyecto. (40h)
+	\item Elaboración de la presentación final. (20)
+	\item Ensayo de la presentación final. (16h)
+	\end{enumerate}
+
 \end{enumerate}
-
-Cantidad total de horas: tantas.
-
-\textbf{¡Importante!:} la unidad de horas es h y va separada por espacio del número. Es incorrecto escribir ``23hs".
-
-\textbf{Se recomienda que no haya ninguna tarea que lleve más de 40 h.} De ser así se recomienda dividirla en tareas de menor duración.
-
-\end{consigna}
-
+Cantidad total de horas: 600.
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
-
-\begin{consigna}{red}
-Armar el AoN a partir del WBS definido en la etapa anterior.
-
-Una herramienta simple para desarrollar los diagramas es el Draw.io (\url{https://app.diagrams.net/}).
-\href{https://app.diagrams.net}{Draw.io}
-
-
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.8\textwidth]{./Figuras/AoN.png}
+\includegraphics[width=.8\textwidth]{./Figuras/AoN-project.jpg}
 \caption{Diagrama de \textit{Activity on Node}.}
 \label{fig:AoN}
 \end{figure}
 
-Indicar claramente en qué unidades están expresados los tiempos.
-De ser necesario indicar los caminos semi críticos y analizar sus tiempos mediante un cuadro.
-Es recomendable usar colores y un cuadro indicativo describiendo qué representa cada color.
-
-\end{consigna}
+En la figura 2 se visualiza el diagrama de \textit{Activity on Node} del proyecto. Se indica en color rojo el camino crítico y el tiempo de cada tarea esta en horas.
 
 \section{11. Diagrama de Gantt}
 \label{sec:gantt}
 
 \begin{consigna}{red}
-Existen muchos programas y recursos \textit{online} para hacer diagramas de Gantt, entre los cuales destacamos:
-
-\begin{itemize}
-\item Planner
-\item GanttProject
-\item Trello + \textit{plugins}. En el siguiente link hay un tutorial oficial: \\ \url{https://blog.trello.com/es/diagrama-de-gantt-de-un-proyecto}
-\item Creately, herramienta online colaborativa. \\\url{https://creately.com/diagram/example/ieb3p3ml/LaTeX}
-\item Se puede hacer en latex con el paquete \textit{pgfgantt}\\ \url{http://ctan.dcc.uchile.cl/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf}
-\end{itemize}
-
-Pegar acá una captura de pantalla del diagrama de Gantt, cuidando que la letra sea suficientemente grande como para ser legible. 
-Si el diagrama queda demasiado ancho, se puede pegar primero la ``tabla'' del Gantt y luego pegar la parte del diagrama de barras del diagrama de Gantt.
-
-Configurar el software para que en la parte de la tabla muestre los códigos del EDT (WBS).\\
-Configurar el software para que al lado de cada barra muestre el nombre de cada tarea.\\
-Revisar que la fecha de finalización coincida con lo indicado en el Acta Constitutiva.
-
-En la figura \ref{fig:gantt}, se muestra un ejemplo de diagrama de gantt realizado con el paquete de \textit{pgfgantt}. 
-En la plantilla pueden ver el código que lo genera y usarlo de base para construir el propio.
-
-Las fechas pueden ser calculadas utilizando alguna de las herramientas antes citadas. Sin embargo, el siguiente ejemplo
-fue elaborado utilizando 
-\href{https://docs.google.com/spreadsheets/d/1fBz8NhSpc4tkkhz3KjJCbh1nR_ltDkfEcZi4tZXduqs}{esta hoja de cálculo}.
-
-Es importante destacar que el ancho del diagrama estará dado por la longitud del texto utilizado para las tareas 
-(Ejemplo: tarea 1, tarea 2, etcétera) y el valor \textit{x unit}. Para mejorar la apariencia del diagrama, es necesario
-ajustar este valor y, quizás, acortar los nombres de las tareas.
-
-\begin{figure}[htpb]
-  \begin{center}
-    \begin{ganttchart}[
-      time slot unit=day,
-      time slot format=isodate,
-      x unit=0.038cm,
-      y unit title=0.7cm,
-      y unit chart=0.6cm,
-      milestone/.append style={xscale=4}
-      ]{2021-03-05}{2021-12-16}
-      \gantttitlecalendar*{2021-03-05}{2021-12-16}{year} \\
-      \gantttitlecalendar*{2021-03-05}{2021-12-16}{month} \\
-      \ganttgroup{Duración Total}{2021-03-05}{2021-12-16} \\
-      %%%%%%%%%%%%%%%%%Organización
-      \ganttgroup{Organización}{2021-03-05}{2021-04-16} \\
-      \ganttbar{Planificación del proyecto}{2021-03-05}{2021-04-15} \\
-      %%%%%%%%%%%%%%%%%Ejecución
-      \ganttgroup{Ejecución}{2021-04-16}{2021-10-21} \\
-      \ganttbar{Tarea 1}{2021-04-16}{2021-04-29} \\
-      \ganttbar{Tarea 2}{2021-04-30}{2021-05-13} \\
-      \ganttbar{Tarea 3}{2021-05-14}{2021-05-27} \\
-      \ganttbar{Tarea 4}{2021-05-28}{2021-07-12} \\
-      \ganttbar{Tarea 5}{2021-07-13}{2021-08-09} \\
-      \ganttbar{Tarea 6}{2021-08-10}{2021-09-23} \\
-      \ganttbar{Tarea 7}{2021-09-24}{2021-09-30} \\
-      \ganttbar{Tarea 8}{2021-10-01}{2021-10-14} \\
-      \ganttbar{Tarea 9}{2021-10-15}{2021-10-21} \\
-      % %%%%%%%%%%%%%%%%%Finalización
-      \ganttgroup{Finalización}{2021-10-22}{2021-12-16} \\
-      \ganttbar{Memoria v1}{2021-10-22}{2021-11-04} \\
-      \ganttbar{Memoria v2}{2021-11-05}{2021-11-18} \\
-      \ganttbar{Memoria final}{2021-11-19}{2021-12-02} \\
-      % La fecha del siguiente milestone es la fecha en que terminamos la memoria
-      \ganttmilestone{Enviar memoria al director}{2021-12-02} \\
-      \ganttbar{Elaborar la presentación}{2021-12-03}{2021-12-16} \\
-      \ganttmilestone{Ensayo de la presentación}{2021-12-16} \\
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \end{ganttchart}
-  \end{center}
-  \caption{Diagrama de gantt de ejemplo}
-  \label{fig:gantt}
-\end{figure}
-
-
 \begin{landscape}
 \begin{figure}[htpb]
 \centering 
 \includegraphics[height=.85\textheight]{./Figuras/Gantt-2.png}
-\caption{Ejemplo de diagrama de Gantt (apaisado).} %Modificar este título acorde.
+\caption{Diagrama de Gantt (apaisado).} %Modificar este título acorde.
 \label{fig:diagGantt}
 \end{figure}
 
@@ -666,15 +598,6 @@ ajustar este valor y, quizás, acortar los nombres de las tareas.
 \label{sec:presupuesto}
 
 \begin{consigna}{red}
-Si el proyecto es complejo entonces separarlo en partes:
-\begin{itemize}
-	\item Un total global, indicando el subtotal acumulado por cada una de las áreas.
-	\item El desglose detallado del subtotal de cada una de las áreas.
-\end{itemize}
-
-IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
-
-Incluir la aclaración de si se emplea como moneda el peso argentino (ARS) o si se usa moneda extranjera (USD, EUR, etc). Si es en moneda extranjera se debe indicar la tasa de conversión respecto a la moneda local en una fecha dada.
 
 \end{consigna}
 
@@ -685,28 +608,28 @@ Incluir la aclaración de si se emplea como moneda el peso argentino (ARS) o si 
 \rowcolor[HTML]{C0C0C0} 
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS DIRECTOS} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
-Descripción &
+Descripción & 
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
- &
+ Honoracios del ingeniero&
+  \multicolumn{1}{c|}{600} &
+  \multicolumn{1}{c|}{\$40} &
+  \multicolumn{1}{c|}{\$24000} \\ \hline
+ Computación en la nube&
   \multicolumn{1}{c|}{} &
   \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
+  \multicolumn{1}{c|}{\$200} \\ \hline
+  Almacenamiento en la nube AWS&
+  \multicolumn{1}{c|}{}&
+  \multicolumn{1}{c|}{}&
+  \multicolumn{1}{c|}{\$50}\\ \hline
 \multicolumn{1}{|l|}{} &
    &
    &
    \\ \hline
 \multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
+  \multicolumn{1}{c|}{\$24250} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
@@ -714,10 +637,11 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
-\multicolumn{1}{|l|}{} &
+\multicolumn{1}{|l|}{15\% de costos directos} &
    &
    &
-   \\ \hline
+   \multicolumn{1}{c|}{\$3638} \\ \hline
+   
 \multicolumn{1}{|l|}{} &
    &
    &
@@ -727,10 +651,10 @@ Descripción &
    &
    \\ \hline
 \multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
+\multicolumn{1}{c|}{\$3638} \\ \hline
 \rowcolor[HTML]{C0C0C0}
 \multicolumn{3}{|c|}{TOTAL} &
-   \\ \hline
+\multicolumn{1}{c|}{\$27888} \\ \hline
 \end{tabularx}%
 \end{table}
 
