@@ -28,9 +28,9 @@
 \cliente{Xprende}
 \empresaCliente{Xprendetech S.A}
  
-\fechaINICIO{11 de marzo de 2025}		%Fecha de inicio de la cursada de GdP \fechaInicioName
+\fechaINICIO{4 de marzo de 2025}		%Fecha de inicio de la cursada de GdP \fechaInicioName
 \fechaFINALPlan{22 de abril de 2025} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{20 de septiembre de 2025}	%Fecha de defensa pública del trabajo final
+\fechaFINALTrabajo{octubre de 2025}	%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -87,7 +87,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en \textit{evaluar una interfaz cerebro-computadora (Brain-Computer Interface, BCI) con soporte en la nube para la detección de patrones de imaginación motriz}. El trabajo tendrá un presupuesto preliminar estimado de 600 horas y un costo estimado de \$25000, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en \textit{evaluar una interfaz cerebro-computadora (Brain-Computer Interface}, BCI) \textit{con soporte en la nube para la detección de patrones de imaginación motriz}. El trabajo tendrá un presupuesto preliminar estimado de 600 horas y un costo estimado de \$25000, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -139,8 +139,8 @@ El uso de servicios en la nube permite procesar grandes volúmenes de datos EEG 
 
 \textbf{1.2 Problema actual}
 
-Al presente, las personas con discapacidades motoras severas enfrentan grandes dificultades en la interracción con su entorno. Los sistemas actuales de BCI presentan limitaciones en términos de precisión, latencia, accesibilidad, recopilación,
-análisis y clasificación de las señales EEG. Normalmente, estos datos se encuentran contaminados por distintos artefactos biológicos, tales como señales cardiacas, respiratorias o músculos, como también por ruidos externos.
+Al presente, las personas con discapacidades motoras severas enfrentan grandes dificultades en la interacción con su entorno. Los sistemas actuales de BCI presentan limitaciones en términos de precisión, latencia, accesibilidad, recopilación,
+análisis y clasificación de las señales EEG. Normalmente, estos datos se encuentran contaminados por distintos artefactos biológicos, tales como señales cardíacas, respiratorias o músculos, como también por ruidos externos.
 
 Así mismo, la dimensión de estos datos, dada por la cantidad de canales y señal de tiempo, crea una problema de procesamiento y dimensionalidad. Todas estas dificultades evitan que el clasificador reciba características latentes de la señal y así realizar la predicción de forma adecuada y rápida.
 
@@ -162,7 +162,7 @@ En comparación con el estado del arte actual, la solución se destaca en:
 Este interfaz BCI-Cloud tiene como objetivo mejorar la calidad de vida de personas con discapacidades motoras
 al proporcionar una herramienta en la nube para la comunicación y control de dispositivos protésicos.
 
-El proyecto se enmarca dentro de un programa de innovación tecnológica de la empresa \clientename y es financiado por la misma.
+El proyecto se enmarca dentro de un programa de innovación tecnológica de la empresa \clientename, que cuenta con financiamiento para su ejecución.
 
 \textbf{1.4 Descripción funcional y diagrama en bloques}
 
@@ -170,18 +170,18 @@ La solución propuesta consta de los siguientes módulos principales:
 \begin{itemize}
 	\item Adquisición de señales EEG: sensores no invasivos capturan la actividad cerebral del usuario.
 	\item Preprocesamiento de datos: filtrado y eliminación de ruido en las señales EEG.
-	\item Modelo de predicción: Algoritmos de aprendizaje automático analizan los datos y determinan la intención motriz.
+	\item Modelo de predicción: algoritmos de aprendizaje automático analizan los datos y determinan la intención motriz.
 	\item Transmisión en la nube: los datos procesados se envían a servidores remotos para análisis y almacenamiento.
 	\item Interfaz usuario-dispositivo: una interfaz que traduce la predicción en comandos para dispositivos externos, como prótesis o interfaces de control.
 \end{itemize}
 
-En la figura 1 se presenta el diagrama de bloques del sistema BCI-CLOUD. Se observa que el usuario inicial genera datos con el sensor EEG. Para luego enviar los datos a un sistema de preprocesamiento. 
+En la figura 1 se presenta el diagrama de bloques del sistema BCI-Cloud. Se observa que el usuario inicial genera datos con el sensor EEG. Luego envía los datos a un sistema de preprocesamiento. 
 Una vez que los datos se encuentran óptimos se envian a la nube. Seguidamente el modelo seleccionado se entrena. Finalmente el modelo predice el movimiento imaginado en la interfaz de usaurio.
 
 \begin{figure}[htpb]
 \centering 
 \includegraphics[width=.65\textwidth]{./Figuras/block_diagram.png}
-\caption{Diagrama del sistema BCI-CLOUD.}
+\caption{Diagrama del sistema BCI-Cloud.}
 \label{fig:diagBloques}
 \end{figure}
 
@@ -261,7 +261,7 @@ El presente proyecto no incluye:
 \section{6. Product backlog}
 \label{sec:backlog}
 \begin{enumerate}
-	\item Épica 1 - Adquisición y Procesamiento de Señales EEG
+	\item Épica 1 - Adquisición y procesamiento de señales EEG
 	\begin{enumerate}
 		\item HU1 
 		
@@ -274,7 +274,7 @@ El presente proyecto no incluye:
 		
 		Incertidumbre: 3
 		
-		Suma: 12 → Story Points: 12
+		Suma: 12 → \textit{Story Points}: 13
 		
 		Prioridad: 1\newline
 		
@@ -289,15 +289,17 @@ El presente proyecto no incluye:
 		
 		Incertidumbre: 2 
 		
-		Suma: 8 → Story Points: 8
+		Suma: 8 → \textit{Story Points}: 8
 
 		Prioridad: 2\newline
 
 		
 	\end{enumerate}
-	\item Épica 2 - Inteligencia Artificial y Modelado
+	\item Épica 2 - Inteligencia artificial y modelado
 	\begin{enumerate}
-		\item Como ingeniero, quiero entrenar un modelo de inteligencia artificial con señales EEG preprocesadas para predecir actividades de imaginación motriz con alta precisión.\newline
+		\item HU3
+		
+		Como ingeniero, quiero entrenar un modelo de inteligencia artificial con señales EEG preprocesadas para predecir actividades de imaginación motriz con alta precisión.\newline
 		
 		Dificultad: 5
 		
@@ -305,11 +307,13 @@ El presente proyecto no incluye:
 		
 		Incertidumbre: 4
 		
-		Suma: 14 → Story Points: 14
+		Suma: 14 → \textit{Story Points}: 21
 		
 		Prioridad: 3\newline
 		
-		\item Como ingeniero, quiero optimizar el modelo de inteligencia artificial para que el tiempo de respuesta sea menor a 5000ms, una precisión de 80\% y mejorar la experiencia del usuario.\newline
+		\item HU4
+		
+		Como ingeniero, quiero optimizar el modelo de inteligencia artificial para que el tiempo de respuesta sea menor a 5000 ms, una precisión de 80\% y mejorar la experiencia del usuario.\newline
 		
 		Dificultad: 4
 		
@@ -317,13 +321,15 @@ El presente proyecto no incluye:
 		
 		Incertidumbre: 3
 		
-		Suma: 10 → Story Points: 10
+		Suma: 10 → \textit{Story Points}: 13
 
 		Prioridad: 4\newline
 	\end{enumerate}
-	\item Épica 3 - Infraestructura en la Nube
+	\item Épica 3 - Infraestructura en la nube
 	\begin{enumerate}
-		\item Como ingeniero, quiero que el procesamiento de datos EEG ocurra en \textit{Amazon Web Services AWS} Lambda para mejorar la escalabilidad del sistema.\newline
+		\item HU5
+		
+		Como ingeniero, quiero que el procesamiento de datos EEG ocurra en \textit{Amazon Web Services} AWS Lambda para mejorar la escalabilidad del sistema.\newline
 		
 		Dificultad: 5
 		
@@ -331,11 +337,13 @@ El presente proyecto no incluye:
 		
 		Incertidumbre: 3
 		
-		Suma: 12 → Story Points: 12
+		Suma: 12 → \textit{Story Points}: 13
 
 		Prioridad: 5\newline
 		
-		\item Como ingeniero, quiero una API REST para conectar los dispositivos EEG con la nube y enviar los datos en tiempo real.\newline
+		\item HU6
+		
+		Como ingeniero, quiero una API REST para conectar los dispositivos EEG con la nube y enviar los datos en tiempo real.\newline
 		
 		Dificultad: 4
 		
@@ -343,13 +351,15 @@ El presente proyecto no incluye:
 		
 		Incertidumbre: 3
 		
-		Suma: 10 → Story Points: 10
+		Suma: 10 → \textit{Story Points}: 13
 
 		Prioridad: 6\newline
 	\end{enumerate}
-	\item Épica 4 - Interfaz de Usuario y Seguridad
+	\item Épica 4 - Interfaz de usuario y seguridad
 	\begin{enumerate}
-		\item Como usuario final, quiero visualizar mis señales EEG en una interfaz gráfica para entender cómo se interpretan mis actividades cerebrales.\newline
+		\item HU7
+		
+		Como usuario final, quiero visualizar mis señales EEG en una interfaz gráfica para entender cómo se interpretan mis actividades cerebrales.\newline
 		
 		Dificultad: 5
 		
@@ -357,11 +367,13 @@ El presente proyecto no incluye:
 		
 		Incertidumbre: 2
 		
-		Suma: 10 → Story Points: 10
+		Suma: 10 → \textit{Story Points}: 13
 		
 		Prioridad: 7\newline
 		
-		\item Como ingeniero, quiero que los datos EEG sean almacenados y transmitidos de manera segura para cumplir con las normativas de privacidad."\newline
+		\item HU8
+		
+		Como ingeniero, quiero que los datos EEG sean almacenados y transmitidos de manera segura para cumplir con las normativas de privacidad.\newline
 		
 		Dificultad: 5
 		
@@ -369,7 +381,7 @@ El presente proyecto no incluye:
 		
 		Incertidumbre: 2
 		
-		Suma: 12 → Story Points: 12
+		Suma: 12 → \textit{Story Points}: 13
 
 		Prioridad: 8\newline
 	\end{enumerate}
@@ -378,12 +390,12 @@ El presente proyecto no incluye:
 \section{7. Criterios de aceptación de historias de usuario}
 \label{sec:criteriosAceptacion}
 \begin{enumerate}
-	\item Épica 1 - Adquisición y Procesamiento de Señales EEG
+	\item Épica 1 - Adquisición y procesamiento de señales EEG
 
 	\begin{enumerate}
-		\item Criterios de aceptación - HU1
+		\item Criterios de aceptación HU1
 			\begin{itemize}
-				\item Se debe capturar datos EEG con una frecuencia mínima de 250 Hz.
+				\item Se deben capturar datos EEG con una frecuencia mínima de 250 Hz.
 				\item Los datos deben ser transmitidos a la nube con una latencia máxima de 5000 ms.
 				\item La adquisición de datos debe ser continua y sin interrupciones durante al menos 30 minutos de prueba.
 				\item Los archivos generados deben almacenarse en \textit{Amazon Web Services} seleccionando el mejor sistema de almacenamiento teniendo en cuenta costo y beneficio.
@@ -396,7 +408,7 @@ El presente proyecto no incluye:
 			\item  La precisión del filtrado debe validarse con al menos un 95\% de efectividad en la eliminación de ruido.
 			\end{itemize}
 	\end{enumerate}
-	\item Épica 2 - Inteligencia Artificial y Modelado
+	\item Épica 2 - Inteligencia artificial y modelado
 	\begin{enumerate}
 		\item Criterios de aceptación HU3
 			\begin{itemize}
@@ -412,7 +424,7 @@ El presente proyecto no incluye:
 			\item Los resultados de predicción deben ser accesibles en tiempo real a través de una API REST.
 			\end{itemize}
 	\end{enumerate}
-	\item Épica 3 - Infraestructura en la Nube
+	\item Épica 3 - Infraestructura en la nube
 	\begin{enumerate}
 		\item Criterios de aceptación HU5
 			\begin{itemize}
@@ -422,13 +434,13 @@ El presente proyecto no incluye:
 			\end{itemize}
 		\item Criterios de aceptación HU6
 			\begin{itemize}
-			\item  La API REST debe permitir la recepción de datos EEG con un endpoint dedicado.
-			\item  Debe incluir autenticación y autorización mediante tokens \textit{Json Web Tokens}.
+			\item  La API REST debe permitir la recepción de datos EEG con un \textit{endpoint} dedicado.
+			\item  Debe incluir autenticación y autorización mediante \textit{tokens} \textit{Json Web Tokens}.
 			\item  La API REST debe responder con código 200 OK en menos de 300 ms en condiciones normales.
 			\item La documentación de la API REST debe estar disponible con ejemplos de uso.
 			\end{itemize}
 	\end{enumerate}
-	\item Épica 4 - Interfaz de Usuario y Seguridad
+	\item Épica 4 - Interfaz de usuario y seguridad
 	\begin{enumerate}
 		\item Criterios de aceptación HU7
 			\begin{itemize}
@@ -448,11 +460,11 @@ El presente proyecto no incluye:
 
 Comprensión del negocio
 
-\textit{Objetivo}: Desarrollar un modelo de inteligencia artificial que analice señales EEG predecir la intención de movimiento en usuarios, facilitando aplicaciones en neurorehabilitación y control de dispositivos.
+Objetivo: desarrollar un modelo de inteligencia artificial que analice señales EEG para predecir la intención de movimiento en usuarios, lo que facilitarían aplicaciones en neurorehabilitación y control de dispositivos.
 
-\textit{Valor agregado}: Automatización del análisis de señales cerebrales para mejorar la accesibilidad a tecnologías BCI.
+Valor agregado: automatización del análisis de señales cerebrales para mejorar la accesibilidad a tecnologías BCI.
 
-\textit{Métricas de éxito}: 
+Métricas de éxito: 
 \begin{itemize}
 	\item Precisión mínima del modelo: 85\%.
 	\item Latencia de predicción menor a 5000 ms.
@@ -463,10 +475,10 @@ Comprensión del negocio
 Comprensión de los datos
 
 \begin{itemize}
-	\item Tipo de datos: Señales EEG obtenidas de dispositivos de adquisición neurofisiológica.
-	\item Fuentes: Sensores EEG comerciales como \textit{OpenBCI}, \textit{Emotiv} o bases de datos públicas.
-	\item Cantidad: Al menos 100,000 registros diarios procesados en \textit{Amazon Web Services}.
-	\item Calidad: Se deben manejar ruidos, artefactos musculares y variabilidad intersujeto.
+	\item Tipo de datos: señales de series temporales EEG obtenidas de dispositivos de adquisición neurofisiológica.
+	\item Fuentes: sensores EEG comerciales como \textit{OpenBCI}, \textit{Emotiv} o bases de datos públicas.
+	\item Cantidad: al menos 100,000 registros diarios procesados en \textit{Amazon Web Services}.
+	\item Calidad: se esperan encontrar ruidos, artefactos musculares y variabilidad intersujeto.
 \end{itemize}
 
 Preparación de los datos
@@ -489,16 +501,16 @@ Las transformaciones que podrían ser requeridas para las señales EEG son:
 Modelado
 
 El problema se define como una clasificación de señales EEG para la predicción de imaginación motriz.
-Mientras que las arquitecturas candidatas para este problema estan definidas en redes neuronales como CNNs, RNNs y \textit{Transformers}.
+Mientras las arquitecturas candidatas para este problema son redes neuronales como CNNs, RNNs y \textit{Transformers}.
 
 Evaluación del modelo
 
-Se podría utilizar el acurracy para conocer la precisión de aciertos en la predicción de clases de imaginación motriz. Además el F1-score y la matriz de confusión para obtener
+Se podría utilizar el \textit{acurracy} para conocer la precisión de aciertos en la predicción de clases de imaginación motriz. Además el \textit{F1-score} y la matriz de confusión para obtener
 el balance entre precisión y exhaustividad y los falsos positivos y falsos negativos. 
 
 Despliegue del modelo
 
-El modelo se implementará con un sistema basado en la nube con \textit{Amazon Web Services} lambda para procesamiento una API REST para enviar los datos a la nube y una fuente
+El modelo se implementará con un sistema basado en la nube con \textit{Amazon Web Services} Lambda para procesamiento, una API REST para enviar los datos a la nube y una fuente
 de almacenamiento que proporcione un costo beneficio en los datos durante el tiempo.
 
 \section{9. Desglose del trabajo en tareas}
