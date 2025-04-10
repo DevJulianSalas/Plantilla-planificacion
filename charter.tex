@@ -261,11 +261,11 @@ El presente proyecto no incluye:
 \section{6. Product backlog}
 \label{sec:backlog}
 \begin{enumerate}
-	\item Épica 1 - Adquisición y procesamiento de señales EEG
+	\item Épica 1 - Adquisición y procesamiento de datasets EEG
 	\begin{enumerate}
 		\item HU1 
 		
-		Como ingeniero, quiero capturar señales EEG para alimentar el modelo de predicción.\newline
+		Como ingeniero, quiero obtener señales EEG desde datasets públicos para alimentar el modelo de predicción.\newline
 		
 		
 		Dificultad: 5
@@ -390,22 +390,25 @@ El presente proyecto no incluye:
 \section{7. Criterios de aceptación de historias de usuario}
 \label{sec:criteriosAceptacion}
 \begin{enumerate}
-	\item Épica 1 - Adquisición y procesamiento de señales EEG
+	\item Épica 1 - Adquisición y procesamiento de datasets EEG
 
 	\begin{enumerate}
 		\item Criterios de aceptación HU1
 			\begin{itemize}
-				\item Se deben capturar datos EEG con una frecuencia mínima de 250 Hz.
-				\item Los datos deben ser transmitidos a la nube con una latencia máxima de 5000 ms.
-				\item La adquisición de datos debe ser continua y sin interrupciones durante al menos 30 minutos de prueba.
-				\item Los archivos generados deben almacenarse en \textit{Amazon Web Services} seleccionando el mejor sistema de almacenamiento teniendo en cuenta costo y beneficio.
+				\item Se deben verificar al menos 2 repositorios públicos de datasets que estén accesibles y disponibles para su descarga.
+				\item Los datos deben almacenarse automáticamente en una ruta definida del proyecto, sin intervención manual.
+				\item Se debe validar que el formato de los datos descargados sea compatible con la tubería de procesamiento.
+				\item Los datos almacenados se deben organizar en una estructura jerárquica que difiera entre los repositorios consultados.
+				\item Se debe crear un archivo de documentación que describa la información de los datos, tales como fuentes usadas, formatos y cantidad de muestras.
 			\end{itemize}
 			  
 		\item Criterios de aceptación HU2
 			\begin{itemize}
-			\item Las señales EEG deben ser preprocesadas eliminando ruido y artefactos antes del almacenamiento.
-			\item Los datos normalizados deben ser accesibles en una base de datos en la nube.
-			\item  La precisión del filtrado debe validarse con al menos un 95\% de efectividad en la eliminación de ruido.
+			\item Se debe aplicar al menos un filtro a las señales EEG para eliminar frecuencias no deseadas.
+			\item Los datos deben estar escalados y asegurar que todos los canales estén en la misma escala.
+			\item Se debe crear un archivo de documentación que describa los filtros aplicados, método de normalización y duración del proces.
+			\item Se debe crear un archivo de documentación que describa los filtros aplicados, método de normalización y duración del proces.
+			\item Se debe generarse un gráfico comparando la señal original y la procesada conocer la efectividad del filtrado y normalización.
 			\end{itemize}
 	\end{enumerate}
 	\item Épica 2 - Inteligencia artificial y modelado
@@ -515,6 +518,46 @@ de almacenamiento que proporcione un costo beneficio en los datos durante el tie
 
 \section{9. Desglose del trabajo en tareas}
 \label{sec:wbs}
+
+\begin{table}[htpb]
+\centering
+\begin{tabularx}{\linewidth}{@{}|X|X|c|c|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0}
+Historia de usuario & Tarea técnica & Estimación & Prioridad \\ \hline
+HU1 & Investigación y selección de datasets públicos relevantes & 6 h & Alta \\ \hline
+HU1 & Descarga manual y validación de estructura de archivos EEG del primer dataset & 6 h & Alta \\ \hline
+HU1 & Implementación de script de descarga automática para datasets seleccionados	 & 8 h & Alta \\ \hline
+HU1 & Estudio y análisis de metadatos disponibles en los datasets	 & 6 h & Media \\ \hline
+HU1 & Conversión y unificación de formatos		 & 8 h & Media \\ \hline
+HU1 & Verificación de integridad de los archivos descargados			 & 4 h & Alta \\ \hline
+HU1 & Almacenamiento y organización de señales EEG				 & 6 h & Alta \\ \hline
+HU1 & Documentación del proceso de adquisición				 & 6 h & Baja \\ \hline
+HU1 & Evaluación legal/licencia de uso de los datasets				 & 4 h & Media \\ \hline
+HU1 & Generación de logs y reportes de adquisición				 & 4 h & Baja \\ \hline
+HU2 & Implementación de función de filtrado por banda					 & 8 h & Alta \\ \hline
+HU2 & Implementación de detección y corrección de artefactos simples					 & 6 h & Alta \\ \hline
+HU2 & Implementación de métodos de normalización 					 & 6 h & Alta \\ \hline
+HU2 & Diseño de pipeline automático de procesamiento por lote					 & 8 h & Alta \\ \hline
+HU2 & Pruebas con señales reales y comparación visual					 & 6 h & Media \\ \hline
+HU2 & Generación de logs por archivo procesado				 & 4 h & Baja \\ \hline
+HU2 & Creación de gráficas de validación por dataset					 & 6 h & Media \\ \hline
+HU2 & Evaluación de calidad de la señal post-procesamiento					 & 6 h & Media \\ \hline
+HU2 & Desarrollo de manejo de errores en procesamiento					 & 8 h & Media \\ \hline
+HU2 & Documentación del pipeline de procesamiento					 & 8 h & Baja \\ \hline
+HU2 & Generación de logs y reportes de adquisición				 & 4 h & Baja \\ \hline
+HU3 & Selección de señales EEG preprocesadas para el entrenamiento						 & 6 h & Alta \\ \hline
+HU3 & Estudio de modelos de clasificación adecuados para señales EEG					 & 8 h & Alta \\ \hline
+HU3 & Implementación del primer modelo base (baseline)					 & 8 h & Alta \\ \hline
+HU3 & Implementación del segundo modelo 	(alternativo)			 & 8 h & Alta \\ \hline
+... & ... & ... & ... \\ \hline
+\end{tabularx}
+\end{table}
+
+
+
+\section{10. Diagrama de Gantt}
+\label{sec:wbs}
 \begin{enumerate}
 \item Formación técnica (140h)
 	\begin{enumerate}
@@ -584,7 +627,7 @@ En la figura 2 se visualiza el diagrama de \textit{Activity on Node} del proyect
 \begin{landscape}
 \begin{figure}[htpb]
 \centering 
-\includegraphics[height=.85\textheight]{./Figuras/Gantt-2.png}
+\includegraphics[height=.85\textheight]{./Figuras/bad-format-grant.png}
 \caption{Diagrama de Gantt (apaisado).} %Modificar este título acorde.
 \label{fig:diagGantt}
 \end{figure}
