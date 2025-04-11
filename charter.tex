@@ -313,7 +313,7 @@ El presente proyecto no incluye:
 		
 		\item HU4
 		
-		Como ingeniero, quiero optimizar el modelo de inteligencia artificial para que el tiempo de respuesta sea menor a 5000 ms, una precisión de 80\% y mejorar la experiencia del usuario.\newline
+		Como ingeniero, quiero optimizar el modelo de inteligencia artificial para que su inferencia sea menor a 5000 ms, alcance al menos un 80\% de precisión y exponga sus predicciones mediante una API REST.\newline
 		
 		Dificultad: 4
 		
@@ -343,7 +343,7 @@ El presente proyecto no incluye:
 		
 		\item HU6
 		
-		Como ingeniero, quiero una API REST para conectar los dispositivos EEG con la nube y enviar los datos en tiempo real.\newline
+		Como ingeniero, quiero desplegar automáticamente el modelo entrenado en AWS para facilitar su mantenimiento, escalabilidad y monitoreo.\newline
 		
 		Dificultad: 4
 		
@@ -422,7 +422,6 @@ El presente proyecto no incluye:
 		\item Criterios de aceptación HU4
 			\begin{itemize}
 			\item  El modelo optimizado debe tener un tiempo de inferencia menor a 5000 ms.
-			\item  La implementación debe utilizar hardware optimizado en la nube.
 			\item  Se debe medir la latencia en diferentes condiciones de carga y garantizar estabilidad.
 			\item Los resultados de predicción deben ser accesibles en tiempo real a través de una API REST.
 			\end{itemize}
@@ -437,10 +436,9 @@ El presente proyecto no incluye:
 			\end{itemize}
 		\item Criterios de aceptación HU6
 			\begin{itemize}
-			\item  La API REST debe permitir la recepción de datos EEG con un \textit{endpoint} dedicado.
-			\item  Debe incluir autenticación y autorización mediante \textit{tokens} \textit{Json Web Tokens}.
-			\item  La API REST debe responder con código 200 OK en menos de 300 ms en condiciones normales.
-			\item La documentación de la API REST debe estar disponible con ejemplos de uso.
+			\item  El modelo debe estar expuesto a travésde una API REST en AWS.
+			\item  Se debe mantener un historico de versiones del modelo.
+			\item El modelo debe integrarse con logs y métricas para monitoreo.
 			\end{itemize}
 	\end{enumerate}
 	\item Épica 4 - Interfaz de usuario y seguridad
@@ -525,19 +523,19 @@ de almacenamiento que proporcione un costo beneficio en los datos durante el tie
 \hline
 \rowcolor[HTML]{C0C0C0}
 Historia de usuario & Tarea técnica & Estimación & Prioridad \\ \hline
-HU1 & Investigación y selección de datasets públicos relevantes & 6 h & Alta \\ \hline
-HU1 & Descarga manual y validación de estructura de archivos EEG del primer dataset & 6 h & Alta \\ \hline
+HU1 & Investigación y selección de datasets públicos relevantes & 8 h & Alta \\ \hline
+HU1 & Descarga manual y validación de estructura de archivos EEG del primer dataset & 8 h & Alta \\ \hline
 HU1 & Implementación de script de descarga automática para datasets seleccionados	 & 8 h & Alta \\ \hline
 HU1 & Estudio y análisis de metadatos disponibles en los datasets	 & 6 h & Media \\ \hline
 HU1 & Conversión y unificación de formatos		 & 8 h & Media \\ \hline
-HU1 & Verificación de integridad de los archivos descargados			 & 4 h & Alta \\ \hline
-HU1 & Almacenamiento y organización de señales EEG				 & 6 h & Alta \\ \hline
-HU1 & Documentación del proceso de adquisición				 & 6 h & Baja \\ \hline
-HU1 & Evaluación legal/licencia de uso de los datasets				 & 4 h & Media \\ \hline
+HU1 & Verificación de integridad de los archivos descargados			 & 8 h & Alta \\ \hline
+HU1 & Almacenamiento y organización de señales EEG				 & 8 h & Alta \\ \hline
+HU1 & Documentación del proceso de adquisición				 & 4 h & Baja \\ \hline
+HU1 & Evaluación legal/licencia de uso de los datasets				 & 6 h & Media \\ \hline
 HU1 & Generación de logs y reportes de adquisición				 & 4 h & Baja \\ \hline
 HU2 & Implementación de función de filtrado por banda					 & 8 h & Alta \\ \hline
-HU2 & Implementación de detección y corrección de artefactos simples					 & 6 h & Alta \\ \hline
-HU2 & Implementación de métodos de normalización 					 & 6 h & Alta \\ \hline
+HU2 & Implementación de detección y corrección de artefactos simples					 & 8 h & Alta \\ \hline
+HU2 & Implementación de métodos de normalización 					 & 8 h & Alta \\ \hline
 HU2 & Diseño de pipeline automático de procesamiento por lote					 & 8 h & Alta \\ \hline
 HU2 & Pruebas con señales reales y comparación visual					 & 6 h & Media \\ \hline
 HU2 & Generación de logs por archivo procesado				 & 4 h & Baja \\ \hline
@@ -546,69 +544,59 @@ HU2 & Evaluación de calidad de la señal post-procesamiento					 & 6 h & Media 
 HU2 & Desarrollo de manejo de errores en procesamiento					 & 8 h & Media \\ \hline
 HU2 & Documentación del pipeline de procesamiento					 & 8 h & Baja \\ \hline
 HU2 & Generación de logs y reportes de adquisición				 & 4 h & Baja \\ \hline
-HU3 & Selección de señales EEG preprocesadas para el entrenamiento						 & 6 h & Alta \\ \hline
+HU3 & Selección de señales EEG preprocesadas para el entrenamiento						 & 8 h & Alta \\ \hline
 HU3 & Estudio de modelos de clasificación adecuados para señales EEG					 & 8 h & Alta \\ \hline
-HU3 & Implementación del primer modelo base (baseline)					 & 8 h & Alta \\ \hline
-HU3 & Implementación del segundo modelo 	(alternativo)			 & 8 h & Alta \\ \hline
-... & ... & ... & ... \\ \hline
+
+% HU3 & Implementación del segundo modelo 	(alternativo)			 & 8 h & Alta \\ \hline
 \end{tabularx}
 \end{table}
 
+\begin{table}[htpb]
+\centering
+\begin{tabularx}{\linewidth}{@{}|X|X|c|c|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0}
+Historia de usuario & Tarea técnica & Estimación & Prioridad \\ \hline
+HU3 & Implementación del primer modelo base (baseline)					 & 8 h & Alta \\ \hline
+HU3 & Implementación del segundo modelo 	(alternativo)			 & 8 h & Medio \\ \hline
+HU3 & Entrenamiento y evaluación de cada modelo con métricas de precisión, recall, F1				 & 6 h & Alta \\ \hline
+HU3 & Ajuste de hiperparámetros iniciales 				 & 6 h & Media \\ \hline
+HU3 & Validación cruzada con datos independientes	 				 & 6 h & Alta \\ \hline
+HU3 & Análisis comparativo entre modelos				 & 6 h & Media \\ \hline
+HU4 & Ajuste de hiperparámetros para reducir la latencia del modelo					 & 6 h & Baja \\ \hline
+HU4 & Evaluación comparativa del modelo con diferentes configuraciones				 & 8 h & Alta \\ \hline
+HU4 & Despliegue del modelo en un entorno cloud con aceleración 					 & 8 h & Alta \\ \hline
+HU4 & Desarrollo de una API REST para server las predicciones 					 & 8 h & Alta \\ \hline
+HU5 & Codificar las funciones que recibirán y preprocesarán los datasets 					 & 8 h & Alta \\ \hline
+HU5 & Crear scripts para emular eventos desde datasets 						 & 6 h & Media \\ \hline
+HU5 & Configurar logs, métricas y alertas para el procesamiento de los datasets 					 & 8 h & Alta \\ \hline
+HU6 & Definir la arquitectura de despliegue 					 & 8 h & Alta \\ \hline
+HU6 & Automatizar el build, pruebas y despliegue de los modelos 					 & 8 h & Alta \\ \hline
+HU6 & Implementar un mecanismo para almacenar versiones del modelo y realizar rollbacks	 					 & 8 h & Media \\ \hline
+HU6 & Implementar una API REST que sirva el modelo optimizado	 					 & 8 h & Alta \\ \hline
+HU7 & Aplicar un sistema de gráficos EGG en una plataforma de visualización	 					 & 8 h & Alta \\ \hline
+HU7 & Añadir un control de acceso y protección de los datos 	 					 & 6 h & Media \\ \hline
+HU8 & Configurar cifrado en reposo de los servicios que transmiten 					 & 8 h & Alta \\ \hline
+HU8 & Aplicar cifrado en tránsito para los datos enviados desde puntos de conexión 	 					 & 6 h & Media \\ \hline
+\end{tabularx}
+\end{table}
 
+\begin{table}[htpb]
+\centering
+\begin{tabularx}{\linewidth}{@{}|X|X|c|c|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0}
+Historia de usuario & Tarea técnica & Estimación & Prioridad \\ \hline
+HU8 & Definir e implementar politicas y reglas de retención de datos  & 6 h & Media \\ \hline
+HU8 & Configurar un registro y monitoreo de accesos  	 					 & 8 h & Alta \\ \hline
+\end{tabularx}
+\end{table}
+Cantidad total de horas: 600.
 
 \section{10. Diagrama de Gantt}
 \label{sec:wbs}
-\begin{enumerate}
-\item Formación técnica (140h)
-	\begin{enumerate}
-	\item Estudio del estado del arte. (40h)
-	\item Capacitación en señales de series de tiempo EGG. (40h)
-	\item Capacitación en el uso de BCI basada en imaginación motora. (40h)
-	\item Capacitación en el uso de AWS para el procesamiento y despleigue de los modelos. (20h)
-	\end{enumerate}
-\item Preparación de los datos para desarrollar el modelo (20h)
-	\begin{enumerate}
-	\item Busqueda de fuentes. (4h)
-	\item Implementación de descarga de datos (4h)
-	\item Preparación de los datos. (12h)
-	\end{enumerate}
-\item Busqueda e implementación de 3 modelos de aprendizaje(124h)
-	\begin{enumerate}
-	\item Estudio de bibliografía del primero modelo. (10h)
-	\item Implementación del primero modelo. (40h)
-	\item Estudio de bibliografía del segundo modelo. (10h)
-	\item Implementación del segundo modelo. (20h)
-	\item Estudio de bibliografía del tercer modelo. (10h)
-	\item Implementación del tercer modelo. (20h)
-	\item Análisis de ventajas y desventajas de cada implementación. (10h)
-	\item Selección del mejor modelo basado en el análisis de cada implementación. (4h)
-	\end{enumerate}
-\item Implementación de la infraestructura en AWS(120h)
-	\begin{enumerate}
-	\item Configuración del almacenamiento de datos. (20h)
-	\item Configuración de la arquitectura escalable. (20h)
-	\item Configuración del procesamiento de datos. (20h)
-	\item Configuración de la seguridad en los datos. (20h)
-	\item Configuración de la politica de retención y eliminación de datos. (20h)
-	\item Añadir los \textit{endpoints} para comunicación de los datos. (10h)
-	\item Elaboración de la documentación del código de infraestructura (10h)
-	\end{enumerate}
-\item Implementación de la interfaz de usuario (100h)
-	\begin{enumerate}
-	\item Desarrollo de código para exportar datos. (40h)
-	\item Desarrollo de código para visualizar las señales EEG. (40h) 
-	\item Desarrollo de código para visualizar la predicción de imaginación motora. (10h)
-	\item Elaboración de la documentación del código de interfaz de usuario. (10h)
-	\end{enumerate}
-\item Elaboración de la documentación y presentación (56h)
-	\begin{enumerate}
-	\item Escritura de las memorias del proyecto. (40h)
-	\item Elaboración de la presentación final. (20)
-	\item Ensayo de la presentación final. (16h)
-	\end{enumerate}
 
-\end{enumerate}
-Cantidad total de horas: 600.
+
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
 \begin{figure}[htpb]
