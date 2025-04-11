@@ -261,7 +261,7 @@ El presente proyecto no incluye:
 \section{6. Product backlog}
 \label{sec:backlog}
 \begin{enumerate}
-	\item Épica 1 - Adquisición y procesamiento de datasets EEG
+	\item Épica 1  Adquisición y procesamiento de datasets EEG
 	\begin{enumerate}
 		\item HU1 
 		
@@ -295,7 +295,7 @@ El presente proyecto no incluye:
 
 		
 	\end{enumerate}
-	\item Épica 2 - Inteligencia artificial y modelado
+	\item Épica 2  Inteligencia artificial y modelado
 	\begin{enumerate}
 		\item HU3
 		
@@ -325,7 +325,7 @@ El presente proyecto no incluye:
 
 		Prioridad: 4\newline
 	\end{enumerate}
-	\item Épica 3 - Infraestructura en la nube
+	\item Épica 3  Infraestructura en la nube
 	\begin{enumerate}
 		\item HU5
 		
@@ -355,7 +355,7 @@ El presente proyecto no incluye:
 
 		Prioridad: 6\newline
 	\end{enumerate}
-	\item Épica 4 - Interfaz de usuario y seguridad
+	\item Épica 4  Interfaz de usuario y seguridad
 	\begin{enumerate}
 		\item HU7
 		
@@ -385,12 +385,30 @@ El presente proyecto no incluye:
 
 		Prioridad: 8\newline
 	\end{enumerate}
+	\item Épica 5 Gestión del proyecto, documentación y defensa final
+	\begin{enumerate}
+		\item HU9
+		
+		Como ingeniero del proyecto, quiero planificar, documentar y estructurar el trabajo desarrollado, para asegurar la trazabilidad y resultados del trabajo final.\newline
+		
+		Dificultad: 5
+		
+		Complejidad: 3
+		
+		Incertidumbre: 2
+		
+		Suma: 10 → \textit{Story Points}: 13
+		
+		Prioridad: 7\newline
+		
+		
+	\end{enumerate}
 \end{enumerate}
 
 \section{7. Criterios de aceptación de historias de usuario}
 \label{sec:criteriosAceptacion}
 \begin{enumerate}
-	\item Épica 1 - Adquisición y procesamiento de datasets EEG
+	\item Épica 1 Adquisición y procesamiento de datasets EEG
 
 	\begin{enumerate}
 		\item Criterios de aceptación HU1
@@ -411,7 +429,7 @@ El presente proyecto no incluye:
 			\item Se debe generarse un gráfico comparando la señal original y la procesada conocer la efectividad del filtrado y normalización.
 			\end{itemize}
 	\end{enumerate}
-	\item Épica 2 - Inteligencia artificial y modelado
+	\item Épica 2 Inteligencia artificial y modelado
 	\begin{enumerate}
 		\item Criterios de aceptación HU3
 			\begin{itemize}
@@ -426,7 +444,7 @@ El presente proyecto no incluye:
 			\item Los resultados de predicción deben ser accesibles en tiempo real a través de una API REST.
 			\end{itemize}
 	\end{enumerate}
-	\item Épica 3 - Infraestructura en la nube
+	\item Épica 3 Infraestructura en la nube
 	\begin{enumerate}
 		\item Criterios de aceptación HU5
 			\begin{itemize}
@@ -441,7 +459,7 @@ El presente proyecto no incluye:
 			\item El modelo debe integrarse con logs y métricas para monitoreo.
 			\end{itemize}
 	\end{enumerate}
-	\item Épica 4 - Interfaz de usuario y seguridad
+	\item Épica 4 Interfaz de usuario y seguridad
 	\begin{enumerate}
 		\item Criterios de aceptación HU7
 			\begin{itemize}
@@ -453,6 +471,13 @@ El presente proyecto no incluye:
 			\item Los datos EEG deben ser cifrados en tránsito y en reposo.
 			\item El sistema debe incluir una política de retención y eliminación de datos.
 			\end{itemize}
+	\end{enumerate}
+	\item Épica 5 Gestión del proyecto, documentación y defensa final
+	\begin{enumerate}
+		\item Criterios de aceptación HU9
+			\begin{itemize}
+			\item La documentación técnica debe incluir diagramas, descripciones de componentes, procesos y arquitectura.
+			\end{itemize}		
 	\end{enumerate}
 \end{enumerate}
 
@@ -523,29 +548,29 @@ de almacenamiento que proporcione un costo beneficio en los datos durante el tie
 \hline
 \rowcolor[HTML]{C0C0C0}
 Historia de usuario & Tarea técnica & Estimación & Prioridad \\ \hline
-HU1 & Investigación y selección de datasets públicos relevantes & 8 h & Alta \\ \hline
-HU1 & Descarga manual y validación de estructura de archivos EEG del primer dataset & 8 h & Alta \\ \hline
-HU1 & Implementación de script de descarga automática para datasets seleccionados	 & 8 h & Alta \\ \hline
-HU1 & Estudio y análisis de metadatos disponibles en los datasets	 & 6 h & Media \\ \hline
+HU1 & Investigar y comparar datasets públicos EEG & 8 h & Alta \\ \hline
+HU1 & Descargar datasets seleccionados y limpiar estructura de carpetas & 8 h & Alta \\ \hline
+HU1 & Analizar formato de datos y convertir si es necesario	 & 8 h & Media \\ \hline
+HU1 & Crear scripts para carga, validación y parsing		 & 8 h & Alta \\ \hline
+HU1 & Automatizar descarga periódica desde repositorios			 & 8 h & Media \\ \hline
 HU1 & Conversión y unificación de formatos		 & 8 h & Media \\ \hline
 HU1 & Verificación de integridad de los archivos descargados			 & 8 h & Alta \\ \hline
-HU1 & Almacenamiento y organización de señales EEG				 & 8 h & Alta \\ \hline
+HU1 & Almacenamiento y organización de datos EEG				 & 8 h & Alta \\ \hline
 HU1 & Documentación del proceso de adquisición				 & 4 h & Baja \\ \hline
 HU1 & Evaluación legal/licencia de uso de los datasets				 & 6 h & Media \\ \hline
 HU1 & Generación de logs y reportes de adquisición				 & 4 h & Baja \\ \hline
+HU2 & Investigar técnicas de preprocesamiento EEG						 & 8 h & Alta \\ \hline
 HU2 & Implementación de función de filtrado por banda					 & 8 h & Alta \\ \hline
 HU2 & Implementación de detección y corrección de artefactos simples					 & 8 h & Alta \\ \hline
 HU2 & Implementación de métodos de normalización 					 & 8 h & Alta \\ \hline
 HU2 & Diseño de pipeline automático de procesamiento por lote					 & 8 h & Alta \\ \hline
-HU2 & Pruebas con señales reales y comparación visual					 & 6 h & Media \\ \hline
+HU2 & Pruebas con datos reales y comparación visual					 & 6 h & Media \\ \hline
 HU2 & Generación de logs por archivo procesado				 & 4 h & Baja \\ \hline
 HU2 & Creación de gráficas de validación por dataset					 & 6 h & Media \\ \hline
 HU2 & Evaluación de calidad de la señal post-procesamiento					 & 6 h & Media \\ \hline
 HU2 & Desarrollo de manejo de errores en procesamiento					 & 8 h & Media \\ \hline
 HU2 & Documentación del pipeline de procesamiento					 & 8 h & Baja \\ \hline
 HU2 & Generación de logs y reportes de adquisición				 & 4 h & Baja \\ \hline
-HU3 & Selección de señales EEG preprocesadas para el entrenamiento						 & 8 h & Alta \\ \hline
-HU3 & Estudio de modelos de clasificación adecuados para señales EEG					 & 8 h & Alta \\ \hline
 
 % HU3 & Implementación del segundo modelo 	(alternativo)			 & 8 h & Alta \\ \hline
 \end{tabularx}
@@ -557,27 +582,31 @@ HU3 & Estudio de modelos de clasificación adecuados para señales EEG					 & 8 
 \hline
 \rowcolor[HTML]{C0C0C0}
 Historia de usuario & Tarea técnica & Estimación & Prioridad \\ \hline
-HU3 & Implementación del primer modelo base (baseline)					 & 8 h & Alta \\ \hline
-HU3 & Implementación del segundo modelo 	(alternativo)			 & 8 h & Medio \\ \hline
-HU3 & Entrenamiento y evaluación de cada modelo con métricas de precisión, recall, F1				 & 6 h & Alta \\ \hline
-HU3 & Ajuste de hiperparámetros iniciales 				 & 6 h & Media \\ \hline
-HU3 & Validación cruzada con datos independientes	 				 & 6 h & Alta \\ \hline
+HU3 & Estudio de modelos adecuados para señales EEG					 & 8 h & Alta \\ \hline
+HU3 & Seleccionar arquitectura del primer modelo (baseline)					 & 8 h & Alta \\ \hline
+HU3 & Preparar datasets de entrenamiento y test con etiquetas (baseline)					 & 8 h & Alta \\ \hline
+HU3 & Entrenar modelo con logs y métricas	 (baseline)					 & 8 h & Alta \\ \hline
+HU3 & Validación cruzada y testing (baseline)			 & 8 h & Medio \\ \hline
+HU3 & Implementar early stopping y checkpointing	 (baseline)			 & 8 h & Medio \\ \hline
+HU3 & Evaluar métricas clave como accuracy, precision, recall, o F1 (baseline)					 & 8 h & Alta \\ \hline
+HU3 & Seleccionar arquitectura del segundo modelo  (alternativo)					 & 8 h & Alta \\ \hline
+HU3 & Preparar datasets de entrenamiento y test con etiquetas (alternativo)					 & 6 h & Alta \\ \hline
+HU3 & Entrenar modelo base con logs y métricas	 (alternativo)					 & 6 h & Alta \\ \hline
+HU3 & Validación cruzada y testing (alternativo)			 & 6 h & Medio \\ \hline
+HU3 & Implementar early stopping y checkpointing	 (alternativo)			 & 6 h & Medio \\ \hline
+HU3 & Evaluar métricas clave como accuracy, precision, recall, o F1 (alternativo)					 & 6 h & Alta \\ \hline
 HU3 & Análisis comparativo entre modelos				 & 6 h & Media \\ \hline
-HU4 & Ajuste de hiperparámetros para reducir la latencia del modelo					 & 6 h & Baja \\ \hline
-HU4 & Evaluación comparativa del modelo con diferentes configuraciones				 & 8 h & Alta \\ \hline
-HU4 & Despliegue del modelo en un entorno cloud con aceleración 					 & 8 h & Alta \\ \hline
+
+HU4 & Afinar hiperparámetros y simplificar arquitectura					 & 8 h & Alta \\ \hline
+HU4 & Evaluación comparativa del modelo con diferentes configuraciones de batch sizes, hardware y frameworks				 & 8 h & Alta \\ \hline
+HU4 & Medir tiempo de inferencia en entorno controlado					 & 8 h & Alta \\ \hline
 HU4 & Desarrollo de una API REST para server las predicciones 					 & 8 h & Alta \\ \hline
-HU5 & Codificar las funciones que recibirán y preprocesarán los datasets 					 & 8 h & Alta \\ \hline
-HU5 & Crear scripts para emular eventos desde datasets 						 & 6 h & Media \\ \hline
-HU5 & Configurar logs, métricas y alertas para el procesamiento de los datasets 					 & 8 h & Alta \\ \hline
-HU6 & Definir la arquitectura de despliegue 					 & 8 h & Alta \\ \hline
-HU6 & Automatizar el build, pruebas y despliegue de los modelos 					 & 8 h & Alta \\ \hline
-HU6 & Implementar un mecanismo para almacenar versiones del modelo y realizar rollbacks	 					 & 8 h & Media \\ \hline
-HU6 & Implementar una API REST que sirva el modelo optimizado	 					 & 8 h & Alta \\ \hline
-HU7 & Aplicar un sistema de gráficos EGG en una plataforma de visualización	 					 & 8 h & Alta \\ \hline
-HU7 & Añadir un control de acceso y protección de los datos 	 					 & 6 h & Media \\ \hline
-HU8 & Configurar cifrado en reposo de los servicios que transmiten 					 & 8 h & Alta \\ \hline
-HU8 & Aplicar cifrado en tránsito para los datos enviados desde puntos de conexión 	 					 & 6 h & Media \\ \hline
+HU4 & Añadir arquitectura de contenedores para la API REST y modelo para despliegue rápido	 					 & 8 h & Alta \\ \hline
+HU4 & Realizar test de carga con locust a la API REST  					 & 6 h & Media \\ \hline
+HU4 & Documentar API y latencia de respuesta	  					 & 6 h & Media \\ \hline
+
+
+
 \end{tabularx}
 \end{table}
 
@@ -587,43 +616,136 @@ HU8 & Aplicar cifrado en tránsito para los datos enviados desde puntos de conex
 \hline
 \rowcolor[HTML]{C0C0C0}
 Historia de usuario & Tarea técnica & Estimación & Prioridad \\ \hline
-HU8 & Definir e implementar politicas y reglas de retención de datos  & 6 h & Media \\ \hline
-HU8 & Configurar un registro y monitoreo de accesos  	 					 & 8 h & Alta \\ \hline
+HU4 & Despliegue del modelo en un entorno cloud con aceleración 					 & 8 h & Alta \\ \hline
+HU5 & Diseñar la arquitectura en AWS & 8 h & Alta \\ \hline
+HU5 & Codificar las funciones que recibirán y preprocesarán los datasets 					 & 8 h & Alta \\ \hline
+HU5 & Crear scripts para emular eventos desde datasets 						 & 6 h & Media \\ \hline
+HU5 & Configurar límites de timeout y memoria en Lambda	 					 & 8 h & Alta \\ \hline
+HU5 & Simular carga de 500 a 1000 eventos para probar escalabilidad		 					 & 8 h & Media \\ \hline
+HU5 & Configurar logs, métricas y alertas para el procesamiento de los datasets 					 & 8 h & Media \\ \hline
+HU5 & Documentar la arquitectura y diagramas de arquitectura 					 & 6 h & Media \\ \hline
+HU5 & Validar tiempo de ejecución menor o igual a 15 s 					 & 6 h & Media \\ \hline
+HU6 & Crear script de empaquetado del modelo y sus dependencias 					 & 8 h & Alta \\ \hline
+HU6 & Configurar pipeline CI/CD para despliegue automático 					 & 8 h & Alta \\ \hline
+HU6 & Definir e implementar pruebas automatizadas antes del despliegue 					 & 8 h & Alta \\ \hline
+HU6 & Investigar la plataforma para alojar el modelo productivo  					 & 8 h & Alta \\ \hline
+HU6 & Desplegar el modelo productivo en la plataforma seleccionada  					 & 8 h & Alta \\ \hline
+HU6 & Implementar un mecanismo para almacenar versiones del modelo y realizar rollbacks	 					 & 8 h & Media \\ \hline
+HU6 & Habilitar logging y métricas con AWS CloudWatch	 					 & 8 h & Media \\ \hline
+HU6 & Configurar alarmas básicas de disponibilidad y errores	 					 & 8 h & Media \\ \hline
+HU6 & Documentar el flujo de despliegue automático y monitoreo		 					 & 8 h & Media \\ \hline
+HU7 & Implementar componente de visualización	 					 & 8 h & Alta \\ \hline
+HU7 & Exportar datos visualizados a CSV y JSON	 					 & 8 h & Alta \\ \hline
+HU7 & Conectar frontend con backend de predicción	 					 & 8 h & Alta \\ \hline
+HU7 & Realizar pruebas de usabilidad 	 					 & 4 h & Media \\ \hline
+HU7 & Documentar guía básica de uso 	 					 & 4 h & Baja \\ \hline
 \end{tabularx}
 \end{table}
-Cantidad total de horas: 600.
+\begin{table}[htpb]
+\centering
+\begin{tabularx}{\linewidth}{@{}|X|X|c|c|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0}
+Historia de usuario & Tarea técnica & Estimación & Prioridad \\ \hline
+HU8 & Cifrar datos en tránsito con HTTPS / TLS	 					 & 6 h & Alta \\ \hline
+HU8 & Cifrar datos en reposo con servicios de AWS 	 					 & 6 h & Alta \\ \hline
+HU8 & Configurar políticas de IAM para acceso restringido 	 					 & 6 h & Alta \\ \hline
+HU8 & Definir e implementar politicas y reglas de retención de datos  & 4 h & Media \\ \hline
+HU8 & Documentar cumplimiento normativo básico  & 4 h & Media \\ \hline
+HU8 & Configurar un registro y monitoreo de accesos  	 					 & 4 h & Alta \\ \hline
+HU9 & Reuniones iniciales de planificación y definición de alcance del proyecto  	 					 & 8 h & Alta \\ \hline
+HU9 & Elaboración del cronograma y planificación detallada	  	 					 & 8 h & Alta \\ \hline
+HU9 & Diseño de cronograma de trabajo  	 					 & 8 h & Alta \\ \hline
+HU9 & Redacción del capítulo de introducción y objetivos	  	 					 & 8 h & Alta \\ \hline
+HU9 & Redacción del capítulo de metodología	  	 					 & 8 h & Alta \\ \hline
+HU9 & Redacción del capítulo de resultados y discusión	  	 					 & 8 h & Alta \\ \hline
+HU9 & Redacción de conclusiones y recomendaciones	  	 					 & 8 h & Alta \\ \hline
+HU9 & Revisión general y edición del documento final		  	 					 & 8 h & Alta \\ \hline
+HU9 & Diseño y elaboración de presentación para defensa		  	 					 & 8 h & Alta \\ \hline
+HU9 & Ensayos de presentación y defensa con retroalimentación		  	 					 & 8 h & Alta \\ \hline
+\end{tabularx}
+\end{table}
 
+Cantidad total de horas: 580.
 \section{10. Diagrama de Gantt}
-\label{sec:wbs}
-
-
-\section{10. Diagrama de Activity On Node}
-\label{sec:AoN}
-\begin{figure}[htpb]
-\centering 
-\includegraphics[width=.8\textwidth]{./Figuras/AoN-project.jpg}
-\caption{Diagrama de \textit{Activity on Node}.}
-\label{fig:AoN}
-\end{figure}
-
-En la figura 2 se visualiza el diagrama de \textit{Activity on Node} del proyecto. Se indica en color rojo el camino crítico y el tiempo de cada tarea esta en horas.
-
-\section{11. Diagrama de Gantt}
 \label{sec:gantt}
 
-\begin{consigna}{red}
-\begin{landscape}
+
+En las siguientes figuras se puede observar las tablas del diagrama de Gantt
 \begin{figure}[htpb]
 \centering 
-\includegraphics[height=.85\textheight]{./Figuras/bad-format-grant.png}
-\caption{Diagrama de Gantt (apaisado).} %Modificar este título acorde.
-\label{fig:diagGantt}
+\includegraphics[width=.99\textwidth]{./Figuras/tareas-1.png}
+\caption{Tabla de tareas de Gantt.}
+\label{fig:diagBloques}
 \end{figure}
 
-\end{landscape}
 
-\end{consigna}
+\begin{figure}[htpb]
+\centering 
+\includegraphics[width=.99\textwidth]{./Figuras/tareas-2.png}
+\caption{Tabla de tareas de Gantt.}
+\label{fig:diagBloques}
+\end{figure}
 
+\begin{figure}[htpb]
+\centering 
+\includegraphics[width=.99\textwidth]{./Figuras/tareas-3.png}
+\caption{Tabla de tareas de Gantt.}
+\label{fig:diagBloques}
+\end{figure}
+
+\begin{figure}[htpb]
+\centering 
+\includegraphics[width=.99\textwidth]{./Figuras/tareas-4.png}
+\caption{Tabla de tareas de Gantt.}
+\label{fig:diagBloques}
+\end{figure}
+
+
+\begin{figure}[htpb]
+\centering 
+\includegraphics[width=.99\textwidth]{./Figuras/tareas-5.png}
+\caption{Tabla de tareas de Gantt.}
+\label{fig:diagBloques}
+\end{figure}
+
+\clearpage
+En las siguientes figuras se puede observar el diagrama de Gantt del proyecto. El color amarillo representa tareas no técnicas.
+
+\begin{figure}[htpb]
+\centering 
+\includegraphics[width=.99\textwidth]{./Figuras/gantt-1.png}
+\caption{Tabla de tareas de Gantt.}
+\label{fig:diagBloques}
+\end{figure}
+
+\begin{figure}[htpb]
+\centering 
+\includegraphics[width=.99\textwidth]{./Figuras/gantt-2.png}
+\caption{Tabla de tareas de Gantt.}
+\label{fig:diagBloques}
+\end{figure}
+
+\begin{figure}[htpb]
+\centering 
+\includegraphics[width=.99\textwidth]{./Figuras/gantt-3.png}
+\caption{Tabla de tareas de Gantt.}
+\label{fig:diagBloques}
+\end{figure}
+
+\begin{figure}[htpb]
+\centering 
+\includegraphics[width=.99\textwidth]{./Figuras/gantt-4.png}
+\caption{Tabla de tareas de Gantt.}
+\label{fig:diagBloques}
+\end{figure}
+
+\begin{figure}[htpb]
+\centering 
+\includegraphics[width=.99\textwidth]{./Figuras/gantt-5.png}
+\caption{Tabla de tareas de Gantt.}
+\label{fig:diagBloques}
+\end{figure}
 
 \section{12. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
