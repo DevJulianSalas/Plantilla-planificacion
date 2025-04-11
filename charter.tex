@@ -747,165 +747,208 @@ En las siguientes figuras se puede observar el diagrama de Gantt del proyecto. E
 \label{fig:diagBloques}
 \end{figure}
 
-\section{12. Presupuesto detallado del proyecto}
-\label{sec:presupuesto}
 
-\begin{consigna}{red}
+\section{11. Planificación de Sprints}
+A continuación, se detalla la tabla de planificación de Sprints.
+\begin{table}[htpb]
+\centering
+\begin{tabularx}{\linewidth}{|l|>{\centering\arraybackslash}p{2.5cm}|X|>{\centering\arraybackslash}p{1.2cm}|>{\centering\arraybackslash}p{2.3cm}|>{\centering\arraybackslash}p{2.3cm}|}
 
-\end{consigna}
+% \begin{tabularx}{\linewidth}{@{}|l|l|X|c|l|c|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0}
+Sprint & HU o fase & Tarea & Horas / SP & Responsable & Completado \% \\ \hline
+1 & HU1  & Exploración del dataset MOABB & 8 & Alumno & 0 \\ \hline
+1 & HU1  & Análisis de estructuras de datos EEG & 8 & Alumno & 0 \\ \hline
+1 & HU1  & Carga y limpieza de datos MOABB & 8 & Alumno & 0 \\ \hline
+1 & HU1  & Documentación de la adquisición de datos & 8 & Alumno & 0 \\ \hline
+2 & HU2  & Diseño del pipeline de preprocesamiento & 8 & Alumno & 0 \\ \hline
+2 & HU2  & Implementación de filtrado y normalización & 8 & Alumno & 0 \\ \hline
+2 & HU2  & Evaluación de calidad de señales preprocesadas & 8 & Alumno & 0 \\ \hline
+2 & HU2  & Documentación de procesos y scripts & 8 & Alumno & 0 \\ \hline
+2 & HU3  & Configuración de entorno virtual y dependencias & 4 & Alumno & 0 \\ \hline
+2 & HU2  & Revisión de criterios de aceptación & 4 & Alumno & 0 \\ \hline
+3 & HU3  & Definición de arquitectura del modelo & 8 & Alumno & 0 \\ \hline
+3 & HU3  & Implementación y pruebas iniciales del modelo & 8 & Alumno & 0 \\ \hline
+3 & HU3  & Validación cruzada y análisis de resultados & 8 & Alumno & 0 \\ \hline
+3 & HU3  & Documentación del modelo & 8 & Alumno & 70 \\ \hline
+4 & HU4  & Benchmarking con distintas configuraciones & 8 & Alumno & 0 \\ \hline
+4 & HU4  & Optimización de tiempo de inferencia & 8 & Alumno & 0 \\ \hline
+4 & HU4  & Pruebas de carga y latencia & 8 & Alumno & 0 \\ \hline
+4 & HU4  & Exposición vía API REST & 8 & Alumno & 0 \\ \hline
+5 & HU5  & Diseño arquitectura AWS (Lambda, API Gateway) & 8 & Alumno & 0 \\ \hline
+5 & HU5  & Desarrollo funciones Lambda & 8 & Alumno & 0 \\ \hline
+5 & HU5  & Pruebas de escalabilidad & 8 & Alumno & 0 \\ \hline
+5 & HU5  & Seguridad básica y monitoreo & 8 & Alumno & 0 \\ \hline
+\end{tabularx}
+\end{table}
+
 
 \begin{table}[htpb]
 \centering
-\begin{tabularx}{\linewidth}{@{}|X|c|r|r|@{}}
+\begin{tabularx}{\linewidth}{|l|>{\centering\arraybackslash}p{2.5cm}|X|>{\centering\arraybackslash}p{1.2cm}|>{\centering\arraybackslash}p{2.3cm}|>{\centering\arraybackslash}p{2.3cm}|}
+% \begin{tabularx}{\linewidth}{@{}|l|l|X|c|l|c|@{}}
 \hline
-\rowcolor[HTML]{C0C0C0} 
-\multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS DIRECTOS} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
-Descripción & 
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
- Honoracios del ingeniero&
-  \multicolumn{1}{c|}{600} &
-  \multicolumn{1}{c|}{\$40} &
-  \multicolumn{1}{c|}{\$24000} \\ \hline
- Computación en la nube&
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{\$200} \\ \hline
-  Almacenamiento en la nube AWS&
-  \multicolumn{1}{c|}{}&
-  \multicolumn{1}{c|}{}&
-  \multicolumn{1}{c|}{\$50}\\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{\$24250} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
-\multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
-Descripción &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
-\multicolumn{1}{|l|}{15\% de costos directos} &
-   &
-   &
-   \multicolumn{1}{c|}{\$3638} \\ \hline
-   
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{3}{|c|}{SUBTOTAL} &
-\multicolumn{1}{c|}{\$3638} \\ \hline
 \rowcolor[HTML]{C0C0C0}
-\multicolumn{3}{|c|}{TOTAL} &
-\multicolumn{1}{c|}{\$27888} \\ \hline
-\end{tabularx}%
+Sprint & HU o fase & Tarea & Horas / SP & Responsable & Completado \% \\ \hline
+6 & HU6  & Configuración CI/CD para despliegue automático & 8 & Alumno & 0 \\ \hline
+6 & HU6  & Integración con servicios de monitoreo & 8 & Alumno & 0 \\ \hline
+6 & HU6  & Revisión de escalabilidad y rollback & 8 & Alumno & 0 \\ \hline
+6 & HU6  & Pruebas y validación en entorno productivo & 8 & Alumno & 0 \\ \hline
+7 & HU7  & Diseño de interfaz gráfica inicial & 8 & Alumno & 0 \\ \hline
+7 & HU7  & Implementación de visualización de señales & 8 & Alumno & 0 \\ \hline
+7 & HU7  & Exportación de datos a CSV y JSON & 8 & Alumno & 0 \\ \hline
+7 & HU7  & Pruebas de usabilidad & 8 & Alumno & 0 \\ \hline
+8 & HU8  & Implementación de cifrado en tránsito & 8 & Alumno & 0 \\ \hline
+8 & HU8  & Implementación de cifrado en reposo & 8 & Alumno & 0 \\ \hline
+8 & HU8  & Diseño de política de retención y eliminación & 8 & Alumno & 0 \\ \hline
+8 & HU8  & Validación del cumplimiento de normativas & 8 & Alumno & 0 \\ \hline
+9 & HU9 Planificación y memoria & Planificación inicial del proyecto & 8 & Alumno & 0 \\ \hline
+9 & HU9 Planificación y memoria & Redacción del marco teórico & 8 & Alumno & 0 \\ \hline
+9 & HU9 Planificación y memoria & Revisión bibliográfica & 8 & Alumno & 0 \\ \hline
+9 & HU9 Planificación y memoria & Elaboración del índice de memoria & 8 & Alumno & 0 \\ \hline
+10 & HU9 Planificación y memoria & Redacción de capítulos técnicos & 8 & Alumno & 0 \\ \hline
+10 & HU9 Planificación y memoria & Integración de contenidos y estilo & 8 & Alumno & 0 \\ \hline
+10 & HU9 Planificación y memoria & Revisión ortográfica y citación & 8 & Alumno & 0 \\ \hline
+10 & HU9 Planificación y memoria & Creación de material para defensa & 8 & Alumno & 0 \\ \hline
+\end{tabularx}
 \end{table}
+
+
+\begin{table}[htpb]
+\centering
+\begin{tabularx}{\linewidth}{|l|>{\centering\arraybackslash}p{2.5cm}|X|>{\centering\arraybackslash}p{1.2cm}|>{\centering\arraybackslash}p{2.3cm}|>{\centering\arraybackslash}p{2.3cm}|}
+% \begin{tabularx}{\linewidth}{@{}|l|l|X|c|l|c|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0}
+Sprint & HU o fase & Tarea & Horas / SP & Responsable & Completado \% \\ \hline
+11 & HU9 Finalización & Revisión global de entregables & 8 & Alumno & 0 \\ \hline
+11 & HU9 Finalización & Simulacros de defensa & 8 & Alumno & 0 \\ \hline
+11 & HU9 Finalización & Correcciones finales y ajustes & 8 & Alumno & 0 \\ \hline
+11 & HU9 Finalización & Presentación ante jurado & 8 & Alumno & 0 \\ \hline
+\end{tabularx}
+\end{table}
+
+\section{12. Normativa y cumplimiento de datos (gobernanza)}
+
+En el marco del presente proyecto, se trabaja con datos de señales EEG provenientes de dataset públicos como MOABB (\textit{Mother of All BCI Benchmarks}), un repositorio público ampliamente utilizado en la comunidad científica para el estudio de interfaces cerebro-computadora. A continuación, se analizan los aspectos legales, éticos y técnicos relacionados con la gobernanza de estos datos.
+
+\subsection*{12.1. Evaluación normativa aplicable}
+
+Los datos EEG utilizados en este proyecto no contienen información de identificación personal (\textit{PII}), ya que han sido anonimizados previamente por las entidades que los generaron. No obstante, al tratarse de datos biométricos, pueden estar sujetos a regulaciones de privacidad según la jurisdicción. Se considera la siguiente normativa:
+
+\begin{itemize}
+  \item Reglamento General de Protección de Datos (\textit{GDPR - Unión Europea}): establece que los datos biométricos se consideran datos sensibles, y su tratamiento requiere garantías específicas, incluso si están anonimizados.
+\end{itemize}
+
+\subsection*{12.2. Consentimiento de los usuarios}
+
+El dataset MOABB incluye únicamente registros cuya recolección fue realizada bajo protocolos éticos con consentimiento informado, documentado por las instituciones que lo generaron. Como usuario del dataset, el proyecto se adhiere a las licencias y restricciones de uso establecidas por los propietarios de los datos.
+
+\subsection*{12.3. Restricciones de uso, compartición o publicación}
+
+Los datos EEG empleados provienen de fuentes de acceso abierto, bajo licencias que permiten su uso para fines de investigación, con la condición de no intentar identificar a los sujetos participantes ni redistribuir los datos de forma desautorizada.
+
+\subsection*{12.4. Fuente y licenciamiento de los datos}
+
+Los datos utilizados pertenecen al proyecto MOABB (\url{https://github.com/NeuroTechX/moabb}), que ofrece múltiples datasets estandarizados para evaluación de modelos BCI. Se emplean únicamente los que están públicamente disponibles y cuentan con licencias de uso explícitas para investigación académica.
+
+\subsection*{12.5. Consideraciones éticas y viabilidad legal}
+
+Desde el punto de vista legal, el uso de MOABB como fuente de datos es viable para los fines del proyecto, siempre y cuando se respeten los términos de la licencia de uso y no se intente aplicar el sistema a datos personales sin consentimiento.
+
+\subsection*{12.6. Gobernanza de los datos}
+
+Se establece como principio del proyecto el cumplimiento del ciclo de vida de datos responsable, incluyendo:
+\begin{itemize}
+  \item Almacenamiento seguro y cifrado de los resultados.
+  \item Eliminación periódica de datos temporales.
+  \item Documentación clara sobre el uso y transformación de los datos.
+  \item Evaluación de riesgos asociados a la exposición o mal uso de los datos.
+\end{itemize}
 
 
 \section{13. Gestión de riesgos}
 \label{sec:riesgos}
 
-\begin{consigna}{red}
-a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
- 
-Riesgo 1: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos de forma negativa)
-\begin{itemize}
-	\item Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de (O). 
-\end{itemize}   
+\subsection*{a) Identificación de los riesgos y estimación de sus consecuencias}
 
-Riesgo 2:
+\textbf{Riesgo 1: Retrasos en la adquisición o validación de datos}
 \begin{itemize}
-	\item Severidad (S): X.\\
-	Justificación...
-	\item Ocurrencia (O): Y.\\
-	Justificación...
+    \item \textbf{Severidad (S): 8} \\
+    La falta de datos validados compromete el entrenamiento del modelo y la evaluación general del sistema.
+    \item \textbf{Ocurrencia (O): 5} \\
+    Aunque los datos MOABB son de acceso abierto, la validación y el preprocesamiento pueden requerir más tiempo del esperado.
 \end{itemize}
 
-Riesgo 3:
+\textbf{Riesgo 2: Dificultad en el despliegue en AWS Lambda por límites técnicos}
 \begin{itemize}
-	\item Severidad (S):  X.\\
-	Justificación...
-	\item Ocurrencia (O): Y.\\
-	Justificación...
+    \item \textbf{Severidad (S): 7} \\
+    Superar límites de ejecución o memoria afectaría la escalabilidad del sistema.
+    \item \textbf{Ocurrencia (O): 6} \\
+    La ejecución de modelos en tiempo real puede exceder los 15 segundos, especialmente en inferencia no optimizada.
 \end{itemize}
 
+\textbf{Riesgo 3: Falta de experiencia previa con MLOps y DevOps}
+\begin{itemize}
+    \item \textbf{Severidad (S): 6} \\
+    El desconocimiento puede retrasar la integración y despliegue continuo.
+    \item \textbf{Ocurrencia (O): 7} \\
+    Requiere curva de aprendizaje en herramientas como Docker, GitHub Actions y AWS CI/CD.
+\end{itemize}
 
-b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
+\textbf{Riesgo 4: Vulnerabilidades en la seguridad de datos EEG}
+\begin{itemize}
+    \item \textbf{Severidad (S): 9} \\
+    La filtración o uso indebido de datos EEG podría tener consecuencias legales y éticas graves.
+    \item \textbf{Ocurrencia (O): 4} \\
+    Aunque se usan prácticas de cifrado, errores de configuración o descuidos pueden generar brechas.
+\end{itemize}
 
-\begin{table}[htpb]
+\textbf{Riesgo 5: Sobrecarga de trabajo hacia el final del proyecto}
+\begin{itemize}
+    \item \textbf{Severidad (S): 6} \\
+    Puede comprometer la calidad de entregables finales (documentación, defensa).
+    \item \textbf{Ocurrencia (O): 6} \\
+    Hay alta probabilidad si no se sigue el cronograma de sprints rigurosamente.
+\end{itemize}
+
+\subsection*{b) Tabla resumen de riesgos}
+
+\begin{table}[H]
 \centering
-\begin{tabularx}{\linewidth}{@{}|X|c|c|c|c|c|c|@{}}
+\begin{tabularx}{\linewidth}{|c|X|c|c|c|}
 \hline
-\rowcolor[HTML]{C0C0C0} 
-Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-\end{tabularx}%
+\rowcolor[HTML]{C0C0C0}
+\textbf{ID} & \textbf{Riesgo} & \textbf{Severidad (S)} & \textbf{Ocurrencia (O)} & \textbf{Índice de Riesgo (IR = S × O)} \\
+\hline
+R1 & Retrasos en validación de datos EEG & 8 & 5 & 40 \\
+\hline
+R2 & Dificultad técnica en AWS Lambda & 7 & 6 & 42 \\
+\hline
+R3 & Inexperiencia en MLOps & 6 & 7 & 42 \\
+\hline
+R4 & Falla en la seguridad de los datos & 9 & 4 & 36 \\
+\hline
+R5 & Sobrecarga en etapas finales & 6 & 6 & 36 \\
+\hline
+\end{tabularx}
+\caption{Resumen de riesgos y su índice de prioridad}
 \end{table}
 
-Criterio adoptado: 
+\vspace{0.5cm}
 
-Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a...
-
-Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
-
-c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
- 
-Riesgo 1: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-  Nueva asignación de S y O, con su respectiva justificación:
-  \begin{itemize}
-	\item Severidad (S*): mientras más severo, más alto es el número (usar números del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O*): mientras más probable, más alto es el número (usar del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de (O).
-	\end{itemize}
-
-Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
- 
-Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-
-\end{consigna}
-
-
-\section{14. Gestión de la calidad}
-\label{sec:calidad}
-
-\begin{consigna}{red}
-Elija al menos diez requerimientos que a su criterio sean los más importantes/críticos/que aportan más valor y para cada uno de ellos indique las acciones de verificación y validación que permitan asegurar su cumplimiento.
-
-\begin{itemize} 
-\item Req \#1: copiar acá el requerimiento con su correspondiente número.
+\subsection*{c) Acciones de mitigación propuestas}
 
 \begin{itemize}
-	\item Verificación para confirmar si se cumplió con lo requerido antes de mostrar el sistema al cliente. Detallar.
-	\item Validación con el cliente para confirmar que está de acuerdo en que se cumplió con lo requerido. Detallar. 
+  \item \textbf{R1}: establecer un sprint exclusivo para validación temprana de los datos y documentación clara de cada dataset.
+  \item \textbf{R2}: realizar pruebas con versiones optimizadas del modelo desde etapas tempranas y monitorear tiempos de ejecución.
+  \item \textbf{R3}: capacitación autodidacta continua en herramientas MLOps durante los primeros sprints y asistencia con plantillas preconfiguradas.
+  \item \textbf{R4}: usar cifrado TLS/HTTPS en tránsito y AWS KMS en reposo. Definir políticas de IAM estrictas.
+  \item \textbf{R5}: mantener reuniones semanales de control de avance. Incorporar buffer de tiempo en sprints finales.
 \end{itemize}
 
-\end{itemize}
 
-Tener en cuenta que en este contexto se pueden mencionar simulaciones, cálculos, revisión de hojas de datos, consulta con expertos, mediciones, etc.  
-
-Las acciones de verificación suelen considerar al entregable como ``caja blanca'', es decir se conoce en profundidad su funcionamiento interno.  
-
-En cambio, las acciones de validación suelen considerar al entregable como ``caja negra'', es decir, que no se conocen los detalles de su funcionamiento interno.
-
-\end{consigna}
 
 \section{15. Procesos de cierre}    
 \label{sec:cierre}
