@@ -234,7 +234,7 @@ El proyecto comprenderá los siguientes componentes:
 	\item Integración con una infraestructura en la nube escalable y segura en \textit{Amazon Web Services}.
 	\item Adquisición y procesamiento de señales cerebrales mediante sensores EEG.
 	\item Evaluación del sistema con usuarios finales para validar su precisión y usabilidad.
-	\item Generación de documentación técnica para futuras mejoras e implementación.
+	\item Generación de documentSación técnica para futuras mejoras e implementación.
 	\item Optimización del procesamiento en la nube para reducir latencia y mejorar la eficiencia del sistema.
 \end{itemize}
 El presente proyecto no incluye:
@@ -492,10 +492,9 @@ Valor agregado: automatización del análisis de señales cerebrales para mejora
 
 Métricas de éxito: 
 \begin{itemize}
-	\item Precisión mínima del modelo: 85\%.
-	\item Latencia de predicción menor a 5000 ms.
-	\item Disponibilidad del sistema: 85\% en producción.
-	\item Cumplimiento de normativas de seguridad.
+    \item Tiempo promedio de inferencia menor  o igual a 5000 ms, permitiendo respuestas ágiles para facilitar el control de dispositivos o feedback terapéutico.
+    \item Precisión mínima del modelo del 85\% en la predicción de actividades de imaginación motora, permitiendo mejorar la predicción  actual en la intención de movimiento en usuarios.
+    \item Reducción del tiempo total de análisis manual de señales EEG en al menos un 50\%, gracias a la automatización del preprocesamiento y predicción.
 \end{itemize}
 
 Comprensión de los datos
@@ -671,81 +670,15 @@ Cantidad total de horas: 580.
 \label{sec:gantt}
 
 
-En las siguientes figuras se puede observar las tablas del diagrama de Gantt
+En la siguiente figura se puede observar el diagrama de Gantt
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.99\textwidth]{./Figuras/tareas-1.png}
-\caption{Tabla de tareas de Gantt.}
+\includegraphics[width=.99\textwidth]{./Figuras/gant.png}
+\caption{Diagrama de Gantt.}
 \label{fig:diagBloques}
 \end{figure}
-
-
-\begin{figure}[htpb]
-\centering 
-\includegraphics[width=.99\textwidth]{./Figuras/tareas-2.png}
-\caption{Tabla de tareas de Gantt.}
-\label{fig:diagBloques}
-\end{figure}
-
-\begin{figure}[htpb]
-\centering 
-\includegraphics[width=.99\textwidth]{./Figuras/tareas-3.png}
-\caption{Tabla de tareas de Gantt.}
-\label{fig:diagBloques}
-\end{figure}
-
-\begin{figure}[htpb]
-\centering 
-\includegraphics[width=.99\textwidth]{./Figuras/tareas-4.png}
-\caption{Tabla de tareas de Gantt.}
-\label{fig:diagBloques}
-\end{figure}
-
-
-\begin{figure}[htpb]
-\centering 
-\includegraphics[width=.99\textwidth]{./Figuras/tareas-5.png}
-\caption{Tabla de tareas de Gantt.}
-\label{fig:diagBloques}
-\end{figure}
-
 \clearpage
-En las siguientes figuras se puede observar el diagrama de Gantt del proyecto. El color amarillo representa tareas no técnicas.
 
-\begin{figure}[htpb]
-\centering 
-\includegraphics[width=.99\textwidth]{./Figuras/gantt-1.png}
-\caption{Tabla de tareas de Gantt.}
-\label{fig:diagBloques}
-\end{figure}
-
-\begin{figure}[htpb]
-\centering 
-\includegraphics[width=.99\textwidth]{./Figuras/gantt-2.png}
-\caption{Tabla de tareas de Gantt.}
-\label{fig:diagBloques}
-\end{figure}
-
-\begin{figure}[htpb]
-\centering 
-\includegraphics[width=.99\textwidth]{./Figuras/gantt-3.png}
-\caption{Tabla de tareas de Gantt.}
-\label{fig:diagBloques}
-\end{figure}
-
-\begin{figure}[htpb]
-\centering 
-\includegraphics[width=.99\textwidth]{./Figuras/gantt-4.png}
-\caption{Tabla de tareas de Gantt.}
-\label{fig:diagBloques}
-\end{figure}
-
-\begin{figure}[htpb]
-\centering 
-\includegraphics[width=.99\textwidth]{./Figuras/gantt-5.png}
-\caption{Tabla de tareas de Gantt.}
-\label{fig:diagBloques}
-\end{figure}
 
 
 \section{11. Planificación de Sprints}
@@ -757,7 +690,7 @@ A continuación, se detalla la tabla de planificación de Sprints.
 % \begin{tabularx}{\linewidth}{@{}|l|l|X|c|l|c|@{}}
 \hline
 \rowcolor[HTML]{C0C0C0}
-Sprint & HU o fase & Tarea & Horas / SP & Responsable & Completado \% \\ \hline
+Sprint & HU & Tarea & Horas & Responsable & Completado \% \\ \hline
 1 & HU1  & Exploración del dataset MOABB & 8 & Alumno & 0 \\ \hline
 1 & HU1  & Análisis de estructuras de datos EEG & 8 & Alumno & 0 \\ \hline
 1 & HU1  & Carga y limpieza de datos MOABB & 8 & Alumno & 0 \\ \hline
@@ -790,7 +723,7 @@ Sprint & HU o fase & Tarea & Horas / SP & Responsable & Completado \% \\ \hline
 % \begin{tabularx}{\linewidth}{@{}|l|l|X|c|l|c|@{}}
 \hline
 \rowcolor[HTML]{C0C0C0}
-Sprint & HU o fase & Tarea & Horas / SP & Responsable & Completado \% \\ \hline
+Sprint & HU  & Tarea & Horas & Responsable & Completado \% \\ \hline
 6 & HU6  & Configuración CI/CD para despliegue automático & 8 & Alumno & 0 \\ \hline
 6 & HU6  & Integración con servicios de monitoreo & 8 & Alumno & 0 \\ \hline
 6 & HU6  & Revisión de escalabilidad y rollback & 8 & Alumno & 0 \\ \hline
@@ -821,7 +754,7 @@ Sprint & HU o fase & Tarea & Horas / SP & Responsable & Completado \% \\ \hline
 % \begin{tabularx}{\linewidth}{@{}|l|l|X|c|l|c|@{}}
 \hline
 \rowcolor[HTML]{C0C0C0}
-Sprint & HU o fase & Tarea & Horas / SP & Responsable & Completado \% \\ \hline
+Sprint & HU & Tarea & Horas & Responsable & Completado \% \\ \hline
 11 & HU9 Finalización & Revisión global de entregables & 8 & Alumno & 0 \\ \hline
 11 & HU9 Finalización & Simulacros de defensa & 8 & Alumno & 0 \\ \hline
 11 & HU9 Finalización & Correcciones finales y ajustes & 8 & Alumno & 0 \\ \hline
@@ -967,44 +900,91 @@ Riesgo 5: Sobrecarga de trabajo en etapas finales
   \item S* = 5: baja al equilibrar mejor la carga desde etapas intermedias.
   \item O* = 3: disminuye al tener planificadas entregas parciales desde el sprint 6 en adelante.
 \end{itemize}
+\vspace{6.3cm}
 
 \section{14. Sprint Review}
 \label{sec:sprint_review}
-
-\renewcommand{\arraystretch}{1.5}
-\begin{table}[H]
+\renewcommand{\arraystretch}{2.5}
+\begin{table}[htpb]
 \centering
-\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{3.2cm}|
-                                >{\raggedright\arraybackslash}p{3.2cm}|
-                                >{\raggedright\arraybackslash}X|
-                                >{\raggedright\arraybackslash}p{3.2cm}|}
+\begin{tabular}{|>{\raggedright\arraybackslash}m{1.5cm}|
+                >{\raggedright\arraybackslash}m{3cm}|
+                >{\raggedright\arraybackslash}m{2.5cm}|
+                >{\raggedright\arraybackslash}m{4cm}|
+                >{\raggedright\arraybackslash}m{4cm}|}
 \hline
-\rowcolor[HTML]{C0C0C0}
-\textbf{HU} & \textbf{Criterios de Aceptación} & \textbf{Método de Verificación} & \textbf{Observaciones Previstas} \\ \hline
-
-HU2 – Preprocesamiento EEG &
-Se deben aplicar filtros, normalizar señales y evaluar calidad. &
-Se ejecutarán scripts sobre datasets de prueba y se validará visual y estadísticamente la calidad de la señal. &
-Se prevé dificultad en señales con alto ruido o mala adquisición. \\ \hline
-
-HU3 – Entrenamiento de Modelo &
-El modelo debe ser entrenado correctamente y lograr métricas mínimas en validación. &
-Se comprobará mediante métricas (accuracy, F1-score) en conjunto de validación del pipeline. &
-Posible ajuste de hiperparámetros y reconsideración del modelo base. \\ \hline
-
-HU5 – Visualización EEG UI &
-La interfaz debe mostrar las señales y permitir exportar CSV y JSON. &
-Prueba funcional de la interfaz con simulaciones y test de exportación. &
-Se prevén ajustes menores en diseño o formatos de salida. \\ \hline
-
-HU6 – Despliegue en AWS &
-Modelo desplegado con monitoreo y escalabilidad básica configurada. &
-Verificación mediante logs, alertas y disponibilidad de endpoints de inferencia. &
-Dependencia de configuración en AWS; posible demora en permisos y acceso. \\ \hline
-
-\end{tabularx}
+\rowcolor[HTML]{CCCCCC}
+\textbf{HU seleccionada} & \textbf{Tareas asociadas} & \textbf{Entregable esperado} & \textbf{¿Cómo sabrás que está cumplida?} & \textbf{Observaciones o riesgos} \\
+\hline
+                         & Exploración del dataset MOABB &                             &                                           &                                     \\ \cline{2-2}
+\multirow{-2}{=}{HU1}    
+                         & Limpieza y validación de señales EEG & 
+\multirow{-2}{=}{Módulo funcional para adquisición de datos} & 
+\multirow{-2}{=}{Cumple criterios de aceptación: datos limpios, cargados y validados} & 
+\multirow{-2}{=}{Puede requerirse adaptar scripts para distintos formatos de dataset} \\
+\hline
+                         & Entrenamiento de modelo inicial &                             &                                           &                                     \\ \cline{2-2}
+\multirow{-2}{=}{HU3}    
+                         & Validación cruzada del modelo entrenado & 
+\multirow{-2}{=}{Modelo entrenado y validado} & 
+\multirow{-2}{=}{Métricas de desempeño alcanzadas con precisión mayor o igual a 80 \%} & 
+\multirow{-2}{=}{Podrían surgir ajustes de hiperparámetros no previstos} \\
+\hline
+                         & Visualización de señales en interfaz gráfica &                             &                                           &                                     \\ \cline{2-2}
+\multirow{-2}{=}{HU5}    
+                         & Exportación de señales en CSV y JSON & 
+\multirow{-2}{=}{Visualizador EEG funcional} & 
+\multirow{-2}{=}{Gráficos legibles y exportaciones exitosas} & 
+\multirow{-2}{=}{Riesgo en compatibilidad de formatos o librerías} \\
+\hline
+                         & Implementación de despliegue automático en AWS &                             &                                           &                                     \\ \cline{2-2}
+\multirow{-2}{=}{HU6}    
+                         & Configuración de monitoreo y pruebas & 
+\multirow{-2}{=}{Modelo accesible vía API REST con CI/CD} & 
+\multirow{-2}{=}{Endpoints activos y latencia medida en menor o igual a 15s} & 
+\multirow{-2}{=}{Puede requerirse ajuste en recursos o permisos} \\
+\hline
+\end{tabular}
 \end{table}
-\vspace{0.5cm}
+
+
+
+
+
+% \renewcommand{\arraystretch}{1.5}
+% \begin{table}[H]
+% \centering
+% \begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{3.2cm}|
+%                                 >{\raggedright\arraybackslash}p{3.2cm}|
+%                                 >{\raggedright\arraybackslash}X|
+%                                 >{\raggedright\arraybackslash}p{3.2cm}|}
+% \hline
+% \rowcolor[HTML]{C0C0C0}
+% \textbf{HU} & \textbf{Criterios de Aceptación} & \textbf{Método de Verificación} & \textbf{Observaciones Previstas} \\ \hline
+
+% HU2 – Preprocesamiento EEG &
+% Se deben aplicar filtros, normalizar señales y evaluar calidad. &
+% Se ejecutarán scripts sobre datasets de prueba y se validará visual y estadísticamente la calidad de la señal. &
+% Se prevé dificultad en señales con alto ruido o mala adquisición. \\ \hline
+
+% HU3 – Entrenamiento de Modelo &
+% El modelo debe ser entrenado correctamente y lograr métricas mínimas en validación. &
+% Se comprobará mediante métricas (accuracy, F1-score) en conjunto de validación del pipeline. &
+% Posible ajuste de hiperparámetros y reconsideración del modelo base. \\ \hline
+
+% HU5 – Visualización EEG UI &
+% La interfaz debe mostrar las señales y permitir exportar CSV y JSON. &
+% Prueba funcional de la interfaz con simulaciones y test de exportación. &
+% Se prevén ajustes menores en diseño o formatos de salida. \\ \hline
+
+% HU6 – Despliegue en AWS &
+% Modelo desplegado con monitoreo y escalabilidad básica configurada. &
+% Verificación mediante logs, alertas y disponibilidad de endpoints de inferencia. &
+% Dependencia de configuración en AWS; posible demora en permisos y acceso. \\ \hline
+
+% \end{tabularx}
+% \end{table}
+% \vspace{0.5cm}
 
 \section{15. Sprint Retrospective}    
 \label{sec:sprint_retro}
