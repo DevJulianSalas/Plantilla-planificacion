@@ -691,59 +691,32 @@ A continuación, se detalla la tabla de planificación de Sprints.
 \hline
 \rowcolor[HTML]{C0C0C0}
 Sprint & HU & Tarea & Horas & Responsable & Completado \% \\ \hline
-1 & HU1  & Exploración del dataset MOABB & 8 & Alumno & 0 \\ \hline
-1 & HU1  & Análisis de estructuras de datos EEG & 8 & Alumno & 0 \\ \hline
-1 & HU1  & Carga y limpieza de datos MOABB & 8 & Alumno & 0 \\ \hline
-1 & HU1  & Documentación de la adquisición de datos & 8 & Alumno & 0 \\ \hline
-2 & HU2  & Diseño del pipeline de preprocesamiento & 8 & Alumno & 0 \\ \hline
-2 & HU2  & Implementación de filtrado y normalización & 8 & Alumno & 0 \\ \hline
-2 & HU2  & Evaluación de calidad de señales preprocesadas & 8 & Alumno & 0 \\ \hline
-2 & HU2  & Documentación de procesos y scripts & 8 & Alumno & 0 \\ \hline
-2 & HU3  & Configuración de entorno virtual y dependencias & 4 & Alumno & 0 \\ \hline
-2 & HU2  & Revisión de criterios de aceptación & 4 & Alumno & 0 \\ \hline
-3 & HU3  & Definición de arquitectura del modelo & 8 & Alumno & 0 \\ \hline
-3 & HU3  & Implementación y pruebas iniciales del modelo & 8 & Alumno & 0 \\ \hline
-3 & HU3  & Validación cruzada y análisis de resultados & 8 & Alumno & 0 \\ \hline
-3 & HU3  & Documentación del modelo & 8 & Alumno & 70 \\ \hline
-4 & HU4  & Benchmarking con distintas configuraciones & 8 & Alumno & 0 \\ \hline
-4 & HU4  & Optimización de tiempo de inferencia & 8 & Alumno & 0 \\ \hline
-4 & HU4  & Pruebas de carga y latencia & 8 & Alumno & 0 \\ \hline
-4 & HU4  & Exposición vía API REST & 8 & Alumno & 0 \\ \hline
-5 & HU5  & Diseño arquitectura AWS (Lambda, API Gateway) & 8 & Alumno & 0 \\ \hline
-5 & HU5  & Desarrollo funciones Lambda & 8 & Alumno & 0 \\ \hline
-5 & HU5  & Pruebas de escalabilidad & 8 & Alumno & 0 \\ \hline
-5 & HU5  & Seguridad básica y monitoreo & 8 & Alumno & 0 \\ \hline
-\end{tabularx}
-\end{table}
+Sprint 0 & Planificación inicial & Definición de alcance y cronograma & 25 & Alumno & 100 \\ \hline
+Sprint 0 & Planificación inicial & Reunión con orientador & 15 & Alumno & 100 \\ \hline
+Sprint 0 & Planificación inicial & Ajuste de entregables y metodología & 15 & Alumno & 100 \\ \hline
+
+Sprint 1 & HU1 – Obtención EEG & Exploración de datasets MOABB y carga inicial & 20 & Alumno & 10 \\ \hline
+Sprint 1 & HU1 – Obtención EEG & Limpieza preliminar de datos EEG & 30 & Alumno & 0 \\ \hline
+
+Sprint 2 & HU2 – Preprocesamiento & Diseño e implementación del pipeline de preprocesamiento & 35 & Alumno & 0 \\ \hline
+Sprint 2 & HU2 – Preprocesamiento & Evaluación y validación de datos procesados & 15 & Alumno & 0 \\ \hline
+
+Sprint 3 & HU3 – Entrenamiento del modelo IA & Definición de arquitecturas & 35 & Alumno & 0 \\ \hline
+Sprint 3 & HU3 – Entrenamiento del modelo IA & Entrenamiento inicial y validación cruzada & 25 & Alumno & 0 \\ \hline
+
+Sprint 4 & HU4 – Optimización para despliegue & Optimización de inferencia y reducción de latencia & 35 & Alumno & 0 \\ \hline
+Sprint 4 & HU4 – Optimización para despliegue & Exposición del modelo mediante API REST & 15 & Alumno & 0 \\ \hline
+
+Sprint 5 & HU5 – Procesamiento en AWS Lambda & Diseño de arquitectura en AWS  & 30 & Alumno & 0 \\ \hline
+Sprint 5 & HU5 – Procesamiento en AWS Lambda & Implementación y pruebas de funciones Lambda & 25 & Alumno & 0 \\ \hline
+
+Sprint 6 & HU6 – CI/CD Cloud & Configuración de despliegue automático y monitoreo & 50 & Alumno & 0 \\ \hline
+
+Sprint 7 & HU7 – Interfaz de usuario EEG & Diseño de interfaz gráfica de señales EEG & 25 & Alumno & 0 \\ \hline
+Sprint 7 & HU7 – Interfaz de usuario EEG & Exportación de datos en formatos CSV/JSON & 25 & Alumno & 0 \\ \hline
 
 
-\begin{table}[htpb]
-\centering
-\begin{tabularx}{\linewidth}{|l|>{\centering\arraybackslash}p{2.5cm}|X|>{\centering\arraybackslash}p{1.2cm}|>{\centering\arraybackslash}p{2.3cm}|>{\centering\arraybackslash}p{2.3cm}|}
-% \begin{tabularx}{\linewidth}{@{}|l|l|X|c|l|c|@{}}
-\hline
-\rowcolor[HTML]{C0C0C0}
-Sprint & HU  & Tarea & Horas & Responsable & Completado \% \\ \hline
-6 & HU6  & Configuración CI/CD para despliegue automático & 8 & Alumno & 0 \\ \hline
-6 & HU6  & Integración con servicios de monitoreo & 8 & Alumno & 0 \\ \hline
-6 & HU6  & Revisión de escalabilidad y rollback & 8 & Alumno & 0 \\ \hline
-6 & HU6  & Pruebas y validación en entorno productivo & 8 & Alumno & 0 \\ \hline
-7 & HU7  & Diseño de interfaz gráfica inicial & 8 & Alumno & 0 \\ \hline
-7 & HU7  & Implementación de visualización de señales & 8 & Alumno & 0 \\ \hline
-7 & HU7  & Exportación de datos a CSV y JSON & 8 & Alumno & 0 \\ \hline
-7 & HU7  & Pruebas de usabilidad & 8 & Alumno & 0 \\ \hline
-8 & HU8  & Implementación de cifrado en tránsito & 8 & Alumno & 0 \\ \hline
-8 & HU8  & Implementación de cifrado en reposo & 8 & Alumno & 0 \\ \hline
-8 & HU8  & Diseño de política de retención y eliminación & 8 & Alumno & 0 \\ \hline
-8 & HU8  & Validación del cumplimiento de normativas & 8 & Alumno & 0 \\ \hline
-9 & HU9 Planificación y memoria & Planificación inicial del proyecto & 8 & Alumno & 0 \\ \hline
-9 & HU9 Planificación y memoria & Redacción del marco teórico & 8 & Alumno & 0 \\ \hline
-9 & HU9 Planificación y memoria & Revisión bibliográfica & 8 & Alumno & 0 \\ \hline
-9 & HU9 Planificación y memoria & Elaboración del índice de memoria & 8 & Alumno & 0 \\ \hline
-10 & HU9 Planificación y memoria & Redacción de capítulos técnicos & 8 & Alumno & 0 \\ \hline
-10 & HU9 Planificación y memoria & Integración de contenidos y estilo & 8 & Alumno & 0 \\ \hline
-10 & HU9 Planificación y memoria & Revisión ortográfica y citación & 8 & Alumno & 0 \\ \hline
-10 & HU9 Planificación y memoria & Creación de material para defensa & 8 & Alumno & 0 \\ \hline
+
 \end{tabularx}
 \end{table}
 
@@ -755,10 +728,12 @@ Sprint & HU  & Tarea & Horas & Responsable & Completado \% \\ \hline
 \hline
 \rowcolor[HTML]{C0C0C0}
 Sprint & HU & Tarea & Horas & Responsable & Completado \% \\ \hline
-11 & HU9 Finalización & Revisión global de entregables & 8 & Alumno & 0 \\ \hline
-11 & HU9 Finalización & Simulacros de defensa & 8 & Alumno & 0 \\ \hline
-11 & HU9 Finalización & Correcciones finales y ajustes & 8 & Alumno & 0 \\ \hline
-11 & HU9 Finalización & Presentación ante jurado & 8 & Alumno & 0 \\ \hline
+Sprint 8 & HU8 – Seguridad datos EEG & Implementación de cifrado y política de retención & 40 & Alumno & 0 \\ \hline
+Sprint 9 & HU9 – Documentación & Redacción de capítulos técnicos & 40 & Alumno & 30 \\ \hline
+
+Sprint 10 & HU9 – Documentación & Integración final de memoria y revisión ortográfica & 40 & Alumno & 0 \\ \hline
+
+Sprint 11 & HU9 – Defensa final & Preparación de exposición y simulacros & 40 & Alumno & 0 \\ \hline
 \end{tabularx}
 \end{table}
 
