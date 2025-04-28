@@ -669,17 +669,15 @@ Cantidad total de horas: 580.
 \section{10. Diagrama de Gantt}
 \label{sec:gantt}
 
-
-En la siguiente figura se puede observar el diagrama de Gantt
+En la figura 2 se puede observar el diagrama de Gantt
+\begin{landscape}
 \begin{figure}[htpb]
-\centering 
-\includegraphics[width=.99\textwidth]{./Figuras/gant.png}
+\includegraphics[scale=0.45]{./Figuras/gantt4.png}
 \caption{Diagrama de Gantt.}
 \label{fig:diagBloques}
 \end{figure}
+\end{landscape}
 \clearpage
-
-
 
 \section{11. Planificación de Sprints}
 A continuación, se detalla la tabla de planificación de Sprints.
@@ -739,7 +737,7 @@ Sprint 11 & HU9 – Defensa final & Preparación de exposición y simulacros & 4
 
 \section{12. Normativa y cumplimiento de datos (gobernanza)}
 
-En el presente proyecto, trabajará con datos de señales EEG provenientes de datasets públicos como MOABB (\textit{Mother of All BCI Benchmarks}), un repositorio público ampliamente utilizado en la comunidad científica para el estudio de interfaces cerebro-computadora. A continuación, se analizan los aspectos legales, éticos y técnicos relacionados con la gobernanza de estos datos.
+En el presente proyecto, se trabajará con datos de señales EEG provenientes de datasets públicos como MOABB (\textit{Mother of All BCI Benchmarks}), un repositorio público ampliamente utilizado en la comunidad científica para el estudio de interfaces cerebro-computadora. A continuación, se analizan los aspectos legales, éticos y técnicos relacionados con la gobernanza de estos datos.
 
 \subsection*{12.1. Evaluación normativa aplicable}
 
@@ -759,7 +757,7 @@ Los datos EEG empleados provienen de fuentes de acceso abierto, bajo licencias q
 
 \subsection*{12.4. Fuente y licenciamiento de los datos}
 
-Los datos utilizados pertenecen al proyecto MOABB \footnote{NeuroTechX, ``MOABB: Mother of All BCI Benchmarks,'' GitHub, disponible en: \url{https://github.com/NeuroTechX/moabb}} con licencia \textit{BSD 3-Clause License}
+Los datos utilizados pertenecen al proyecto MOABB \footnote{NeuroTechX, ``MOABB: Mother of All BCI Benchmarks,'' GitHub, disponible en: \url{https://github.com/NeuroTechX/moabb}} con licencia BSD 3-Clause License
 que ofrece múltiples datasets estandarizados para evaluación de modelos BCI. Se emplean únicamente los que están públicamente disponibles y cuentan con licencias de uso explícitas para investigación académica.
 
 \subsection*{12.5. Consideraciones éticas y viabilidad legal}
@@ -802,7 +800,7 @@ Riesgo 3: falta de experiencia previa con MLOps y DevOps
     El desconocimiento en herramientas que brindan automatización pueden retrasar la integración y despliegue continuo.
     
     \item Ocurrencia (O): 7 \\
-    El desconocimiento del uso de las herramientas de automatización puede generar obstáculos técnicos, dado que el proyecto requiere el aprendizaje e implementación de estas herramientas, esto implica una curva de aprendizaje considerable.
+    El desconocimiento en el uso de las herramientas de automatización puede generar obstáculos técnicos.
 \end{itemize}
 
 Riesgo 4: vulnerabilidades en la seguridad de datos EEG
@@ -836,7 +834,7 @@ Sobrecarga de trabajo en etapas finales & 6 & 6 & 36 & 5 & 3 & 15 \\ \hline
 
 
 \end{table}
-Criterio adoptado: se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a \textbf{30}.
+Criterio adoptado: se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a 30.
 
 A continuación se presenta el plan de mitigación de los riesgos que exceden el RPN máximo establecido
 
@@ -852,7 +850,7 @@ Riesgo 2: dificultades técnicas en AWS Lambda
 \begin{itemize}
   \item Plan de mitigación: realizar pruebas de carga anticipadas con versiones reducidas del modelo. Optimizar uso de recursos desde etapas tempranas.
   \item S* = 6: se reduce al anticipar cambios arquitectónicos si son necesarios.
-  \item O* = 4: disminuye gracias a pruebas en entorno de staging con métricas reales.
+  \item O* = 4: disminuye gracias a pruebas en entorno de \textit{staging} con métricas reales.
 \end{itemize}
 
 Riesgo 3: inexperiencia en herramientas MLOps
@@ -864,14 +862,14 @@ Riesgo 3: inexperiencia en herramientas MLOps
 
 Riesgo 4: fallas en la seguridad de datos EEG
 \begin{itemize}
-  \item Plan de mitigación: Implementar cifrado en tránsito y en reposo desde el inicio. Aplicar políticas estrictas de permisos en los buckets y servicios involucrados.
+  \item Plan de mitigación: implementar cifrado en tránsito y en reposo desde el inicio. Aplicar políticas estrictas de permisos en los \textit{buckets} y servicios involucrados.
   \item S* = 6: se reduce al incorporar prácticas estándar de ciberseguridad desde el diseño.
   \item O* = 3: baja gracias al uso de herramientas automatizadas de auditoría y monitoreo.
 \end{itemize}
 
 Riesgo 5: Sobrecarga de trabajo en etapas finales
 \begin{itemize}
-  \item Plan de mitigación: Distribuir la redacción de entregables en múltiples sprints y reservar buffers en el cronograma. Usar control de versiones también para la memoria escrita.
+  \item Plan de mitigación: distribuir la redacción de entregables en múltiples sprints y reservar \textit{buffers} en el cronograma. Usar control de versiones también para la memoria escrita.
   \item S* = 5: baja al equilibrar mejor la carga desde etapas intermedias.
   \item O* = 3: disminuye al tener planificadas entregas parciales desde el sprint 6 en adelante.
 \end{itemize}
@@ -896,7 +894,7 @@ Riesgo 5: Sobrecarga de trabajo en etapas finales
                          & Limpieza y validación de señales EEG & 
 \multirow{-2}{=}{Módulo funcional para adquisición de datos} & 
 \multirow{-2}{=}{Cumple criterios de aceptación: datos limpios, cargados y validados} & 
-\multirow{-2}{=}{Puede requerirse adaptar scripts para distintos formatos de dataset} \\
+\multirow{-2}{=}{Puede requerirse adaptar \textit{scripts} para distintos formatos de dataset} \\
 \hline
                          & Entrenamiento de modelo inicial &                             &                                           &                                     \\ \cline{2-2}
 \multirow{-2}{=}{HU3}    
@@ -916,7 +914,7 @@ Riesgo 5: Sobrecarga de trabajo en etapas finales
 \multirow{-2}{=}{HU6}    
                          & Configuración de monitoreo y pruebas & 
 \multirow{-2}{=}{Modelo accesible vía API REST con CI/CD} & 
-\multirow{-2}{=}{Endpoints activos y latencia medida en menor o igual a 15s} & 
+\multirow{-2}{=}{\textit{Endpoints} activos y latencia medida en menor o igual a 15 s} & 
 \multirow{-2}{=}{Puede requerirse ajuste en recursos o permisos} \\
 \hline
 \end{tabular}
@@ -968,7 +966,7 @@ Riesgo 5: Sobrecarga de trabajo en etapas finales
 \renewcommand{\arraystretch}{1.5}
 \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}m{2.8cm}|
 								  >{\raggedright\arraybackslash}X|
-								  >{\raggedright\arraybackslash}X|
+								  >{\raggedright\arraybackslash}m{2.9cm}|
 								  >{\raggedright\arraybackslash}X|
 								  >{\raggedright\arraybackslash}X|
 								  >{\raggedright\arraybackslash}X|}
@@ -978,7 +976,7 @@ Riesgo 5: Sobrecarga de trabajo en etapas finales
 \hline
 Sprint 0 (No técnico - Planificación ) &
 Dedicar más tiempo a la planificación detallada y realista de tareas. &
-subestimación de tiempos de documentación y revisión. &
+Subestimación de tiempos de documentación y revisión. &
 La revisión cruzada de entregables antes de enviar. &
 Hacer revisiones iterativas del cronograma a medida que avance el proyecto. &
 Dejar de asumir que todas las tareas técnicas serán lineales en duración. \\
