@@ -1,184 +1,108 @@
-\chapter{Introducción específica} % Main chapter title
+\chapter{Introducción Específica} % Main chapter title
 
 \label{Chapter2}
+\label{IntroGeneral}
+En este capítulo se presentan los procedimientos técnicos para la obtención de señales EEG y los métodos de extracción de caracteristicas aplicados en este trabajo. Asimismo, se describen las arquitecturas de redes neuronales orientadas a la clasificación de tareas de imaginación motriz.
 
-%----------------------------------------------------------------------------------------
-%	SECTION 1
-%----------------------------------------------------------------------------------------
-Todos los capítulos deben comenzar con un breve párrafo introductorio que indique cuál es el contenido que se encontrará al leerlo.  La redacción sobre el contenido de la memoria debe hacerse en presente y todo lo referido al proyecto en pasado, siempre de modo impersonal.
+\section{Adquisición de datos}
 
-\section{Estilo y convenciones}
-\label{sec:ejemplo}
+El conjunto de datos seleccionado para este trabajo provino del los registros originales publicados por los autores del estudio de Dreyer2023A, el cual documentó un protocolo de adquisición de señales de EEG diseñado para el estudio de la intención motora en sujetos sanos \cite{dreyer2023large}. La recolección de la actividad cerebral se realizó mediante un sistema de alta resolución que permitió capturar las variaciones de potencial eléctrico en la corteza cerebral durante la ejecución de tareas mentales específicas, enfocadas en la discriminación de movimientos imaginados.
 
-\subsection{Uso de mayúscula inicial para los título de secciones}
+El protocolo experimental se fundamentó en un paradigma donde los participantes realizaron tareas de intención de movimiento de la mano izquierda y la mano derecha sin ejecución física. Cada ensayo siguió una secuencia temporal estricta que inició con una fase de advertencia, seguida de una señal visual o \textit{cue} (del inglés, \textit{visual cue}) que indicó la dirección del movimiento imaginado. Los sujetos mantuvieron la actividad mental durante un intervalo de cuatro segundos, lo que permitió el registro de los ritmos sensorimotores asociados a la planificación motora. Las condiciones del experimento se mantuvieron controladas en una habitación con aislamiento acústico para garantizar la repetibilidad de las mediciones.
 
-Si en el texto se hace alusión a diferentes partes del trabajo referirse a ellas como capítulo, sección o subsección según corresponda. Por ejemplo: ``En el capítulo \ref{Chapter1} se explica tal cosa'', o ``En la sección \ref{sec:ejemplo} se presenta lo que sea'', o ``En la subsección \ref{subsec:ejemplo} se discute otra cosa''.
+\subsection{Configuración técnica y estructura del conjunto de datos}
 
-Cuando se quiere poner una lista tabulada, se hace así:
-
-\begin{itemize}
-	\item Este es el primer elemento de la lista.
-	\item Este es el segundo elemento de la lista.
-\end{itemize}
-
-Notar el uso de las mayúsculas y el punto al final de cada elemento.
-
-Si se desea poner una lista numerada el formato es este:
-
-\begin{enumerate}
-	\item Este es el primer elemento de la lista.
-	\item Este es el segundo elemento de la lista.
-\end{enumerate}
-
-Notar el uso de las mayúsculas y el punto al final de cada elemento.
-
-\subsection{Este es el título de una subsección}
-\label{subsec:ejemplo}
-
-Se recomienda no utilizar \textbf{texto en negritas} en ningún párrafo, ni tampoco texto \underline{subrayado}. En cambio sí se debe utilizar \textit{texto en itálicas} para palabras en un idioma extranjero, al menos la primera vez que aparecen en el texto. En el caso de palabras que estamos inventando se deben utilizar ``comillas'', así como también para citas textuales. Por ejemplo, un \textit{digital filter} es una especie de ``selector'' que permite separar ciertos componentes armónicos en particular.
-
-La escritura debe ser impersonal. Por ejemplo, no utilizar ``el diseño del firmware lo hice de acuerdo con tal principio'', sino ``el firmware fue diseñado utilizando tal principio''. 
-
-El trabajo es algo que al momento de escribir la memoria se supone que ya está concluido, entonces todo lo que se refiera a hacer el trabajo se narra en tiempo pasado, porque es algo que ya ocurrió. Por ejemplo, "se diseñó el firmware empleando la técnica de test driven development".
-
-En cambio, la memoria es algo que está vivo cada vez que el lector la lee. Por eso transcurre siempre en tiempo presente, como por ejemplo:
-
-``En el presente capítulo se da una visión global sobre las distintas pruebas realizadas y los resultados obtenidos. Se explica el modo en que fueron llevados a cabo los test unitarios y las pruebas del sistema''.
-
-Se recomienda no utilizar una sección de glosario sino colocar la descripción de las abreviaturas como parte del mismo cuerpo del texto. Por ejemplo, RTOS (\textit{Real Time Operating System}, Sistema Operativo de Tiempo Real) o en caso de considerarlo apropiado mediante notas a pie de página.
-
-Si se desea indicar alguna página web utilizar el siguiente formato de referencias bibliográficas, dónde las referencias se detallan en la sección de bibliografía de la memoria, utilizado el formato establecido por IEEE en \citep{IEEE:citation}. Por ejemplo, ``el presente trabajo se basa en la plataforma EDU-CIAA-NXP \citep{CIAA}, la cual...''.
-
-\subsection{Figuras} 
-
-Al insertar figuras en la memoria se deben considerar determinadas pautas. Para empezar, usar siempre tipografía claramente legible. Luego, tener claro que \textbf{es incorrecto} escribir por ejemplo esto: ``El diseño elegido es un cuadrado, como se ve en la siguiente figura:''
-
-\begin{figure}[h]
-\centering
-\includegraphics[scale=.45]{./Figures/cuadradoAzul.png}
-\end{figure}
-
-La forma correcta de utilizar una figura es con referencias cruzadas, por ejemplo: ``Se eligió utilizar un cuadrado azul para el logo, como puede observarse en la figura \ref{fig:cuadradoAzul}''.
-
-\begin{figure}[ht]
+La captura de las señales se realizó mediante una distribución de 64 electrodos activos dispuestos según el sistema internacional 10-20 como puede observarse en la figura \ref{fig:electrodos}, ubicados sobre las áreas motoras y somatosensoriales. Esta disposición facilita la detección de los fenómenos de desincronización relacionada con eventos, los cuales resultan fundamentales para la clasificación de las tareas motrices. Los datos se digitalizaron con una frecuencia de muestreo de 500 Hz y se aplicó un filtro de línea de 50 Hz para reducir la interferencia eléctrica.
+\begin{figure}[htpb]
 	\centering
-	\includegraphics[scale=.45]{./Figures/cuadradoAzul.png}
-	\caption{Ilustración del cuadrado azul que se eligió para el diseño del logo.}
-	\label{fig:cuadradoAzul}
+	\includegraphics[scale=.2]{./Figures/EEG-10-20.jpg}
+	\caption{Imagen tomada de la página oficial del procesador\protect\footnotemark.}
+	\label{fig:electrodos}	
 \end{figure}
 
-El texto de las figuras debe estar siempre en español, excepto que se decida reproducir una figura original tomada de alguna referencia. En ese caso la referencia de la cual se tomó la figura debe ser indicada en el epígrafe de la figura e incluida como una nota al pie, como se ilustra en la figura \ref{fig:palabraIngles}.
+
+El conjunto de datos final se estructuró en registros correspondientes a 60 participantes sanos. Gracias a la integración con la biblioteca MOABB, se logró una segmentación uniforme de los ensayos, permitiendo que cada archivo incluyera las etiquetas de clase para la mano izquierda y la mano derecha de manera consistente. Esta organización facilitó el tratamiento digital de la información en la infraestructura en la nube, asegurando la integridad de las señales antes del proceso de entrenamiento de los modelos.
+
+En la tabla \ref{tab:dataset-dreyer} se presentan las especificaciones técnicas que caracterizaron al conjunto de datos utilizado en este trabajo, destacando la cantidad de participantes, la duración de cada ensayo, el número de ensayos por clase y la calidad de las señales obtenidas. Esta información es crucial para comprender el contexto en el que se desarrolló el modelo de clasificación de imaginación motriz y para evaluar su desempeño en función de las características del conjunto de datos.
+
+
+\begin{table}[h]
+	\centering
+	\caption[dataset dreyer]{Especificaciones técnicas del conjunto de datos Dreyer2023A.}
+	\begin{tabular}{p{6cm} p{6cm} p{4.5cm} p{4.5cm}}
+		\toprule
+		\textbf{Parámetro} & \textbf{Valor} \\
+		\midrule
+		Número de sujetos           	& 60 \\
+		Número de canales EEG           & 27 \\
+		Número de clases de imaginación motriz 	& 2 (mano izquierda, mano derecha) \\
+		Frecuencia de muestreo  		& 500 Hz \\
+		Duración de ensayo  		    & 5 s \\
+		Runs por sujeto					& 6 \\
+		Ensayos por clase por sujeto 	& 20 \\
+
+		\bottomrule
+	\end{tabular}
+	\label{tab:dataset-dreyer}
+\end{table}
+
+\section{Métodos tradicionales para EEG y extracción automática de caracteristicas}
+Tradicionalmente, la decodificación de la imaginación motriz se fundamentó en el uso de algoritmos de aprendizaje automático o Machine Learning combinados con una etapa crítica de ingeniería de rasgos manual.
+
+El método tradicional generalizado consiste en la aplicación de CSP. Esta técnica se basa en la descomposición de las señales para maximizar la varianza entre clases, facilitando la separación de los estados mentales de movimiento \cite{riascos2024machine}. Tras la extracción de estos patrones, se emplearon clasificadores de baja complejidad como el análisis discriminante lineal o \textit{LDA} (del inglés, \textit{Linear Discriminant Analysis}) y las máquinas de vectores de soporte o \textit{SVM} (del inglés, \textit{Support Vector Machines}). Si bien estos métodos demostraron eficacia en entornos controlados, presentan una alta sensibilidad a la colocación de los electrodos y requieren un ajuste experto de las bandas de frecuencia para cada sujeto.
+
+Frente a estas limitaciones, el avance hacia el aprendizaje profundo o Deep Learning permite el desarrollo de modelos que ejecutan la extracción automática de características. A diferencia de los esquemas clásicos, estas arquitecturas aprenden representaciones jerárquicas directamente de los datos crudos. Sin embargo, en este trabajo se identificó que la calidad de la adquisición sigue siendo un factor determinante para el éxito de estos modelos. Una configuración deficiente en la toma de muestras o una mala colocación de los sensores introducen artefactos que las redes neuronales pueden interpretar erróneamente como patrones fisiológicos, afectando la robustez de la predicción final. Por lo tanto, la capacidad de los modelos profundos para identificar rasgos imperceptibles no exime al sistema de la necesidad de contar con señales de alta fidelidad.
+
+En la tabla \ref{tab:comparacionmetodos} se presenta una comparación entre los métodos tradicionales de procesamiento de EEG y las técnicas de aprendizaje profundo. destacando sus características, ventajas y limitaciones en el contexto del análisis de señales EEG para la clasificación de tareas de imaginación motriz.
+
+\begin{table}[h]
+	\centering
+	\caption[Comparación entre modelos]{Comparación entre métodos tradicionales y modelos de aprendizaje profundo para el análisis de EEG.}
+	\begin{tabular}{p{3cm} p{4cm} p{4cm}}
+		\toprule
+		\textbf{Característica} & \textbf{Métodos Tradicionales (CSP, SVM, LDA)} & \textbf{Aprendizaje Profundo (CNN, EEGNet)} \\
+		\midrule
+		Extracción de rasgos           	& Manual y basada en conocimiento experto. & Automática a partir de los datos de entrada. \\
+		Sensibilidad al ruido          	& Muy alta requiere filtros manuales estrictos. & Moderada, puede aprender a filtrar, pero depende de la calidad del dato. \\
+		Manejo de datos           		& Requiere segmentación y filtrado previo. & Capacidad de procesar señales con preprocesamiento mínimo. \\
+		Rendimiento           			& Limitado ante señales no estacionarias. & Mayor robustez y escalabilidad con grandes volúmenes de datos.\\
+		Dependencia           			& Alta dependencia de la calibración por sujeto. & Potencial para el aprendizaje transferido entre sujetos. \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:comparacionmetodos}
+\end{table}
+
+\section{Arquitecturas de redes neuronales para EEG en imaginación motriz}
+
+Las CNN se consolidaron como una de las herramientas más eficaces para la extracción de características. Mediante el uso de filtros de convolución, estas redes permitieron identificar patrones de activación en regiones específicas de la corteza motora, simulando de manera automática el comportamiento de los filtros espaciales tradicionales. En este trabajo, el uso de las CNN facilitó la detección de cambios en la amplitud de los ritmos sensorimotores asociados a la intención de movimiento de las extremidades.
+
+Por otro lado, para el análisis de la dinámica temporal de las señales EEG, se exploraron las redes neuronales recurrentes o \textit{RNN} (del inglés, \textit{Recurrent Neural Networks}), específicamente las unidades de memoria de largo corto plazo o \textit{LSTM} (del inglés, \textit{Long Short-Term Memory}) y las unidades recurrentes calificadas o \textit{GRU} (del inglés, \textit{Gated Recurrent Units}). Estas arquitecturas permitieron modelar la evolución de la señal a lo largo del tiempo, utilizando mecanismos de puertas para retener información relevante y descartar el ruido transitorio. Mientras que las LSTM emplearon una estructura compleja para gestionar la memoria a largo plazo, las GRU ofrecieron una alternativa más eficiente en términos computacionales, manteniendo un rendimiento competitivo en la clasificación de series temporales de EEG.
+
+Por último, este trabajo consideró enfoques híbridos que integran las ventajas de ambos modelos. Las arquitecturas de tipo CNN-LSTM permitieron realizar una extracción de rasgos espaciales en las primeras capas para luego procesar la secuencia temporal resultante, con el fin de optimizar la capacidad del sistema para reconocer la intención del usuario. Esta combinación resultó estratégica para manejar la alta dimensionalidad de los datos del conjunto de datos Dreyer2023A, asegurando una representación robusta antes de la etapa de clasificación final.
+
+El enfoque hibrido y las arquitecturas de redes neuronales aplicadas al análisis de señales EEG, se puede observar en la figura \ref{fig:arquitecturas}, donde se ilustra la estructura general de cada modelo y su aplicación específica en el contexto de la clasificación de tareas de imaginación motriz.
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[scale=.3]{./Figures/word.jpeg}
-	\caption{Imagen tomada de la página oficial del procesador\protect\footnotemark.}
-	\label{fig:palabraIngles}
+	\includegraphics[scale=.25]{./Figures/redes-neuronales-eeg.png}
+	\caption{Imagen generada por inteligencia artificial}
+	\label{fig:arquitecturas}	
 \end{figure}
 
-\footnotetext{Imagen tomada de \url{https://goo.gl/images/i7C70w}}
 
-La figura y el epígrafe deben conformar una unidad cuyo significado principal pueda ser comprendido por el lector sin necesidad de leer el cuerpo central de la memoria. Para eso es necesario que el epígrafe sea todo lo detallado que corresponda y si en la figura se utilizan abreviaturas entonces aclarar su significado en el epígrafe o en la misma figura.
-
-
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[scale=.37]{./Figures/questionMark.png}
-	\caption{¿Por qué de pronto aparece esta figura?}
-	\label{fig:questionMark}
-\end{figure}
-
-Nunca colocar una figura en el documento antes de hacer la primera referencia a ella, como se ilustra con la figura \ref{fig:questionMark}, porque sino el lector no comprenderá por qué de pronto aparece la figura en el documento, lo que distraerá su atención.
-
-Otra posibilidad es utilizar el entorno \textit{subfigure} para incluir más de una figura, como se puede ver en la figura \ref{fig:three graphs}. Notar que se pueden referenciar también las figuras internas individualmente de esta manera: \ref{fig:1de3}, \ref{fig:2de3} y \ref{fig:3de3}.
- 
-\begin{figure}[!htpb]
-     \centering
-     \begin{subfigure}[b]{0.3\textwidth}
-         \centering
-         \includegraphics[width=.65\textwidth]{./Figures/questionMark}
-         \caption{Un caption.}
-         \label{fig:1de3}
-     \end{subfigure}
-     \hfill
-     \begin{subfigure}[b]{0.3\textwidth}
-         \centering
-         \includegraphics[width=.65\textwidth]{./Figures/questionMark}
-         \caption{Otro.}
-         \label{fig:2de3}
-     \end{subfigure}
-     \hfill
-     \begin{subfigure}[b]{0.3\textwidth}
-         \centering
-         \includegraphics[width=.65\textwidth]{./Figures/questionMark}
-         \caption{Y otro más.}
-         \label{fig:3de3}
-     \end{subfigure}
-        \caption{Tres gráficos simples.}
-        \label{fig:three graphs}
-\end{figure}
-
-El código para generar las imágenes se encuentra disponible para su reutilización en el archivo \file{Chapter2.tex}.
-
-\subsection{Tablas}
-
-Para las tablas utilizar el mismo formato que para las figuras, sólo que el epígrafe se debe colocar arriba de la tabla, como se ilustra en la tabla \ref{tab:peces}. Observar que sólo algunas filas van con líneas visibles y notar el uso de las negritas para los encabezados.  La referencia se logra utilizando el comando \verb|\ref{<label>}| donde label debe estar definida dentro del entorno de la tabla.
-
-\begin{verbatim}
-\begin{table}[h]
-	\centering
-	\caption[caption corto]{caption largo más descriptivo}
-	\begin{tabular}{l c c}    
-		\toprule
-		\textbf{Especie}     & \textbf{Tamaño} & \textbf{Valor}\\
-		\midrule
-		Amphiprion Ocellaris & 10 cm           & \$ 6.000 \\		
-		Hepatus Blue Tang    & 15 cm           & \$ 7.000 \\
-		Zebrasoma Xanthurus  & 12 cm           & \$ 6.800 \\
-		\bottomrule
-		\hline
-	\end{tabular}
-	\label{tab:peces}
-\end{table}
-\end{verbatim}
-
+En la tabla \ref{tab:comparacionarquitecturas} se presenta una comparación técnica entre las arquitecturas de redes neuronales aplicadas al análisis de señales EEG, se destaca las características, ventajas y limitaciones en el contexto de la clasificación de tareas de imaginación motriz. Esta comparación proporciona una visión integral de cómo cada enfoque contribuye al procesamiento de las señales EEG y a la mejora del rendimiento en la decodificación de la intención motora.
 
 \begin{table}[h]
 	\centering
-	\caption[caption corto]{caption largo más descriptivo.}
-	\begin{tabular}{l c c}    
+	\caption[Comparación entre arquitecturas]{Comparación entre arquitecturas CNN, LSTM y CNN-LSTM en EEG.}
+	\begin{tabular}{p{2cm} p{3cm} p{3.5cm} p{3.5cm}}
 		\toprule
-		\textbf{Especie} 	 & \textbf{Tamaño} 		& \textbf{Valor}  \\
+		\textbf{Característica} & \textbf{Métodos Tradicionales (CSP, SVM, LDA)} & \textbf{Aprendizaje Profundo (CNN, EEGNet)} & \textbf{Aprendizaje Profundo (CNN, EEGNet)} \\
 		\midrule
-		Amphiprion Ocellaris & 10 cm 				& \$ 6.000 \\		
-		Hepatus Blue Tang	 & 15 cm				& \$ 7.000 \\
-		Zebrasoma Xanthurus	 & 12 cm				& \$ 6.800 \\
+		CNN           	& Excelente extracción de rasgos espaciales y locales. & No captura eficientemente dependencias temporales largas. & Identificación de patrones en la distribución de electrodos.\\
+		LSTM / GRU      & Especializadas en modelado de secuencias y series temporales. & Alto costo computacional y riesgo de desvanecimiento de gradiente. & Análisis de la evolución temporal de los ritmos cerebrales. \\
+		CNN-LSTM        & Combina el aprendizaje de rasgos espaciales y temporales. & Mayor complejidad en el entrenamiento y ajuste de parámetros. & Clasificación integral de ensayos de imaginación motriz. \\ 
 		\bottomrule
-		\hline
 	\end{tabular}
-	\label{tab:peces}
+	\label{tab:comparacionarquitecturas}
 \end{table}
-
-En cada capítulo se debe reiniciar el número de conteo de las figuras y las tablas, por ejemplo, figura 2.1 o tabla 2.1, pero no se debe reiniciar el conteo en cada sección. Por suerte la plantilla se encarga de esto por nosotros.
-
-\subsection{Ecuaciones}
-\label{sec:Ecuaciones}
-
-Al insertar ecuaciones en la memoria dentro de un entorno \textit{equation}, éstas se numeran en forma automática  y se pueden referir al igual que como se hace con las figuras y tablas, por ejemplo ver la ecuación \ref{eq:metric}.
-
-\begin{equation}
-	\label{eq:metric}
-	ds^2 = c^2 dt^2 \left( \frac{d\sigma^2}{1-k\sigma^2} + \sigma^2\left[ d\theta^2 + \sin^2\theta d\phi^2 \right] \right)
-\end{equation}
-                                                        
-Para generar la ecuación \ref{eq:metric} se utilizó el siguiente código:
-
-\begin{verbatim}
-\begin{equation}
-	\label{eq:metric}
-	ds^2 = c^2 dt^2 \left( \frac{d\sigma^2}{1-k\sigma^2} + 
-	\sigma^2\left[ d\theta^2 + 
-	\sin^2\theta d\phi^2 \right] \right)
-\end{equation}
-\end{verbatim}
