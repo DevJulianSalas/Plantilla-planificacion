@@ -24,9 +24,9 @@ En este capítulo se presentan los fundamentos de las tecnologías de interfaz c
 %----------------------------------------------------------------------------------------
 \section{Interfaces cerebro-computador}
 
-Las interfaces cerebro-computador o \textit{BCI} (del inglés, \textit{Brain-Computer Interface}) se definen como sistemas que establecen una vía de comunicación directa entre el cerebro humano y un dispositivo externo \cite{wolpaw2002bci}. Estos sistemas permitieron la traducción de patrones de actividad cerebral en comandos de control sin la intervención de las vías periféricas neuromusculares tradicionales.
+Las interfaces cerebro-computador o BCI (del inglés, \textit{Brain-Computer Interface}) se definen como sistemas que establecen una vía de comunicación directa entre el cerebro humano y un dispositivo externo \cite{wolpaw2002bci}. Estos sistemas permitieron la traducción de patrones de actividad cerebral en comandos de control sin la intervención de las vías periféricas neuromusculares tradicionales.
 
-El funcionamiento de una BCI se fundamentó en la adquisición de señales bioeléctricas, su procesamiento digital y la posterior ejecución de acciones en un entorno computacional o físico. En el desarrollo de este trabajo, se consideraron las señales electroencefalográficas o \textit{EEG} (del inglés, \textit{electroencephalogram}) debido a su naturaleza no invasiva y su capacidad para registrar la intención motriz del usuario en tiempo real. La integración de estos dispositivos con servicios en la nube facilita el procesamiento de grandes volúmenes de datos, lo que permite optimizar la capacidad de respuesta del los sistemas ante tareas de imaginación motriz.
+El funcionamiento de una BCI se fundamentó en la adquisición de señales bioeléctricas, su procesamiento digital y la posterior ejecución de acciones en un entorno computacional o físico. En el desarrollo de este trabajo, se consideraron las señales electroencefalográficas o EEG (del inglés, \textit{electroencephalogram}) debido a su naturaleza no invasiva y su capacidad para registrar la intención motriz del usuario en tiempo real. La integración de estos dispositivos con servicios en la nube facilita el procesamiento de grandes volúmenes de datos, lo que permite optimizar la capacidad de respuesta del los sistemas ante tareas de imaginación motriz.
 
 
 \subsection{Arquitectura funcional de un sistema BCI}
@@ -41,20 +41,20 @@ La imaginación motriz se define como el proceso cognitivo en el que un individu
 
 \subsection{Dispositivos de adquisición de señales EEG}
 
-La captura de la actividad eléctrica cerebral se realiza habitualmente mediante sistemas de EEG, estos se clasifican según su movilidad y el tipo de sensores empleados. En el ámbito de la investigación, se destacan dispositivos de grado médico y equipos portátiles diseñados para aplicaciones fuera del entorno clínico \cite{casson2010wearable}.
+La captura de la actividad eléctrica cerebral se realiza habitualmente mediante sistemas de EEG. Estos se clasifican según su movilidad y el tipo de sensores empleados. En el ámbito de la investigación, se destacan dispositivos de grado médico y equipos portátiles diseñados para aplicaciones fuera del entorno clínico \cite{casson2010wearable}.
 
-Aunque en este proyecto se utilizó un conjunto de datos o dataset previamente registrado, la comprensión de estos dispositivos resultó pertinente para el análisis de la calidad de la señal.
+Aunque en este trabajo se utilizó un conjunto de datos o dataset previamente registrado, la comprensión de estos dispositivos resultó pertinente para el análisis de la calidad de la señal.
 
 %----------------------------------------------------------------------------------------
 
 \section{Estado del arte}
 
 La presente revisión del estado del arte tiene como objetivo identificar las metodologías dominantes en la clasificación de tareas de imaginación motriz mediante EEG. En los últimos años, el estudio de las BCI ha cobrado relevancia debido a la convergencia entre la neurociencia computacional y el aprendizaje profundo, lo que permite aprender directamente de las señales crudas,
-sin depender de métodos tradicionales de extracción de características como el patrón especial común o \textit{CSP} (del inglés, \textit{Common Spatial Pattern}) \cite{schirrmeister2017deep}.
+sin depender de métodos tradicionales de extracción de características como el patrón especial común o CSP (del inglés, \textit{Common Spatial Pattern}) \cite{schirrmeister2017deep}.
 
-Las redes neuronales convolucionales o \textit{CNN} (del ingles, \textit{Convolutional Neural Network}) constituyen una de las aproximaciones más utilizadas. Estas redes capturan patrones espaciales en las señales EEG y han demostrado un buen desempeño en la clasificación de tareas de imaginación motriz. Modelos como EEGNet introducen arquitecturas compactas que logran buenos resultados incluso con pocos datos de entrenamiento \cite{lawhern2018eegnet}.
+Las redes neuronales convolucionales o CNN (del ingles, \textit{Convolutional Neural Network}) constituyen una de las aproximaciones más utilizadas. Estas redes capturan patrones espaciales en las señales EEG y han demostrado un buen desempeño en la clasificación de tareas de imaginación motriz. Modelos como EEGNet introducen arquitecturas compactas que logran buenos resultados incluso con pocos datos de entrenamiento \cite{lawhern2018eegnet}.
 
-Por otra parte, las redes recurrentes, especialmente las de memoria a corto y largo plazo o \textit{LSTM} (del inglés, \textit{Long Short-Term Memory}), permiten modelar la dinámica temporal de las señales EEG. Estas arquitecturas capturan dependencias en el tiempo que resultan clave para identificar patrones asociados a la imaginación de movimiento. Estudios recientes reportan que modelos basados en LSTM alcanzan desempeños superiores frente a métodos tradicionales \cite{roy2019deep}.
+Por otra parte, las redes recurrentes, especialmente las de memoria a corto y largo plazo o LSTM (del inglés, \textit{Long Short-Term Memory}), permiten modelar la dinámica temporal de las señales EEG. Estas arquitecturas capturan dependencias en el tiempo que resultan clave para identificar patrones asociados a la imaginación de movimiento. Estudios recientes reportan que modelos basados en LSTM alcanzan desempeños superiores frente a métodos tradicionales \cite{roy2019deep}.
 
 Asimismo, las arquitecturas híbridas que combinan CNN y LSTM han ganado relevancia. Estas combinaciones permiten integrar información espacial y temporal en un mismo modelo. Investigaciones muestran que este enfoque mejora la capacidad de generalización y aumenta la precisión en comparación con modelos individuales  \cite{roy2019deep, bashivan2015learning}.
 
@@ -63,7 +63,7 @@ En los trabajos más recientes, se han propuesto variantes más eficientes como 
 La literatura técnica muestra un interés  en el desplazamiento desde los métodos basados en la extracción manual de características, como los CSP, hacia sistemas de aprendizaje profundo. Mientras que los algoritmos tradicionales destacan por su baja carga computacional, las investigaciones recientes exponen que las arquitecturas híbridas logran una mayor robustez ante la variabilidad entre sujetos. Sin embargo, aún persisten
 retos relacionados con la variabilidad entre usuarios, la necesidad de grandes volúmenes de datos y la robustez en entornos reales \cite{roy2019deep}.
 
-En la tabla \ref{tab:clasificacionimaginacionmotriz} se presenta la comparativa técnica de las arquitecturas y enfoques identificados en la revisión bibliográfica
+En la tabla \ref{tab:clasificacionimaginacionmotriz} se presenta la comparativa técnica de las arquitecturas y enfoques identificados en la revisión bibliográfica.
 
 \begin{table}[h]
 	\centering
@@ -82,7 +82,7 @@ En la tabla \ref{tab:clasificacionimaginacionmotriz} se presenta la comparativa 
 %----------------------------------------------------------------------------------------
 \section{Motivación}
 
-El desarrollo de este proyecto se justificó en la necesidad de mejorar la precisión en la predicción de la intención de movimiento de un usuario a partir de señales EEG asociadas a tareas de imaginación motriz. A pesar de los avances en el procesamiento de señales biológicas, los métodos tradicionales presentan dificultades para adaptarse a la variabilidad de los ritmos sensorimotores entre diferentes individuos, lo que limita su aplicación en entornos reales fuera del laboratorio \cite{wolpaw2002bci,lotte2015signal}.
+El desarrollo de este trabajo se justificó en la necesidad de mejorar la precisión en la predicción de la intención de movimiento de un usuario a partir de señales EEG asociadas a tareas de imaginación motriz. A pesar de los avances en el procesamiento de señales biológicas, los métodos tradicionales presentan dificultades para adaptarse a la variabilidad de los ritmos sensorimotores entre diferentes individuos, lo que limita su aplicación en entornos reales fuera del laboratorio \cite{wolpaw2002bci,lotte2015signal}.
 
 La implementación de modelos de inteligencia artificial avanzados permitió abordar la naturaleza no lineal y compleja de las señales de imaginación motriz, que presentan una alta variabilidad entre sujetos. Durante el análisis preliminar, se identificó que el procesamiento local en dispositivos embebidos restringía el uso de arquitecturas de aprendizaje profundo debido a las limitaciones de memoria y capacidad de cómputo de los sistemas portátiles. Por lo tanto, la integración de una infraestructura en la nube se presentó como una solución técnica viable para ejecutar modelos de alta complejidad sin comprometer la portabilidad ni la autonomía del sistema de adquisición.
 
@@ -101,6 +101,9 @@ Establecer una base técnica que permitiera analizar patrones neuronales asociad
 \subsection{Objetivos específicos}
 \label{subsec:configurando}
 
+Para cumplir con el objetivo general, se plantearon los siguientes objetivos específicos:
+
+
 \begin{itemize}
 	\item Implementar una arquitectura de red neuronal capaz de identificar con precisión las intenciones de movimiento a partir de señales EEG.
 	\item Diseñar un flujo de datos que integrara la adquisición de señales con el procesamiento remoto en una plataforma en la nube.
@@ -113,4 +116,4 @@ Establecer una base técnica que permitiera analizar patrones neuronales asociad
 El alcance de este trabajo comprendió desde la selección y limpieza del conjunto de datos hasta el despliegue del modelo de inferencia en servidores remotos. Se limitó el estudio al análisis de tareas motoras binarias como el movimiento imaginado de mano izquierda y derecha, utilizando datasets de acceso público para garantizar la validación estadística de los resultados.
 
 
-El sistema se diseñó para operar de forma asíncrona, priorizando la precisión del clasificador sobre la respuesta inmediata de baja latencia, estableciendo así un marco de trabajo robusto para la investigación de algoritmos complejos. No se incluyó en esta etapa el desarrollo de hardware de adquisición propio ni la implementación de biorretroalimentación en tiempo real para el usuario final.
+El sistema se diseñó para operar de forma asíncrona, priorizando la precisión del clasificador sobre la respuesta inmediata de baja latencia, se establece así un marco de trabajo robusto para la investigación de algoritmos complejos. No se incluyó en esta etapa el desarrollo de hardware de adquisición propio ni la implementación de biorretroalimentación en tiempo real para el usuario final.
