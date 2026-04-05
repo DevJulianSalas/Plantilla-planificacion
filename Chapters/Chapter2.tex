@@ -1,18 +1,22 @@
-\chapter{Introducción Específica} % Main chapter title
+\chapter{Introducción específica} % Main chapter title
 
 \label{Chapter2}
 \label{IntroGeneral}
-En este capítulo se presentan los procedimientos técnicos para la obtención de señales EEG y los métodos de extracción de caracteristicas aplicados en este trabajo. Asimismo, se describen las arquitecturas de redes neuronales orientadas a la clasificación de tareas de imaginación motriz.
+En este capítulo se presentan los procedimientos técnicos para la obtención de señales EEG y los métodos de extracción de características aplicados en este trabajo. Asimismo, se describen las arquitecturas de redes neuronales orientadas a la clasificación de tareas de imaginación motriz.
 
 \section{Adquisición de datos}
 
-El conjunto de datos seleccionado para este trabajo provino del los registros originales publicados por los autores del estudio de Dreyer2023A, el cual documentó un protocolo de adquisición de señales de EEG diseñado para el estudio de la intención motora en sujetos sanos \cite{dreyer2023large}. La recolección de la actividad cerebral se realizó mediante un sistema de alta resolución que permitió capturar las variaciones de potencial eléctrico en la corteza cerebral durante la ejecución de tareas mentales específicas, enfocadas en la discriminación de movimientos imaginados.
+El conjunto de datos seleccionado para este trabajo provino de los registros originales publicados por los autores del estudio Dreyer2023A \cite{dreyer2023large}, que presenta una base de datos de señales EEG orientada al análisis de la intención motora en sujetos sanos.
 
-El protocolo experimental se fundamentó en un paradigma donde los participantes realizaron tareas de intención de movimiento de la mano izquierda y la mano derecha sin ejecución física. Cada ensayo siguió una secuencia temporal estricta que inició con una fase de advertencia, seguida de una señal visual o \textit{cue} (del inglés, \textit{visual cue}) que indicó la dirección del movimiento imaginado. Los sujetos mantuvieron la actividad mental durante un intervalo de cuatro segundos, lo que permitió el registro de los ritmos sensorimotores asociados a la planificación motora. Las condiciones del experimento se mantuvieron controladas en una habitación con aislamiento acústico para garantizar la repetibilidad de las mediciones.
+Es importante destacar que la adquisición de las señales EEG y el diseño del protocolo experimental fueron realizados por los autores del estudio original. En este trabajo no se llevó a cabo la recolección de datos, sino que se utilizó este conjunto de datos público como base para el desarrollo de los procesos de análisis, modelado y clasificación.
+
+En el estudio original, la recolección de la actividad cerebral se realiza mediante un sistema de alta resolución que permite capturar las variaciones de potencial eléctrico en la corteza cerebral durante la ejecución de tareas mentales específicas, enfocadas en la discriminación de movimientos imaginados.
+
+El protocolo experimental se fundamenta en un paradigma donde los participantes realizaron tareas de intención de movimiento de la mano izquierda y la mano derecha sin ejecución física. Cada ensayo sigue una secuencia temporal estricta que inicia con una fase de advertencia, seguida de una señal visual que indica la dirección del movimiento imaginado. Los sujetos mantienen la actividad mental durante un intervalo de cuatro segundos, lo que permite el registro de los ritmos sensorimotores asociados a la planificación motora. Las condiciones del experimento se mantienen controladas en una habitación con aislamiento acústico para garantizar la repetibilidad de las mediciones.
 
 \subsection{Configuración técnica y estructura del conjunto de datos}
 
-La captura de las señales se realizó mediante una distribución de 64 electrodos activos dispuestos según el sistema internacional 10-20 como puede observarse en la figura \ref{fig:electrodos}, ubicados sobre las áreas motoras y somatosensoriales. Esta disposición facilita la detección de los fenómenos de desincronización relacionada con eventos, los cuales resultan fundamentales para la clasificación de las tareas motrices. Los datos se digitalizaron con una frecuencia de muestreo de 500 Hz y se aplicó un filtro de línea de 50 Hz para reducir la interferencia eléctrica.
+En el estudio original, la captura de las señales la realizaron mediante una distribución de 64 electrodos activos dispuestos según el sistema internacional 10-20 como puede observarse en la figura \ref{fig:electrodos}, estos se ubican sobre las áreas motoras y somatosensoriales. Esta disposición facilita la detección de los fenómenos de desincronización relacionada con eventos, los cuales resultan fundamentales para la clasificación de las tareas motrices. Los datos se registran con una frecuencia de muestreo de 500 Hz y aplican un filtro de línea de 50 Hz para reducir la interferencia eléctrica.
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[scale=.2]{./Figures/EEG-10-20.jpg}
@@ -21,52 +25,53 @@ La captura de las señales se realizó mediante una distribución de 64 electrod
 \end{figure}
 
 
-El conjunto de datos final se estructuró en registros correspondientes a 60 participantes sanos. Gracias a la integración con la biblioteca MOABB, se logró una segmentación uniforme de los ensayos, permitiendo que cada archivo incluyera las etiquetas de clase para la mano izquierda y la mano derecha de manera consistente. Esta organización facilitó el tratamiento digital de la información en la infraestructura en la nube, asegurando la integridad de las señales antes del proceso de entrenamiento de los modelos.
+% El conjunto de datos final se estructuró en registros correspondientes a 60 participantes sanos. Gracias a la integración con la biblioteca MOABB, se logró una segmentación uniforme de los ensayos, permitiendo que cada archivo incluyera las etiquetas de clase para la mano izquierda y la mano derecha de manera consistente. Esta organización facilitó el tratamiento digital de la información en la infraestructura en la nube, asegurando la integridad de las señales antes del proceso de entrenamiento de los modelos.
 
-En la tabla \ref{tab:dataset-dreyer} se presentan las especificaciones técnicas que caracterizaron al conjunto de datos utilizado en este trabajo, destacando la cantidad de participantes, la duración de cada ensayo, el número de ensayos por clase y la calidad de las señales obtenidas. Esta información es crucial para comprender el contexto en el que se desarrolló el modelo de clasificación de imaginación motriz y para evaluar su desempeño en función de las características del conjunto de datos.
-
+En la tabla \ref{tab:dataset-dreyer} se presentan las especificaciones técnicas que caracterizaron al conjunto de datos utilizado en este trabajo, se destaca la cantidad de participantes, la duración de cada ensayo, el número de ensayos por clase y la calidad de las señales obtenidas. Esta información es crucial para comprender el contexto en el que se desarrolló el modelo de clasificación de imaginación motriz y para evaluar su desempeño en función de las características del conjunto de datos.
 
 \begin{table}[h]
 	\centering
 	\caption[dataset dreyer]{Especificaciones técnicas del conjunto de datos Dreyer2023A.}
-	\begin{tabular}{p{6cm} p{6cm} p{4.5cm} p{4.5cm}}
+	\begin{tabular}{L{8cm} L{4cm}}
 		\toprule
 		\textbf{Parámetro} & \textbf{Valor} \\
 		\midrule
 		Número de sujetos           	& 60 \\
-		Número de canales EEG           & 27 \\
+		Número de canales EEG        & 27 \\
 		Número de clases de imaginación motriz 	& 2 (mano izquierda, mano derecha) \\
 		Frecuencia de muestreo  		& 500 Hz \\
 		Duración de ensayo  		    & 5 s \\
-		Runs por sujeto					& 6 \\
-		Ensayos por clase por sujeto 	& 20 \\
-
+		Runs por sujeto				& 6 \\
+		Ensayos por clase por sujeto & 20 \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:dataset-dreyer}
 \end{table}
 
-\section{Métodos tradicionales para EEG y extracción automática de caracteristicas}
-Tradicionalmente, la decodificación de la imaginación motriz se fundamentó en el uso de algoritmos de aprendizaje automático o Machine Learning combinados con una etapa crítica de ingeniería de rasgos manual.
+\section{Métodos tradicionales para EEG y extracción automática de características}
+Tradicionalmente, la decodificación de la imaginación motriz se fundamenta en el uso de algoritmos de aprendizaje automático o Machine Learning combinados con una etapa crítica de ingeniería de rasgos manual.
 
-El método tradicional generalizado consiste en la aplicación de CSP. Esta técnica se basa en la descomposición de las señales para maximizar la varianza entre clases, facilitando la separación de los estados mentales de movimiento \cite{riascos2024machine}. Tras la extracción de estos patrones, se emplearon clasificadores de baja complejidad como el análisis discriminante lineal o \textit{LDA} (del inglés, \textit{Linear Discriminant Analysis}) y las máquinas de vectores de soporte o \textit{SVM} (del inglés, \textit{Support Vector Machines}). Si bien estos métodos demostraron eficacia en entornos controlados, presentan una alta sensibilidad a la colocación de los electrodos y requieren un ajuste experto de las bandas de frecuencia para cada sujeto.
+El método tradicional generalizado consiste en la aplicación de CSP. Esta técnica se basa en la descomposición de las señales para maximizar la varianza entre clases, que facilita la separación de los estados mentales de movimiento \cite{riascos2024machine}. Tras la extracción de estos patrones, se emplean clasificadores de baja complejidad como el análisis discriminante lineal o LDA (del inglés, \textit{Linear Discriminant Analysis}) y las máquinas de vectores de soporte o SVM (del inglés, \textit{Support Vector Machines}). Si bien estos métodos demuestran eficacia en entornos controlados, presentan una alta sensibilidad a la colocación de los electrodos y requieren un ajuste experto de las bandas de frecuencia para cada sujeto.
 
-Frente a estas limitaciones, el avance hacia el aprendizaje profundo o Deep Learning permite el desarrollo de modelos que ejecutan la extracción automática de características. A diferencia de los esquemas clásicos, estas arquitecturas aprenden representaciones jerárquicas directamente de los datos crudos. Sin embargo, en este trabajo se identificó que la calidad de la adquisición sigue siendo un factor determinante para el éxito de estos modelos. Una configuración deficiente en la toma de muestras o una mala colocación de los sensores introducen artefactos que las redes neuronales pueden interpretar erróneamente como patrones fisiológicos, afectando la robustez de la predicción final. Por lo tanto, la capacidad de los modelos profundos para identificar rasgos imperceptibles no exime al sistema de la necesidad de contar con señales de alta fidelidad.
+Frente a estas limitaciones, el avance hacia el aprendizaje profundo o \textit{Deep Learning} ha permitido el desarrollo de modelos capaces de realizar la extracción automática de características. A diferencia de los esquemas clásicos, estas arquitecturas aprenden representaciones jerárquicas directamente a partir de los datos crudos, se reduce la necesidad de una ingeniería de rasgos manual.
 
-En la tabla \ref{tab:comparacionmetodos} se presenta una comparación entre los métodos tradicionales de procesamiento de EEG y las técnicas de aprendizaje profundo. destacando sus características, ventajas y limitaciones en el contexto del análisis de señales EEG para la clasificación de tareas de imaginación motriz.
+Sin embargo, diversos estudios han señalado que la calidad de la adquisición de las señales EEG continúa siendo un factor determinante en el desempeño de estos modelos. Una configuración deficiente en la toma de muestras o una inadecuada colocación de los sensores puede introducir artefactos que las redes neuronales interpretan erróneamente como patrones fisiológicos, que afecta la robustez de la predicción. Por lo tanto, aunque los modelos de aprendizaje profundo contengan la capacidad de identificar características complejas, su desempeño depende en gran medida de la calidad y fidelidad de las señales de entrada.
 
-\begin{table}[h]
+
+En la tabla \ref{tab:comparacionmetodos} se presenta una comparación entre los métodos tradicionales de procesamiento de EEG y las técnicas de aprendizaje profundo. Estas destacan sus características, ventajas y limitaciones en el contexto del análisis de señales EEG para la clasificación de tareas de imaginación motriz.
+
+\begin{table}[H]
 	\centering
 	\caption[Comparación entre modelos]{Comparación entre métodos tradicionales y modelos de aprendizaje profundo para el análisis de EEG.}
-	\begin{tabular}{p{3cm} p{4cm} p{4cm}}
+	\begin{tabular}{L{3cm} L{4cm} L{4cm}}
 		\toprule
 		\textbf{Característica} & \textbf{Métodos Tradicionales (CSP, SVM, LDA)} & \textbf{Aprendizaje Profundo (CNN, EEGNet)} \\
 		\midrule
-		Extracción de rasgos           	& Manual y basada en conocimiento experto. & Automática a partir de los datos de entrada. \\
-		Sensibilidad al ruido          	& Muy alta requiere filtros manuales estrictos. & Moderada, puede aprender a filtrar, pero depende de la calidad del dato. \\
-		Manejo de datos           		& Requiere segmentación y filtrado previo. & Capacidad de procesar señales con preprocesamiento mínimo. \\
-		Rendimiento           			& Limitado ante señales no estacionarias. & Mayor robustez y escalabilidad con grandes volúmenes de datos.\\
-		Dependencia           			& Alta dependencia de la calibración por sujeto. & Potencial para el aprendizaje transferido entre sujetos. \\
+		Extracción de rasgos & Manual y basada en conocimiento experto. & Automática a partir de los datos de entrada. \\
+		Sensibilidad al ruido & Muy alta, requiere filtros manuales estrictos. & Moderada, depende de la calidad del dato. \\
+		Manejo de datos & Requiere segmentación y filtrado previo. & Procesamiento con preprocesamiento mínimo. \\
+		Rendimiento & Limitado ante señales no estacionarias. & Mayor robustez y escalabilidad. \\
+		Dependencia & Alta dependencia de calibración por sujeto. & Posibilidad de aprendizaje transferido. \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:comparacionmetodos}
@@ -74,35 +79,77 @@ En la tabla \ref{tab:comparacionmetodos} se presenta una comparación entre los 
 
 \section{Arquitecturas de redes neuronales para EEG en imaginación motriz}
 
-Las CNN se consolidaron como una de las herramientas más eficaces para la extracción de características. Mediante el uso de filtros de convolución, estas redes permitieron identificar patrones de activación en regiones específicas de la corteza motora, simulando de manera automática el comportamiento de los filtros espaciales tradicionales. En este trabajo, el uso de las CNN facilitó la detección de cambios en la amplitud de los ritmos sensorimotores asociados a la intención de movimiento de las extremidades.
+Las CNN se consolidan como una de las herramientas más eficaces para la extracción de características. Mediante el uso de filtros de convolución, estas redes permiten identificar patrones de activación en regiones específicas de la corteza motora, que simula de manera automática el comportamiento de los filtros espaciales tradicionales. Por ello, El uso de las CNN facilita la detección de cambios en la amplitud de los ritmos sensorimotores asociados a la intención de movimiento de las extremidades. 
 
-Por otro lado, para el análisis de la dinámica temporal de las señales EEG, se exploraron las redes neuronales recurrentes o \textit{RNN} (del inglés, \textit{Recurrent Neural Networks}), específicamente las unidades de memoria de largo corto plazo o \textit{LSTM} (del inglés, \textit{Long Short-Term Memory}) y las unidades recurrentes calificadas o \textit{GRU} (del inglés, \textit{Gated Recurrent Units}). Estas arquitecturas permitieron modelar la evolución de la señal a lo largo del tiempo, utilizando mecanismos de puertas para retener información relevante y descartar el ruido transitorio. Mientras que las LSTM emplearon una estructura compleja para gestionar la memoria a largo plazo, las GRU ofrecieron una alternativa más eficiente en términos computacionales, manteniendo un rendimiento competitivo en la clasificación de series temporales de EEG.
+Por otro lado, para el análisis de la dinámica temporal de las señales EEG, las redes neuronales recurrentes o RNN (del inglés, \textit{Recurrent Neural Networks}), específicamente las unidades de memoria de largo corto plazo o LSTM (del inglés, \textit{Long Short-Term Memory}) y las unidades recurrentes calificadas o GRU (del inglés, \textit{Gated Recurrent Units}) permiten modelar la evolución de la señal a lo largo del tiempo, estas utilizan mecanismos de puertas para retener información relevante y descartar el ruido transitorio. Mientras que las LSTM emplean una estructura compleja para gestionar la memoria a largo plazo, las GRU ofrecen una alternativa más eficiente en términos computacionales, que mantienen un rendimiento competitivo en la clasificación de series temporales de EEG.
 
-Por último, este trabajo consideró enfoques híbridos que integran las ventajas de ambos modelos. Las arquitecturas de tipo CNN-LSTM permitieron realizar una extracción de rasgos espaciales en las primeras capas para luego procesar la secuencia temporal resultante, con el fin de optimizar la capacidad del sistema para reconocer la intención del usuario. Esta combinación resultó estratégica para manejar la alta dimensionalidad de los datos del conjunto de datos Dreyer2023A, asegurando una representación robusta antes de la etapa de clasificación final.
 
-El enfoque hibrido y las arquitecturas de redes neuronales aplicadas al análisis de señales EEG, se puede observar en la figura \ref{fig:arquitecturas}, donde se ilustra la estructura general de cada modelo y su aplicación específica en el contexto de la clasificación de tareas de imaginación motriz.
+Por último, los enfoques híbridos han sido ampliamente utilizados para integrar las ventajas de distintos modelos en el análisis de señales EEG. En particular, las arquitecturas de tipo CNN-LSTM combinan la capacidad de las redes convolucionales para extraer características espaciales con la habilidad de las redes recurrentes para modelar dependencias temporales \cite{zhang2021eeg}.
+
+En este tipo de arquitecturas, las capas convolucionales permiten identificar patrones relevantes en la distribución espacial de los electrodos, mientras que las capas recurrentes procesan la evolución temporal de dichas características. Esta combinación resulta adecuada para el manejo de la alta dimensionalidad de las señales EEG, que facilita la construcción de representaciones robustas previas a la etapa de clasificación.
+
+
+El enfoque híbrido y las arquitecturas de redes neuronales aplicadas al análisis de señales EEG, se puede observar en la figura \ref{fig:arquitecturas}, donde se ilustra la estructura general de cada modelo y su aplicación específica en el contexto de la clasificación de tareas de imaginación motriz, se destacan las capas de procesamiento y la forma en que cada arquitectura aborda la extracción de características espaciales y temporales para mejorar la precisión de la predicción de la intención motora a partir de señales EEG.
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[scale=.25]{./Figures/redes-neuronales-eeg.png}
-	\caption{Imagen generada por inteligencia artificial}
+	\includegraphics[scale=.26]{./Figures/redes-neuronales-eeg.png}
+	\caption{Estructura general de los modelos y su aplicación en la clasificación
+de tareas de imaginación motriz.}
 	\label{fig:arquitecturas}	
 \end{figure}
 
 
 En la tabla \ref{tab:comparacionarquitecturas} se presenta una comparación técnica entre las arquitecturas de redes neuronales aplicadas al análisis de señales EEG, se destaca las características, ventajas y limitaciones en el contexto de la clasificación de tareas de imaginación motriz. Esta comparación proporciona una visión integral de cómo cada enfoque contribuye al procesamiento de las señales EEG y a la mejora del rendimiento en la decodificación de la intención motora.
-
 \begin{table}[h]
 	\centering
-	\caption[Comparación entre arquitecturas]{Comparación entre arquitecturas CNN, LSTM y CNN-LSTM en EEG.}
-	\begin{tabular}{p{2cm} p{3cm} p{3.5cm} p{3.5cm}}
+	\caption[Comparación entre arquitecturas]{Comparación entre arquitecturas CNN, LSTM y CNN-LSTM aplicadas al análisis de señales EEG.}
+	\begin{tabular}{L{2.5cm} L{3.5cm} L{3.5cm} L{3.5cm}}
 		\toprule
-		\textbf{Característica} & \textbf{Métodos Tradicionales (CSP, SVM, LDA)} & \textbf{Aprendizaje Profundo (CNN, EEGNet)} & \textbf{Aprendizaje Profundo (CNN, EEGNet)} \\
+		\textbf{Característica} & \textbf{CNN} & \textbf{LSTM / GRU} & \textbf{CNN-LSTM} \\
 		\midrule
-		CNN           	& Excelente extracción de rasgos espaciales y locales. & No captura eficientemente dependencias temporales largas. & Identificación de patrones en la distribución de electrodos.\\
-		LSTM / GRU      & Especializadas en modelado de secuencias y series temporales. & Alto costo computacional y riesgo de desvanecimiento de gradiente. & Análisis de la evolución temporal de los ritmos cerebrales. \\
-		CNN-LSTM        & Combina el aprendizaje de rasgos espaciales y temporales. & Mayor complejidad en el entrenamiento y ajuste de parámetros. & Clasificación integral de ensayos de imaginación motriz. \\ 
+		Tipo de procesamiento 
+		& Espacial (filtros convolucionales)
+		& Temporal (modelado secuencial) 
+		& Espacial + temporal combinado \\
+
+		Extracción de características 
+		& Automática en dominios espaciales locales 
+		& Basada en dependencias temporales 
+		& Extracción jerárquica espacio-temporal \\\\
+
+		Manejo de dependencias temporales 
+		& Limitado 
+		& Alto (memoria de corto y largo plazo) 
+		& Alto (integrado con características espaciales) \\\\
+
+		Complejidad computacional 
+		& Moderada 
+		& Alta 
+		& Alta \\
+
+		Robustez frente a ruido 
+		& Moderada 
+		& Moderada 
+		& Alta (por integración de representaciones) \\\\
+
+		Ventaja principal 
+		& Detección de patrones espaciales en electrodos 
+		& Modelado de dinámica temporal de la señal 
+		& Captura conjunta de patrones espaciales y temporales \\\\
+
+		Limitación principal 
+		& No modela secuencias largas 
+		& Alto costo y entrenamiento más complejo 
+		& Mayor complejidad y necesidad de ajuste fino \\
+
+		Aplicación en EEG 
+		& Identificación de activación cortical localizada 
+		& Análisis de evolución temporal de ritmos cerebrales 
+		& Clasificación integral de tareas de imaginación motriz \\
+
 		\bottomrule
 	\end{tabular}
 	\label{tab:comparacionarquitecturas}
 \end{table}
+\footnotetext{Imagen generada por inteligencia artificial.}

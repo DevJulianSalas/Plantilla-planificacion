@@ -28,16 +28,11 @@ Las interfaces cerebro-computador o BCI (del inglés, \textit{Brain-Computer Int
 
 El funcionamiento de una BCI se fundamentó en la adquisición de señales bioeléctricas, su procesamiento digital y la posterior ejecución de acciones en un entorno computacional o físico. En el desarrollo de este trabajo, se consideraron las señales electroencefalográficas o EEG (del inglés, \textit{electroencephalogram}) debido a su naturaleza no invasiva y su capacidad para registrar la intención motriz del usuario en tiempo real. La integración de estos dispositivos con servicios en la nube facilita el procesamiento de grandes volúmenes de datos, lo que permite optimizar la capacidad de respuesta del los sistemas ante tareas de imaginación motriz.
 
-
 \subsection{Arquitectura funcional de un sistema BCI}
 
-El modelo operativo de una BCI inicia con una cadena de procesamiento compuesta por etapas secuenciales. En la fase inicial, se realiza la adquisición de señales mediante sensores electroencefalográficos colocados sobre el cuero cabelludo. Luego, los datos crudos se somenten a procesos de preprocesamiento para la eliminación de artefactos, tales como parpadeos o movimientos musculares, mediante el uso de filtros digitales.
-Posteriormente, se realiza la extracción de características que permite identificar los componentes relevantes de la señal asociados a la intención del usuario. Finalmente, se implementan algoritmos de clasificación para traducir dichas características en comandos de control.
+El modelo operativo de una BCI inicia con una cadena de procesamiento compuesta por etapas secuenciales. En la fase inicial, se realiza la adquisición de señales mediante sensores electroencefalográficos colocados sobre el cuero cabelludo. Luego, los datos crudos se someten a procesos de preprocesamiento para la eliminación de artefactos, tales como parpadeos o movimientos musculares, mediante el uso de filtros digitales. Posteriormente, se realiza la extracción de características que permite identificar los componentes relevantes de la señal asociados a la intención del usuario. Finalmente, se implementan algoritmos de clasificación para traducir dichas características en comandos de control.
 
-
-\subsubsection{Imaginación motriz y ritmos sensorimotores}
-
-La imaginación motriz se define como el proceso cognitivo en el que un individuo simula mentalmente una acción motora sin ejecutar un movimiento físico real \cite{pfurtscheller2001motor}. Este fenómeno produce cambios detectables en los ritmos sensoriales de la corteza cerebral, específicamente en las bandas de frecuencia mu (8-13 Hz) y beta (13-30 Hz).
+En este contexto, la imaginación motriz se define como el proceso cognitivo en el que un individuo simula mentalmente una acción motora sin ejecutar un movimiento físico real \cite{pfurtscheller2001motor}. Este fenómeno produce cambios detectables en los ritmos sensorimotores de la corteza cerebral, específicamente en las bandas de frecuencia mu (8--13 Hz) y beta (13--30 Hz), los cuales constituyen la base fisiológica para la decodificación de la intención de movimiento en sistemas BCI.
 
 \subsection{Dispositivos de adquisición de señales EEG}
 
@@ -68,7 +63,7 @@ En la tabla \ref{tab:clasificacionimaginacionmotriz} se presenta la comparativa 
 \begin{table}[h]
 	\centering
 	\caption[Comparativa de enfoques]{Comparativa de enfoques tecnológicos para la clasificación de imaginación motriz.}
-	\begin{tabular}{p{2cm} p{2cm} p{3.5cm} p{3.5cm}}
+	\begin{tabular}{L{2cm} L{2cm} L{3.5cm} L{3.5cm}}
 		\toprule
 		\textbf{Enfoque} & \textbf{Técnicas} & \textbf{Ventajas} & \textbf{Limitaciones} \\
 		\midrule
@@ -86,7 +81,7 @@ El desarrollo de este trabajo se justificó en la necesidad de mejorar la precis
 
 La implementación de modelos de inteligencia artificial avanzados permitió abordar la naturaleza no lineal y compleja de las señales de imaginación motriz, que presentan una alta variabilidad entre sujetos. Durante el análisis preliminar, se identificó que el procesamiento local en dispositivos embebidos restringía el uso de arquitecturas de aprendizaje profundo debido a las limitaciones de memoria y capacidad de cómputo de los sistemas portátiles. Por lo tanto, la integración de una infraestructura en la nube se presentó como una solución técnica viable para ejecutar modelos de alta complejidad sin comprometer la portabilidad ni la autonomía del sistema de adquisición.
 
-Asimismo, la motivación de este trabajo residió en la creación de una arquitectura escalable que facilitara el entrenamiento continuo de los modelos. Al centralizar el procesamiento, se permitió la acumulación de datos para el refinamiento de los algoritmos, buscando una reducción significativa en el tiempo de calibración requerido para cada usuario. Esta aproximación tecnológica no solo optimizó el rendimiento predictivo, sino que también sentó las bases para interfaces cerebro-computador más robustas y eficientes en la práctica clínica y asistencial.
+Asimismo, la motivación de este trabajo residió en la creación de una arquitectura escalable que facilitara el entrenamiento continuo de los modelos. Al centralizar el procesamiento, se permitió la acumulación de datos para el refinamiento de los algoritmos, que busca una reducción significativa en el tiempo de calibración requerido para cada usuario. Esta aproximación tecnológica no solo optimizó el rendimiento predictivo, sino que también sentó las bases para interfaces cerebro-computador más robustas y eficientes en la práctica clínica y asistencial.
 
 %----------------------------------------------------------------------------------------
 
@@ -96,7 +91,7 @@ El desarrollo de este proyecto se orientó a la creación de una infraestructura
 
 \subsection{Objetivo general}
 
-Establecer una base técnica que permitiera analizar patrones neuronales asociados a tareas de imaginación motriz, integrando modelos de inteligencia artificial y servicios en la nube para servir como referencia en futuros desarrollos de interfaces cerebro-computador.
+Establecer una base técnica que permitiera analizar patrones neuronales asociados a tareas de imaginación motriz, que integra modelos de inteligencia artificial y servicios en la nube para servir como referencia en futuros desarrollos de interfaces cerebro-computador.
 
 \subsection{Objetivos específicos}
 \label{subsec:configurando}
@@ -113,7 +108,7 @@ Para cumplir con el objetivo general, se plantearon los siguientes objetivos esp
 
 \subsection{Alcance}
 
-El alcance de este trabajo comprendió desde la selección y limpieza del conjunto de datos hasta el despliegue del modelo de inferencia en servidores remotos. Se limitó el estudio al análisis de tareas motoras binarias como el movimiento imaginado de mano izquierda y derecha, utilizando datasets de acceso público para garantizar la validación estadística de los resultados.
+El alcance de este trabajo comprendió desde la selección y limpieza del conjunto de datos hasta el despliegue del modelo de inferencia en servidores remotos. Se limitó el estudio al análisis de tareas motoras binarias como el movimiento imaginado de mano izquierda y derecha, se utilizan datasets de acceso público para garantizar la validación estadística de los resultados.
 
 
-El sistema se diseñó para operar de forma asíncrona, priorizando la precisión del clasificador sobre la respuesta inmediata de baja latencia, se establece así un marco de trabajo robusto para la investigación de algoritmos complejos. No se incluyó en esta etapa el desarrollo de hardware de adquisición propio ni la implementación de biorretroalimentación en tiempo real para el usuario final.
+El sistema se diseñó para operar de forma asíncrona, que prioriza la precisión del clasificador sobre la respuesta inmediata de baja latencia, se establece así un marco de trabajo robusto para la investigación de algoritmos complejos. No se incluyó en esta etapa el desarrollo de hardware de adquisición propio ni la implementación de biorretroalimentación en tiempo real para el usuario final.

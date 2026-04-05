@@ -23,7 +23,11 @@
 \usepackage[T1]{fontenc}    % Codificación de salida para caracteres especiales
 \usepackage{graphicx}       % Manejo de gráficos
 \usepackage{eso-pic}        % Permite agregar fondos
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 \usepackage{hyperref}       % Manejo de hipervínculos y marcadores
+\usepackage{booktabs}
+\usepackage{float}
 
 % Redefinición de caracteres problemáticos en marcadores
 \hypersetup{
