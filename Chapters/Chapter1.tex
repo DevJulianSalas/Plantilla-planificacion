@@ -32,12 +32,11 @@ El funcionamiento de una BCI se fundamentó en la adquisición de señales bioel
 
 El modelo operativo de una BCI inicia con una cadena de procesamiento compuesta por etapas secuenciales. En la fase inicial, se realiza la adquisición de señales mediante sensores electroencefalográficos colocados sobre el cuero cabelludo. Luego, los datos crudos se someten a procesos de preprocesamiento para la eliminación de artefactos, tales como parpadeos o movimientos musculares, mediante el uso de filtros digitales. Posteriormente, se realiza la extracción de características que permite identificar los componentes relevantes de la señal asociados a la intención del usuario. Finalmente, se implementan algoritmos de clasificación para traducir dichas características en comandos de control.
 
-En este contexto, la imaginación motriz se define como el proceso cognitivo en el que un individuo simula mentalmente una acción motora sin ejecutar un movimiento físico real \cite{pfurtscheller2001motor}. Este fenómeno produce cambios detectables en los ritmos sensorimotores de la corteza cerebral, específicamente en las bandas de frecuencia mu (8--13 Hz) y beta (13--30 Hz), los cuales constituyen la base fisiológica para la decodificación de la intención de movimiento en sistemas BCI.
+En este contexto, la imaginación motriz se define como el proceso cognitivo en el que un individuo simula mentalmente una acción motora sin ejecutar un movimiento físico real \cite{pfurtscheller2001motor}. Este fenómeno produce cambios detectables en los ritmos sensorimotores de la corteza cerebral, específicamente en las bandas de frecuencia mu (8--13 Hz) y beta (13--30 Hz), que constituyen la base fisiológica para la decodificación de la intención de movimiento en sistemas BCI.
 
 \subsection{Dispositivos de adquisición de señales EEG}
 
-La captura de la actividad eléctrica cerebral se realiza habitualmente mediante sistemas de EEG. Estos se clasifican según su movilidad y el tipo de sensores empleados. En el ámbito de la investigación, se destacan dispositivos de grado médico y equipos portátiles diseñados para aplicaciones fuera del entorno clínico \cite{casson2010wearable}.
-
+La captura de la actividad eléctrica cerebral se realiza habitualmente mediante sistemas de EEG. Estos se clasifican según su movilidad y el tipo de sensores empleados. En el ámbito de la investigación, se destacan dispositivos de grado médico y equipos portátiles diseñados para aplicaciones fuera del entorno clínico, estos han sido ampliamente abordados en la literatura cientifica\cite{casson2010wearable}.
 Aunque en este trabajo se utilizó un conjunto de datos o dataset previamente registrado, la comprensión de estos dispositivos resultó pertinente para el análisis de la calidad de la señal.
 
 %----------------------------------------------------------------------------------------
@@ -77,7 +76,7 @@ En la tabla \ref{tab:clasificacionimaginacionmotriz} se presenta la comparativa 
 %----------------------------------------------------------------------------------------
 \section{Motivación}
 
-El desarrollo de este trabajo se justificó en la necesidad de mejorar la precisión en la predicción de la intención de movimiento de un usuario a partir de señales EEG asociadas a tareas de imaginación motriz. A pesar de los avances en el procesamiento de señales biológicas, los métodos tradicionales presentan dificultades para adaptarse a la variabilidad de los ritmos sensorimotores entre diferentes individuos, lo que limita su aplicación en entornos reales fuera del laboratorio \cite{wolpaw2002bci,lotte2015signal}.
+El desarrollo de este trabajo se justificó en la necesidad de mejorar la precisión en la predicción de la intención de movimiento de un usuario a partir de señales EEG asociadas a tareas de imaginación motriz. A pesar de los avances en el procesamiento de señales biológicas, los métodos tradicionales presentan dificultades para adaptarse a la variabilidad de los ritmos sensorimotores entre diferentes individuos, que limita su aplicación en entornos reales fuera del laboratorio, y representa un desafío significativo para la generalización en sistemas EEG \cite{wolpaw2002bci,lotte2015signal}.
 
 La implementación de modelos de inteligencia artificial avanzados permitió abordar la naturaleza no lineal y compleja de las señales de imaginación motriz, que presentan una alta variabilidad entre sujetos. Durante el análisis preliminar, se identificó que el procesamiento local en dispositivos embebidos restringía el uso de arquitecturas de aprendizaje profundo debido a las limitaciones de memoria y capacidad de cómputo de los sistemas portátiles. Por lo tanto, la integración de una infraestructura en la nube se presentó como una solución técnica viable para ejecutar modelos de alta complejidad sin comprometer la portabilidad ni la autonomía del sistema de adquisición.
 
@@ -108,7 +107,7 @@ Para cumplir con el objetivo general, se plantearon los siguientes objetivos esp
 
 \subsection{Alcance}
 
-El alcance de este trabajo comprendió desde la selección y limpieza del conjunto de datos hasta el despliegue del modelo de inferencia en servidores remotos. Se limitó el estudio al análisis de tareas motoras binarias como el movimiento imaginado de mano izquierda y derecha, se utilizan datasets de acceso público para garantizar la validación estadística de los resultados.
+El alcance de este trabajo comprendió desde la selección y limpieza del conjunto de datos hasta el despliegue del modelo de inferencia en servidores remotos. Se limitó el estudio al análisis de tareas motoras binarias como el movimiento imaginado de la mano izquierda y la derecha. Se utilizan datasets de acceso público para garantizar la validación estadística de los resultados.
 
 
-El sistema se diseñó para operar de forma asíncrona, que prioriza la precisión del clasificador sobre la respuesta inmediata de baja latencia, se establece así un marco de trabajo robusto para la investigación de algoritmos complejos. No se incluyó en esta etapa el desarrollo de hardware de adquisición propio ni la implementación de biorretroalimentación en tiempo real para el usuario final.
+El sistema se diseñó para operar de forma asíncrona, que prioriza la precisión del clasificador sobre la respuesta inmediata de baja latencia. Se establece así un marco de trabajo robusto para la investigación de algoritmos complejos. No se incluyó en esta etapa el desarrollo de hardware de adquisición propio ni la implementación de biorretroalimentación en tiempo real para el usuario final.
