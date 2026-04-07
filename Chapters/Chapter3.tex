@@ -2,97 +2,36 @@
 
 \label{Chapter3} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-
-
-
-
-Todos los capítulos deben comenzar con un breve párrafo introductorio que indique cuál es el contenido que se encontrará al leerlo.  La redacción sobre el contenido de la memoria debe hacerse en presente y todo lo referido al proyecto en pasado, siempre de modo impersonal.
-
-\definecolor{mygreen}{rgb}{0,0.6,0}
-\definecolor{mygray}{rgb}{0.5,0.5,0.5}
-\definecolor{mymauve}{rgb}{0.58,0,0.82}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% parámetros para configurar el formato del código en los entornos lstlisting
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\lstset{ %
-  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
-  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
-  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
-  breaklines=true,                 % sets automatic line breaking
-  captionpos=b,                    % sets the caption-position to bottom
-  commentstyle=\color{mygreen},    % comment style
-  deletekeywords={...},            % if you want to delete keywords from the given language
-  %escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
-  %extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
-  %frame=single,	                % adds a frame around the code
-  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
-  keywordstyle=\color{blue},       % keyword style
-  language=[ANSI]C,                % the language of the code
-  %otherkeywords={*,...},           % if you want to add more keywords to the set
-  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
-  numbersep=5pt,                   % how far the line-numbers are from the code
-  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
-  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
-  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
-  showstringspaces=false,          % underline spaces within strings only
-  showtabs=false,                  % show tabs within strings adding particular underscores
-  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
-  stringstyle=\color{mymauve},     % string literal style
-  tabsize=2,	                   % sets default tabsize to 2 spaces
-  title=\lstname,                  % show the filename of files included with \lstinputlisting; also try caption instead of title
-  morecomment=[s]{/*}{*/}
-}
-
+En este capítulo se describen las etapas de diseño y la configuración del sistema orientado a la clasificación de tareas de imaginación motriz. En las siguientes secciones se detallan la arquitectura del sistema, el tratamiento de los datos de origen, el desarrollo y entrenamiento de los modelos de aprendizaje profundo, así como el protocolo de evaluación y el despliegue final en la infraestructura de nube.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
-\section{Análisis del software}
- 
-La idea de esta sección es resaltar los problemas encontrados, los criterios utilizados y la justificación de las decisiones que se hayan tomado.
+\section{Arquitectura del sistema}
 
-Se puede agregar código o pseudocódigo dentro de un entorno lstlisting con el siguiente código:
+En esta sección se describe la arquitectura general del sistema que se utilizó para la predicción de tareas de imaginación motriz a partir de EEG.
 
-\begin{verbatim}
-\begin{lstlisting}[caption= "un epígrafe descriptivo"]
-	las líneas de código irían aquí...
-\end{lstlisting}
-\end{verbatim}
+El sistema se estructuró como un flujo secuencial compuesto por etapas de preparación de datos, preprocesamiento, extracción de características, inferencia mediante modelos de aprendizaje profundo y despliegue en infraestructura cloud. Este enfoque permitió integrar el procesamiento de señales EEG con servicios distribuidos, facilitando la escalabilidad y la eficiencia en la ejecución de los modelos.
 
-A modo de ejemplo, se muestra el fragmento de código \ref{cod:vControl}:
+La fuente de datos correspondió al conjunto de datos Dreyer2023A \cite{dreyer2023large}. Este contiene registros de señales EEG asociados a tareas de imaginación motriz. Dicho conjunto fue utilizado como base para el entrenamiento y evaluación de los modelos, sin realizar procesos de adquisición directa de señales.
 
-\begin{lstlisting}[label=cod:vControl,caption=Pseudocódigo del lazo principal de control.]  % Start your code-block
+Luego, se implementó una etapa de preprocesamiento orientada a mejorar la relación entre la señal y el ruido. En esta fase se aplicaron técnicas de filtrado y segmentación, con el fin de aislar ventanas relevantes para el análisis. Este procedimiento permitió reducir la variabilidad inherente a las señales EEG y facilitar el aprendizaje de patrones discriminativos.
 
-#define MAX_SENSOR_NUMBER 3
-#define MAX_ALARM_NUMBER  6
-#define MAX_ACTUATOR_NUMBER 6
+La extracción de características se abordó mediante arquitecturas de redes neuronales, que permitieron modelar dependencias espaciales y temporales presentes en las señales. Se consideraron enfoques híbridos capaces de capturar correlaciones entre canales y dinámicas temporales, lo cual resulta fundamental en tareas de imaginación motriz \cite{zhang2021eeg}.
 
-uint32_t sensorValue[MAX_SENSOR_NUMBER];		
-FunctionalState alarmControl[MAX_ALARM_NUMBER];	//ENABLE or DISABLE
-state_t alarmState[MAX_ALARM_NUMBER];						//ON or OFF
-state_t actuatorState[MAX_ACTUATOR_NUMBER];			//ON or OFF
+El módulo de inferencia se diseñó para recibir las representaciones procesadas y generar una predicción de la tarea imaginada. Este módulo se integró con un servicio web, que permitió exponer la funcionalidad del modelo por medio de una API RESTful. De esta manera, se facilitaría la interacción con aplicaciones externas y la posibilidad de realizar predicciones en tiempo real.
 
-void vControl() {
+A continuación, se presenta la arquitectura general del sistema propuesto \ref{fig:cloud-arquitecturas}, en el que se ilustran las etapas principales del flujo de procesamiento y su integración dentro del entorno cloud.
+\begin{figure}[h!]
+    \centering
+    % Use width=\textwidth or a fraction to fit without stretching
+	\includegraphics[width=\linewidth]{./Figures/Arquitectura-de-interfaz-cerebro-computadora.png}
+    % \includegraphics[width=0.8\textwidth]{image_name.pdf} 
+    \caption{Diagrama de la arquitectura general del sistema \protect\footnotemark.}
+	\label{fig:cloud-arquitecturas}
+\end{figure}
+\footnotetext{Imagen generada por inteligencia artificial.}
 
-	initGlobalVariables();
-	
-	period = 500 ms;
-		
-	while(1) {
+Finalmente, el sistema se desplegó bajo un paradigma cloud, que permitió desacoplar el procesamiento intensivo del entorno local. Esta arquitectura facilitó la implementación de una interfaz cerebro-computador cloud, en la que las señales fueron procesadas de manera remota para la generación de resultados.
 
-		ticks = xTaskGetTickCount();
-		
-		updateSensors();
-		
-		updateAlarms();
-		
-		controlActuators();
-		
-		vTaskDelayUntil(&ticks, period);
-	}
-}
-\end{lstlisting}
-
-
-
+La arquitectura descrita estableció un flujo completo desde la preparación de los datos hasta la obtención de predicciones, garantizando modularidad, escalabilidad y capacidad de integración con aplicaciones externas.
