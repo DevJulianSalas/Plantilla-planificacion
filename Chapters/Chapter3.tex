@@ -2,7 +2,7 @@
 
 \label{Chapter3} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-En este capítulo se describen las etapas de diseño y la configuración del sistema orientado a la clasificación de tareas de imaginación motriz. En las siguientes secciones se detallan la arquitectura del sistema, el tratamiento de los datos de origen, el desarrollo y entrenamiento de los modelos de aprendizaje profundo, así como el protocolo de evaluación y el despliegue final en la infraestructura de nube.
+En este capítulo se describen las etapas de diseño y el ajuste del sistema orientado a la clasificación de tareas de imaginación motriz. En las siguientes secciones se detallan la arquitectura del sistema, el tratamiento de los datos de origen, el desarrollo y entrenamiento de los modelos de aprendizaje profundo, así como el protocolo de evaluación y el despliegue final en la infraestructura de la nube.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 1
@@ -17,20 +17,20 @@ La fuente de datos correspondió al conjunto de datos Dreyer2023A \cite{dreyer20
 
 Luego, se implementó una etapa de preprocesamiento orientada a mejorar la relación entre la señal y el ruido. En esta fase se aplicaron técnicas de filtrado y segmentación, con el fin de aislar ventanas relevantes para el análisis. Este procedimiento permitió reducir la variabilidad inherente a las señales EEG y facilitar el aprendizaje de patrones discriminativos.
 
-La extracción de características se abordó mediante arquitecturas de redes neuronales, que permitieron modelar dependencias espaciales y temporales presentes en las señales. Se consideraron enfoques híbridos capaces de capturar correlaciones entre canales y dinámicas temporales, lo cual resulta fundamental en tareas de imaginación motriz \cite{zhang2021eeg}.
+La extracción de características se abordó mediante arquitecturas de redes neuronales, que permitieron modelar dependencias espaciales y temporales presentes en las señales. Se consideraron enfoques híbridos capaces de capturar correlaciones entre canales y dinámicas temporales, lo que resulta fundamental en tareas de imaginación motriz \cite{zhang2021eeg}.
 
 El módulo de inferencia se diseñó para recibir las representaciones procesadas y generar una predicción de la tarea imaginada. Este módulo se integró con un servicio web, que permitió exponer la funcionalidad del modelo por medio de una API RESTful. De esta manera, se facilitaría la interacción con aplicaciones externas y la posibilidad de realizar predicciones en tiempo real.
 
-A continuación, se presenta la arquitectura general del sistema propuesto \ref{fig:cloud-arquitecturas}, en el que se ilustran las etapas principales del flujo de procesamiento y su integración dentro del entorno cloud.
+A continuación, se presenta la arquitectura general del sistema propuesto en la figura \ref{fig:cloud-arquitecturas}, en la que se ilustran las etapas principales del flujo de procesamiento y su integración dentro del entorno cloud.
 \begin{figure}[h!]
     \centering
     % Use width=\textwidth or a fraction to fit without stretching
-	\includegraphics[width=\linewidth]{./Figures/Arquitectura-de-interfaz-cerebro-computadora.png}
+	\includegraphics[width=\linewidth]{./Figures/infra-eeg-v2.png}
     % \includegraphics[width=0.8\textwidth]{image_name.pdf} 
     \caption{Diagrama de la arquitectura general del sistema \protect\footnotemark.}
 	\label{fig:cloud-arquitecturas}
 \end{figure}
-\footnotetext{Imagen generada por inteligencia artificial.}
+
 
 Finalmente, el sistema se desplegó bajo un paradigma cloud, que permitió desacoplar el procesamiento intensivo del entorno local. Esta arquitectura facilitó la implementación de una interfaz cerebro-computador cloud, en la que las señales fueron procesadas de manera remota para la generación de resultados.
 

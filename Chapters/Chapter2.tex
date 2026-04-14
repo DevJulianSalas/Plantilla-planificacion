@@ -85,14 +85,13 @@ Por último, los enfoques híbridos han sido ampliamente utilizados para integra
 El enfoque híbrido y las arquitecturas de redes neuronales para el análisis de señales EEG se muestran en la figura \ref{fig:arquitecturas}, en la que se ilustra la estructura de cada modelo y su aplicación en la clasificación de tareas de imaginación motriz.
 
 \begin{figure}[h!]
-    \centering
     % Use width=\textwidth or a fraction to fit without stretching
-	\includegraphics[width=\linewidth]{./Figures/redes-neuronales-eeg-v2.png}
-    % \includegraphics[width=0.8\textwidth]{image_name.pdf} 
+	% \includegraphics[scale=.27]{./Figures/diagrama-de-flujo-de-arquitectura-neural-v6.png}
+	\includegraphics[width=\linewidth]{./Figures/diagrama-de-flujo-de-arquitectura-neural-v6.png}
+    % \includegraphics[width=1.1\textwidth]{./Figures/diagrama-de-flujo-de-arquitectura-neural-v5.png} 
     \caption{Estructura general de los modelos y su aplicación en la clasificación de tareas de imaginación motriz \protect\footnotemark.}
 	\label{fig:arquitecturas}
 \end{figure}
-\footnotetext{Imagen generada por inteligencia artificial.}
 
 
 En este tipo de arquitecturas, las capas convolucionales permiten identificar patrones relevantes en la distribución espacial de los electrodos, mientras que las capas recurrentes procesan la evolución temporal de dichas características. Esta combinación resulta adecuada para el manejo de la alta dimensionalidad de las señales EEG, que facilita la construcción de representaciones robustas previas a la etapa de clasificación.
