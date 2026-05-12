@@ -11,7 +11,7 @@ En este capítulo se describen las etapas de diseño y el ajuste del sistema ori
 
 En esta sección se describe la arquitectura general del sistema que se utilizó para la predicción de tareas de imaginación motriz a partir de EEG.
 
-El sistema se estructuró como un flujo secuencial compuesto por etapas de preparación de datos, preprocesamiento, extracción de características, inferencia mediante modelos de aprendizaje profundo y despliegue en infraestructura cloud. Este enfoque permitió integrar el procesamiento de señales EEG con servicios distribuidos, facilitando la escalabilidad y la eficiencia en la ejecución de los modelos.
+El sistema se estructuró como un flujo secuencial compuesto por etapas de preparación de datos, preprocesamiento, extracción de características, inferencia mediante modelos de aprendizaje profundo y despliegue en infraestructura cloud. Este enfoque permitió integrar el procesamiento de señales EEG con servicios distribuidos, lo que facilitó la escalabilidad y la eficiencia en la ejecución de los modelos.
 
 La fuente de datos correspondió al conjunto de datos Dreyer2023A \cite{dreyer2023large}. Este contiene registros de señales EEG asociados a tareas de imaginación motriz. Dicho conjunto fue utilizado como base para el entrenamiento y evaluación de los modelos, sin realizar procesos de adquisición directa de señales.
 
@@ -34,7 +34,7 @@ A continuación, se presenta la arquitectura general del sistema propuesto en la
 
 Finalmente, el sistema se desplegó bajo un paradigma cloud, que permitió desacoplar el procesamiento intensivo del entorno local. Esta arquitectura facilitó la implementación de una interfaz cerebro-computador cloud, en la que las señales fueron procesadas de manera remota para la generación de resultados.
 
-La arquitectura descrita estableció un flujo completo desde la preparación de los datos hasta la obtención de predicciones, garantizando modularidad, escalabilidad y capacidad de integración con aplicaciones externas.
+La arquitectura descrita estableció un flujo completo desde la preparación de los datos hasta la obtención de predicciones, lo que garantizó modularidad, escalabilidad y capacidad de integración con aplicaciones externas.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 2
@@ -43,7 +43,7 @@ La arquitectura descrita estableció un flujo completo desde la preparación de 
 
 \section{Preparación y preprocesamiento de los datos}
 
-En esta sección se describen los métodos aplicados a las señales EEG antes del entrenamiento de los modelos, incluyendo las etapas de preparación, preprocesamiento, filtrado, segmentación, transformación y estandarización de los datos.
+En esta sección se describen los métodos aplicados a las señales EEG antes del entrenamiento de los modelos, estos incluyen las etapas de preparación, preprocesamiento, filtrado, segmentación, transformación y estandarización de los datos.
 
 \subsection{Preparación de los datos}
 
@@ -51,7 +51,7 @@ En la etapa de preparación, se realizó la carga de los registros EEG considera
 
 Después, se identificaron los eventos asociados a cada tarea de imaginación motriz, que correspondían a etiquetas discretas como mano izquierda y mano derecha dentro del paradigma de clasificación binaria . Estos eventos permitieron segmentar las señales continuas en ensayos individuales alineados temporalmente con los estímulos experimentales. Cada ensayo representó una instancia etiquetada del conjunto de datos, lo que permitió estructurar la información en un esquema supervisado ideal para el entrenamiento de los modelos.
 
-Por otra parte, se consideró la consistencia en la organización de los canales EEG y la sincronización temporal de las señales, garantizando que cada muestra mantuviera la correspondencia entre dimensiones espaciales y temporales. Este proceso permitió transformar los datos originales en una representación homogénea, facilitando su posterior procesamiento y asegurando la compatibilidad en terminos de entradas estructuradas y uniformes con los modelos.
+Por otra parte, se consideró la consistencia en la organización de los canales EEG y la sincronización temporal de las señales, lo que garantizó que cada muestra mantuviera la correspondencia entre dimensiones espaciales y temporales. Este proceso permitió transformar los datos originales en una representación homogénea, lo que facilitó su posterior procesamiento y aseguró la compatibilidad en terminos de entradas estructuradas y uniformes con los modelos.
 
 \subsection{Preprocesamiento de los datos}
 
@@ -63,13 +63,13 @@ De igual forma, este proceso contribuyó a estabilizar la señal y a reducir la 
 
 \subsection{Segmentación de los datos}
 
-En la fase de segmentación, se realizó la segmentación temporal de las señales EEG en ventanas alineadas con los eventos de estímulo, con el fin de aislar los intervalos de interés asociados a cada tarea de imaginación motriz. A partir de los registros continuos, se extrajeron segmentos (epochs) definidos en un intervalo temporal específico posterior a la aparición del estímulo, asegurando que cada ventana contuviera la respuesta cerebral relevante para la tarea. Este procedimiento permitió sincronizar las señales en relación con el inicio del evento, garantizando coherencia temporal entre las muestras.
+En la fase de segmentación, se realizó la segmentación temporal de las señales EEG en ventanas alineadas con los eventos de estímulo, con el fin de aislar los intervalos de interés asociados a cada tarea de imaginación motriz. A partir de los registros continuos, se extrajeron segmentos (epochs) definidos en un intervalo temporal específico posterior a la aparición del estímulo, esto aseguró que cada ventana contuviera la respuesta cerebral relevante para la tarea. Este procedimiento permitió sincronizar las señales en relación con el inicio del evento, lo que garantizó coherencia temporal entre las muestras.
 
-Cada segmento fue definido con una duración fija, que permitió obtener representaciones homogéneas en términos de longitud temporal. Esta procedimiento resultó muy útil para su posterior utilización en los modelos, que requieren entradas con dimensiones consistentes. De igual forma, se evitó la inclusión de intervalos previos al estímulo que no aportaran información discriminativa, enfocando el análisis en las regiones temporales donde se manifiestan patrones asociados a la imaginación motriz.
+Cada segmento fue definido con una duración fija, que permitió obtener representaciones homogéneas en términos de longitud temporal. Esta procedimiento resultó muy útil para su posterior utilización en los modelos, que requieren entradas con dimensiones consistentes. De igual forma, se evitó la inclusión de intervalos previos al estímulo que no aportaran información discriminativa, solo enfocando el análisis en las regiones temporales donde se manifiestan patrones asociados a la imaginación motriz.
 
 La segmentación generó múltiples muestras independientes a partir de cada registro continuo, se incrementó el número de ejemplos disponibles para el entrenamiento. Este incremento en la cantidad de datos permitió mejorar la capacidad de generalización de los modelos, al exponerlos a una mayor variabilidad intra e intersujeto.
 
-Adicionalmente, se mantuvo la correspondencia entre cada segmento y su respectiva etiqueta de clase, preservando la integridad del conjunto de datos supervisado. Este proceso permitió transformar las señales EEG continuas en un conjunto estructurado de muestras etiquetadas, adecuado para su utilización en tareas de clasificación.
+Adicionalmente, se mantuvo la correspondencia entre cada segmento y su respectiva etiqueta de clase, lo que preservó la integridad del conjunto de datos supervisado. Este proceso permitió transformar las señales EEG continuas en un conjunto estructurado de muestras etiquetadas, adecuado para su utilización en tareas de clasificación.
 
 En la tabla \ref{tab:preprocesamiento-data}, se presentan los parámetros utilizados durante las etapas de preparación y preprocesamiento de las señales EEG.
 
@@ -110,3 +110,327 @@ Estructuración & Formato de entrada & (canales $\times$ tiempo) \\ \hline
 
 \end{tabular}
 \end{table}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 3
+%----------------------------------------------------------------------------------------
+
+\section{Desarrollo de modelos}
+
+En esta sección se describe el desarrollo de los modelos implementados para la clasificación de señales EEG en tareas de imaginación motriz. Inicialmente, se presenta el modelo basado en redes convolucionales CNN. Posteriormente, se describe el modelo basado en redes neuronales recurrentes RNN, y finalmente, se presenta el modelo híbrido CNN-RNN. Asimismo, se describen las configuraciones establecidas en las diferentes capas que conformaron los modelos.
+
+\subsection{Modelo basado en redes convolucionales}
+
+La estructura de entrada del modelo se definió para procesar las secuencias temporales provenientes de los 64 electrodos del conjunto de datos Dreyer2023A \cite{dreyer2023large}. Esta representación preservó la estructura espacial de los electrodos y la evolución temporal de las señales, lo que permitió al modelo de capas convolucionales capturar patrones locales presentes en las señales EEG.
+
+Las primeras capas convolucionales se configuraron para extraer patrones temporales de corta duración asociados a variaciones espectrales presentes en las bandas $\mu$ y $\beta$ \cite{pfurtscheller2001motor, zhang2021eeg}. Posteriormente, se aplicaron convoluciones espaciales orientadas a modelar relaciones entre diferentes canales EEG. Este enfoque permitió capturar información distribuida sobre distintas regiones en las señales EEG.
+
+Después de las capas convolucionales, se incorporaron funciones de activación no lineales y capas de normalización. Estas capas estabilizaron la distribución interna de las representaciones generadas durante el entrenamiento y favorecieron la convergencia del modelo. Asimismo, se utilizaron operaciones de reducción dimensional, que disminuyeron la complejidad computacional y redujeron la redundancia presente en las características extraídas.
+
+Con el propósito de reducir el sobreajuste, se incorporó la técnica de dropout \cite{srivastava2014dropout} en diferentes etapas de la arquitectura. Este mecanismo realizó una desactivación aleatoria de neuronas durante el entrenamiento, que evitó una dependencia excesiva de patrones específicos presentes en el conjunto de datos. Su utilización resultó relevante debido a la variabilidad intra e intersujeto característica de las señales EEG.
+
+En las etapas finales del modelo, se utilizó capas densamente conectadas encargadas de integrar las representaciones espaciales y temporales aprendidas previamente. Estas capas transformaron las características extraídas en probabilidades asociadas a cada clase de imaginación motriz. La salida del modelo se configuró para realizar una clasificación binaria correspondiente a tareas de imaginación motriz de mano izquierda y mano derecha presentes en el conjunto Dreyer2023A.
+
+La arquitectura convolucional implementada permitió procesar señales EEG multicanal y aprender representaciones discriminativas directamente desde los datos preprocesados. Este enfoque evitó la necesidad de definir manualmente características espectrales o espaciales antes del entrenamiento, que favoreció un flujo de procesamiento más uniforme e integrado.
+
+\subsection{Modelo basado en redes neuronales recurrentes}
+
+La estructura de entrada del modelo se definió a partir de secuencias temporales organizadas por los canales de EEG y muestras en el tiempo. Esta representación preservó la evolución temporal de la actividad cerebral presente en cada ensayo. A diferencia de las arquitecturas convolucionales, el modelo recurrente priorizó el análisis de dependencias temporales entre diferentes instantes de la señal EEG.
+
+La arquitectura recurrente se basó en capas LSTM que procesaron secuencialmente la información temporal presente en cada segmento de EEG. Se definió una configuración de dos capas apiladas con sesenta y cuatro unidades ocultas cada una; esta estructura favoreció la mitigación de la pérdida de información a través de sus mecanismos de compuertas. Dichos elementos internos regularon el flujo de datos para retener las características relevantes provenientes de los estados anteriores. Como resultado, el modelo logró establecer una relación sólida entre las variaciones de amplitud de los sesenta y cuatro canales electroencefalográficos y la intención motriz evaluada.
+
+De igual manera que en el modelo basado en redes convolucionales, se incorporaron funciones de activación no lineales, mecanismos de regularización y capas orientadas a estabilizar el proceso de entrenamiento. Estas configuraciones favorecieron la convergencia del modelo y contribuyeron a mejorar la estabilidad de las representaciones internas generadas durante el aprendizaje.
+
+En las etapas finales del modelo, se utilizaron capas densamente conectadas encargadas de integrar las representaciones temporales aprendidas previamente por las capas LSTM. Estas capas transformaron las características extraídas en probabilidades asociadas a cada clase de imaginación motriz. La salida del modelo se configuró para realizar una clasificación binaria correspondiente a tareas de imaginación motriz de mano izquierda y mano derecha presentes en el conjunto Dreyer2023A.
+
+La arquitectura basada en capas LSTM permitió procesar secuencias temporales de señales EEG multicanal y modelar dependencias temporales presentes en las tareas de imaginación motriz. Este enfoque permitió aprender representaciones asociadas a la dinámica temporal de la actividad cerebral directamente a partir de los datos preprocesados, lo que evitó la definición manual de características temporales antes del entrenamiento.
+
+\subsection{Modelo híbrido basado en CNN-LSTM}
+
+El tercer modelo implementado correspondió a una arquitectura híbrida basada en redes convolucionales y redes neuronales recurrentes LSTM. Este enfoque integró las capacidades de extracción espacial de las arquitecturas convolucionales con el modelado temporal proporcionado por las capas LSTM. Esta combinación de arquitecturas permitió procesar simultáneamente características espaciales y temporales en las señales EEG asociadas a tareas de imaginación motriz.
+
+La estructura de entrada se definió a partir de segmentos EEG organizados en matrices bidimensionales compuestas por canales y muestras temporales. La primera etapa de la arquitectura correspondió a un bloque de redes convolucionales configurado para procesar los canales EEG presentes en el conjunto de datos Dreyer2023A. Estas capas realizaron la extracción de características espaciales locales presentes en las señales EEG e identificaron patrones asociados a variaciones entre diferentes canales y regiones relacionadas con tareas de imaginación motriz.
+
+Posteriormente, las representaciones generadas por las capas convolucionales fueron procesadas mediante capas LSTM. Estas capas analizaron la evolución temporal de las características extraídas previamente, lo que permitió modelar dependencias temporales presentes a lo largo de la señal EEG. La integración entre capas convolucionales y recurrentes permitió capturar simultáneamente información espacial y temporal durante el proceso de aprendizaje.
+
+De igual manera que en las arquitecturas previamente descritas, se incorporaron funciones de activación no lineales, mecanismos de regularización y capas dropout orientadas a mejorar la estabilidad del entrenamiento y reducir el sobreajuste. Estas configuraciones favorecieron la capacidad de generalización del modelo frente a señales EEG provenientes de distintos sujetos y ensayos.
+
+En las etapas finales del modelo, se utilizaron capas densamente conectadas encargadas de integrar las representaciones espaciales y temporales aprendidas por la arquitectura híbrida. Estas capas transformaron las características extraídas en probabilidades asociadas a cada clase de imaginación motriz. La salida del modelo se configuró para realizar una clasificación binaria correspondiente a tareas de imaginación motriz de mano izquierda y mano derecha presentes en el conjunto Dreyer2023A.
+
+La arquitectura híbrida implementada permitió combinar la capacidad de extracción espacial de las redes convolucionales con el modelado temporal de las capas LSTM. Este enfoque favoreció el aprendizaje conjunto de patrones espaciales y dinámicas temporales presentes en las señales EEG asociadas a tareas de imaginación motriz.
+
+A continuación, se presentan las configuraciones principales utilizadas en las arquitecturas implementadas para la clasificación de señales EEG en tareas de imaginación motriz.
+
+\begin{table}[htbp]
+\centering
+\caption{Configuración de las arquitecturas implementadas}
+\label{tab:modelos}
+
+\begin{tabular}{|p{3.5cm}|p{3cm}|p{3cm}|p{3cm}|}
+\hline
+\textbf{Componente} & \textbf{CNN} & \textbf{RNN-LSTM} & \textbf{CNN-LSTM} \\ \hline
+
+Entrada &
+Segmentos EEG multicanal &
+Secuencias temporales EEG &
+Segmentos EEG multicanal \\ \hline
+
+Representación de entrada &
+(canales $\times$ tiempo) &
+(canales $\times$ tiempo) &
+(canales $\times$ tiempo) \\ \hline
+
+Capas principales &
+Capas convolucionales &
+Capas LSTM &
+Capas convolucionales y LSTM \\ \hline
+
+Extracción espacial &
+Sí &
+No &
+Sí \\ \hline
+
+Modelado temporal &
+Limitado &
+Sí &
+Sí \\ \hline
+
+Capas recurrentes &
+No aplica &
+2 &
+1 \\ \hline
+
+Unidades ocultas &
+No aplica &
+64 &
+64 \\ \hline
+
+Regularización &
+Dropout &
+Dropout &
+Dropout \\ \hline
+
+Normalización &
+Sí &
+Sí &
+Sí \\ \hline
+
+Capas densas finales &
+Sí &
+Sí &
+Sí \\ \hline
+
+Salida &
+Clasificación binaria &
+Clasificación binaria &
+Clasificación binaria \\ \hline
+
+Clases &
+Mano izquierda / derecha &
+Mano izquierda / derecha &
+Mano izquierda / derecha \\ \hline
+
+Dataset &
+Dreyer2023A &
+Dreyer2023A &
+Dreyer2023A \\ \hline
+
+\end{tabular}
+\end{table}
+
+
+
+\section{Configuración del entrenamiento}
+
+En esta sección se describen las configuraciones utilizadas durante el proceso de entrenamiento de los modelos, así como la estrategia de búsqueda de hiperparámetros aplicada para optimizar el desempeño en la clasificación de señales EEG asociadas a tareas de imaginación motriz.
+
+El proceso de entrenamiento se realizó utilizando los segmentos EEG obtenidos durante las etapas de preparación y preprocesamiento descritas previamente. Las muestras fueron organizadas en conjuntos de entrenamiento y validación, lo que permitió evaluar el comportamiento de las arquitecturas implementadas durante el aprendizaje.
+
+Con el propósito de optimizar el desempeño de los modelos, se realizó una búsqueda de hiperparámetros orientada a identificar configuraciones adecuadas para cada arquitectura. Este procedimiento consideró parámetros relacionados con la capacidad de aprendizaje, estabilidad del entrenamiento y capacidad de generalización frente a señales EEG provenientes de distintos sujetos y ensayos.
+
+En esta fase del desarrollo se implementó un proceso de búsqueda automatizada para definir la configuración estructural y de entrenamiento de los modelos propuestos. Debido a que la selección manual de hiperparámetros resulta intensiva a nivel computacional y susceptible al sesgo humano, se utilizó el entorno de optimización Optuna \cite{akiba2019optuna}; esta herramienta permitió explorar el espacio de soluciones de manera eficiente y sistemática.
+
+El proceso de optimización requirió la definición de un espacio de búsqueda específico para cada una de las tres arquitecturas evaluadas. Las variables transversales a todos los modelos incluyeron la tasa de aprendizaje del optimizador, el tamaño del lote de datos y el dropout. Para el modelo CNN, el espacio de exploración abarcó adicionalmente la cantidad de filtros por bloque y las dimensiones de los núcleos convolucionales. En el caso de la arquitectura RNN, la herramienta iteró sobre el número óptimo de unidades ocultas dentro de las capas LSTM. Finalmente, para el enfoque híbrido, se asignó un rango de búsqueda que combinó los parámetros de extracción espacial y de modelado temporal; esto garantizó una sintonización conjunta y equilibrada de ambas etapas de procesamiento.
+
+La automatización se estructuró en torno a una función objetivo, esta se encargó de guiar el proceso de búsqueda y para cada combinación de parámetros sugerida de dicha función instanció la red neuronal correspondiente, se ejecutó un ciclo de entrenamiento completo y evaluó el desempeño del sistema. En lugar de utilizar la exactitud global como único indicador, se seleccionó la métrica F1-score para cuantificar el rendimiento; este indicador calculó el balance entre la precisión y la exhaustividad de manera independiente para cada clase. Su uso resultó fundamental para obtener una evaluación rigurosa del comportamiento del modelo frente a las señales de EEG, pues penalizó de forma severa tanto los falsos positivos como los falsos negativos sin que una clase predominara sobre la otra.
+
+El algoritmo del entorno ejecutó múltiples ensayos independientes para cada arquitectura. En cada iteración, el sistema registró el valor de la función objetivo y ajustó la selección de los hiperparámetros siguientes para maximizar el resultado. Tras concluir la cantidad de ensayos programados, la herramienta identificó la combinación exacta de valores que reportó el mayor desempeño en el subconjunto de validación. Posteriormente, estas configuraciones óptimas se aplicaron en la definición final de los tres modelos de clasificación, lo cual aseguró su máxima eficiencia y capacidad de generalización antes de la etapa de evaluación definitiva.
+
+A continuación, se presentan los principales hiperparámetros considerados durante el entrenamiento de las arquitecturas implementadas.
+
+\begin{table}[htbp]
+\centering
+\caption{Hiperparámetros utilizados durante el entrenamiento}
+\label{tab:hiperparametros}
+
+\begin{tabular}{|p{6cm}|p{6cm}|}
+\hline
+\textbf{Hiperparámetro} & \textbf{Configuración evaluada} \\ \hline
+
+Número de capas convolucionales &
+1 a 3 capas \\ \hline
+
+Número de filtros &
+16 a 128 filtros \\ \hline
+
+Tamaño de kernel &
+3 y 5 \\ \hline
+
+Unidades ocultas LSTM &
+64 unidades \\ \hline
+
+Dropout &
+0.1 a 0.5 \\ \hline
+
+Tamaño de capa densa &
+64 a 256 neuronas \\ \hline
+
+Tasa de aprendizaje &
+Ajuste experimental \\ \hline
+
+Batch size &
+Ajuste experimental \\ \hline
+
+Número de épocas &
+Definido experimentalmente \\ \hline
+
+Optimizador &
+Adam \\ \hline
+
+Función de pérdida &
+Clasificación binaria \\ \hline
+
+Métricas monitoreadas &
+Accuracy, Precision, Recall y F1-score \\ \hline
+
+\end{tabular}
+\end{table}
+
+
+
+\section{Protocolo de evaluación}
+
+En esta sección se describen las métricas y el procedimiento utilizado para evaluar el desempeño de las arquitecturas implementadas en la clasificación de señales EEG asociadas a tareas de imaginación motriz.
+
+La evaluación de los modelos se realizó utilizando los conjuntos de validación definidos durante el proceso de entrenamiento. Este procedimiento permitió analizar el comportamiento de las arquitecturas CNN, LSTM y CNN-LSTM frente a señales EEG no observadas previamente, lo que facilitó la comparación de su capacidad de generalización sobre tareas de imaginación motriz.
+
+Debido a la naturaleza de clasificación binaria del conjunto Dreyer2023A, la evaluación se orientó a medir la capacidad de los modelos para discriminar correctamente entre tareas de imaginación motriz de mano izquierda y mano derecha. Para ello, se emplearon métricas ampliamente utilizadas en problemas de clasificación aplicados a aprendizaje profundo y análisis de señales EEG \cite{roy2019deep, zhang2021eeg}.
+
+La principal métrica utilizada correspondió a la exactitud (accuracy), la que permitió medir la proporción de predicciones correctas realizadas por el modelo sobre el total de muestras evaluadas. Esta métrica proporcionó una medida general del desempeño alcanzado por las arquitecturas implementadas. Adicionalmente, se utilizaron métricas de precisión (precision), exhaustividad (recall) y puntuación F1 (F1-score). Estas métricas permitieron evaluar el comportamiento del modelo desde diferentes perspectivas relacionadas con la calidad de las predicciones realizadas.
+
+La precisión permitió medir la proporción de tareas de imaginación motriz clasificadas correctamente respecto al total de predicciones positivas generadas por el modelo. Esta métrica resultó relevante para analizar la confiabilidad de las clasificaciones obtenidas a partir de patrones presentes en las señales EEG, especialmente en escenarios donde variaciones corticales similares pueden generar ambigüedad entre clases.
+
+La exhaustividad permitió medir la capacidad del modelo para identificar correctamente muestras EEG pertenecientes a cada tarea de imaginación motriz. Esta métrica resultó importante para evaluar la sensibilidad de las arquitecturas frente a patrones temporales y espaciales asociados a la actividad cortical registrada durante la imaginación motriz de mano izquierda y mano derecha.
+
+Por otra parte, la puntuación F1 permitió integrar precisión y exhaustividad en una única métrica de desempeño. Esta medida facilitó la evaluación equilibrada del comportamiento de los modelos frente a la variabilidad inherente de las señales EEG, lo que proporcionó una medida más robusta del desempeño general de las arquitecturas implementadas \cite{roy2019deep, zhang2021eeg}.
+
+Durante la evaluación, se monitoreó el comportamiento de las métricas sobre los conjuntos de entrenamiento y validación, lo que permitió identificar posibles casos de sobreajuste y analizar la estabilidad de las arquitecturas implementadas. Asimismo, se evaluó la capacidad de generalización de los modelos frente a señales EEG provenientes de distintos sujetos y ensayos, aspecto relevante debido a la alta variabilidad intra e intersujeto presente en tareas de imaginación motriz.
+
+
+\begin{table}[htbp]
+\centering
+\caption{Métricas utilizadas para la evaluación de modelos EEG en tareas de imaginación motriz}
+\label{tab:metricas_evaluacion}
+
+\begin{tabular}{|p{3cm}|p{5cm}|p{6cm}|}
+\hline
+\textbf{Métrica} & \textbf{Descripción estadística} & \textbf{Relevancia en señales EEG} \\ \hline
+
+Exactitud &
+Proporción de predicciones correctas sobre el total de muestras EEG evaluadas. &
+Ofreció una visión global del desempeño alcanzado por las arquitecturas neuronales durante la clasificación de tareas de imaginación motriz. \\ \hline
+
+Precisión &
+Relación entre verdaderos positivos y el total de predicciones positivas realizadas por el modelo. &
+Indicó la confiabilidad del modelo al identificar patrones EEG asociados a tareas de imaginación motriz de mano izquierda y mano derecha. \\ \hline
+
+Exhaustividad &
+Relación entre verdaderos positivos y el total de muestras reales pertenecientes a una clase. &
+Permitió evaluar la capacidad del modelo para identificar correctamente señales EEG asociadas a la intención motriz del usuario. \\ \hline
+
+Puntuación F1 &
+Media armónica entre precisión y exhaustividad calculada sobre las clases evaluadas. &
+Constituyó una métrica robusta para comparar el desempeño de las arquitecturas CNN, LSTM y CNN-LSTM frente a la variabilidad presente en señales EEG. \\ \hline
+
+\end{tabular}
+\end{table}
+
+
+
+\section{Despliegue del modelo}
+
+En esta sección se describe el procedimiento de despliegue que se implementó para el modelo seleccionado, así como la infraestructura utilizada para realizar inferencia sobre señales EEG asociadas a tareas de imaginación motriz.
+
+El despliegue se realizó con una arquitectura cloud basada en servicios de AWS, que esta orientada a desacoplar las etapas de procesamiento, inferencia y consumo del modelo entrenado. Este enfoque permitió separar el entorno de entrenamiento del entorno de inferencia, lo que facilitó la integración del sistema con servicios externos y componentes orientados al procesamiento de señales EEG.
+
+El proceso inició con la serialización sistemática de los modelos. Esta operación permitió capturar y almacenar el estado exacto de los pesos sinápticos tras alcanzar el rendimiento óptimo en la fase de validación; para ello, se guardaron los diccionarios de estado de la arquitectura en almacenamiento persistente. A la par, la gestión integral del ciclo de vida del aprendizaje se organizó mediante la herramienta MLflow \cite{zaharia2018accelerating}; esta plataforma estructuró las ejecuciones en experimentos discretos y facilitó la trazabilidad exhaustiva de los hiperparámetros, las métricas de desempeño y los metadatos relevantes de cada ensayo.
+
+Posteriormente, el modelo fue exportado utilizando el formato ONNX (del inglés, \textit{Open Neural Network Exchange}), lo qué permitió convertir la arquitectura entrenada a un formato portable e interoperable. Este enfoque facilitó la ejecución del modelo fuera del entorno original de entrenamiento y permitió su integración con diferentes plataformas de inferencia, servicios cloud y entornos de producción. La utilización de ONNX favoreció la portabilidad del sistema y redujo dependencias específicas del framework utilizado durante el entrenamiento.
+
+El entorno de inferencia fue desplegado sobre servicios serverless de AWS, utilizando funciones Lambda para ejecutar el procesamiento del modelo de manera remota. Asimismo, se desarrolló una API REST utilizando FastAPI, encargada de gestionar las solicitudes de inferencia y la comunicación entre el cliente y el modelo desplegado. Este enfoque permitió escalar dinámicamente el sistema frente a múltiples solicitudes de inferencia y reducir el consumo de recursos cuando no existían peticiones activas. A continuación, en la tabla \ref{tab:costos_despliegue} se presentan los principales componentes considerados durante el despliegue y una estimación mensual asociada al coste de inferencia de señales EEG para un prototipo inicial.
+
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.5}
+
+\caption{Estimación de costos de despliegue e inferencia del sistema EEG}
+\label{tab:costos_despliegue}
+\begin{tabular}{|p{2.3cm}|p{3cm}|p{1.9cm}|p{2.7cm}|p{1.8cm}|}
+\hline
+\textbf{Componente} &
+\textbf{Descripción} &
+\textbf{Consumo} &
+\textbf{Costo unitario (USD)} &
+\textbf{Costo mensual (USD)} \\ \hline
+
+API Gateway &
+Gestión de solicitudes REST. &
+10 000 solicitudes &
+3,50 por 1 000 000 solicitudes &
+0,04 \\ \hline
+
+AWS Lambda &
+Inferencia del modelo EEG. &
+100 000 GB-segundos &
+0,0000166 por GB-segundo &
+1,67 \\ \hline
+
+Amazon S3 &
+Almacenamiento del modelo ONNX. &
+1 GB estándar &
+0,023 por GB mensual &
+0,02 \\ \hline
+
+CloudWatch &
+Monitoreo y registros del sistema. &
+1 GB procesado &
+0,50 por GB procesado &
+0,50 \\ \hline
+
+Transferencia de datos &
+Tráfico de salida. &
+1 GB de salida &
+0,09 por GB &
+0,09 \\ \hline
+
+Costo total &
+Operación mensual estimada. &
+- &
+- &
+2,32 \\ \hline
+
+\end{tabular}
+
+\normalsize
+\end{table}
+
+A continuación, se presenta el flujo general de despliegue e inferencia \ref{fig:arquitecturas-inference} que se implementó para el procesamiento de señales EEG asociadas a tareas de imaginación motriz.
+
+\begin{figure}[h!]
+    % Use width=\textwidth or a fraction to fit without stretching
+	% \includegraphics[scale=.27]{./Figures/diagrama-de-flujo-de-arquitectura-neural-v6.png}
+	\includegraphics[width=\linewidth]{./Figures/pipeline-inference.png}
+    % \includegraphics[width=1.1\textwidth]{./Figures/diagrama-de-flujo-de-arquitectura-neural-v5.png} 
+    \caption{Estructura general de los modelos y su aplicación en la clasificación de tareas de imaginación motriz.}
+	\label{fig:arquitecturas-inference}
+\end{figure}
