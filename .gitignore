@@ -277,3 +277,6 @@ TSWLatexianTemp*
 
 #Mac files
 .DS_Store
+docs/
+AGE*
+l

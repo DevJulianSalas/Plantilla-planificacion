@@ -47,7 +47,7 @@ En la tabla \ref{tab:dataset-dreyer} se presentan las especificaciones técnicas
 \end{table}
 
 \section{Métodos tradicionales en EEG y extracción automática de características}
-Tradicionalmente, la decodificación de la imaginación motriz se basa en algoritmos de aprendizaje automático combinados con una etapa de ingeniería de rasgos manual. El enfoque más común utiliza CSP, técnica que descompone las señales para maximizar la varianza entre clases y facilitar la separación de estados mentales \cite{riascos2024machine}. A partir de estos patrones, se emplean clasificadores como LDA (del inglés, \textit{Linear Discriminant Analysis}) y SVM (del inglés, \textit{Support Vector Machines}). Aunque efectivos en entornos controlados, estos métodos son sensibles a la colocación de electrodos y requieren ajuste experto de las bandas de frecuencia por sujeto.
+Tradicionalmente, la decodificación de la imaginación motriz se basa en algoritmos de aprendizaje automático combinados con una etapa de ingeniería de rasgos manual. El enfoque más común utiliza CSP, técnica que descompone las señales para maximizar la varianza entre clases y facilitar la separación de estados mentales \cite{riascos2024machine}. A partir de estos patrones, se emplean clasificadores como LDA (\textit{Linear Discriminant Analysis}) y SVM (\textit{Support Vector Machines}). Aunque efectivos en entornos controlados, estos métodos son sensibles a la colocación de electrodos y requieren ajuste experto de las bandas de frecuencia por sujeto.
 
 Frente a estas limitaciones, el avance hacia el aprendizaje profundo o Deep Learning ha permitido el desarrollo de modelos capaces de realizar la extracción automática de características. A diferencia de los esquemas clásicos, estas arquitecturas aprenden representaciones jerárquicas directamente a partir de los datos crudos, y se reduce la necesidad de una ingeniería de rasgos manual.
 
@@ -61,7 +61,7 @@ En la tabla \ref{tab:comparacionmetodos} se presenta una comparación entre los 
 	\caption[Comparación entre modelos]{Comparación entre métodos tradicionales y modelos de aprendizaje profundo para el análisis de EEG.}
 	\begin{tabular}{L{2.8cm} L{3.8cm} L{3.8cm}}
 		\toprule
-		\textbf{Característica} & \textbf{Métodos Tradicionales (CSP, SVM, LDA)} & \textbf{Aprendizaje Profundo (CNN, EEGNet)} \\
+		\textbf{Característica} & \textbf{Métodos tradicionales (CSP, SVM, LDA)} & \textbf{Aprendizaje profundo (CNN, EEGNet)} \\
 		\midrule
 		Extracción de rasgos & Manual y basada en conocimiento experto. & Automática a partir de los datos de entrada. \\
 		Sensibilidad al ruido & Muy alta, requiere filtros manuales estrictos. & Moderada, depende de la calidad del dato. \\
@@ -77,7 +77,7 @@ En la tabla \ref{tab:comparacionmetodos} se presenta una comparación entre los 
 
 Las CNN se consolidan como una de las herramientas más eficaces para la extracción de características. Mediante el uso de filtros de convolución, estas redes permiten identificar patrones de activación en regiones específicas de la corteza motora, que simula de manera automática el comportamiento de los filtros espaciales tradicionales. Por ello, el uso de las CNN facilita la detección de cambios en la amplitud de los ritmos sensorimotores asociados a la intención de movimiento de las extremidades. 
 
-Por otro lado, para el análisis de la dinámica temporal de las señales EEG, las redes neuronales recurrentes o RNN (del inglés, \textit{Recurrent Neural Networks}), específicamente las unidades de memoria de largo corto plazo o LSTM (del inglés, \textit{Long Short-Term Memory}) y las unidades recurrentes calificadas o GRU (del inglés, \textit{Gated Recurrent Units}) permiten modelar la evolución de la señal a lo largo del tiempo; estas utilizan mecanismos de puertas para retener información relevante y descartar el ruido transitorio. Mientras que las LSTM emplean una estructura compleja para gestionar la memoria a largo plazo, las GRU ofrecen una alternativa más eficiente en términos computacionales, que mantiene un rendimiento competitivo en la clasificación de series temporales de EEG.
+Por otro lado, para el análisis de la dinámica temporal de las señales EEG, las redes neuronales recurrentes o RNN (\textit{Recurrent Neural Networks}), específicamente las unidades de memoria de largo corto plazo o LSTM y las unidades recurrentes calificadas o GRU (\textit{Gated Recurrent Units}) permiten modelar la evolución de la señal a lo largo del tiempo; estas utilizan mecanismos de puertas para retener información relevante y descartar el ruido transitorio. Mientras que las LSTM emplean una estructura compleja para gestionar la memoria a largo plazo, las GRU ofrecen una alternativa más eficiente en términos computacionales, que mantiene un rendimiento competitivo en la clasificación de series temporales de EEG.
 
 
 Por último, los enfoques híbridos han sido ampliamente utilizados para integrar las ventajas de distintos modelos en el análisis de señales EEG. En particular, las arquitecturas de tipo CNN-LSTM combinan la capacidad de las redes convolucionales para extraer características espaciales con la habilidad de las redes recurrentes para modelar dependencias temporales \cite{zhang2021eeg}.
@@ -101,7 +101,7 @@ En la tabla \ref{tab:comparacionarquitecturas} se presenta una comparación téc
 \begin{table}[h]
 	\centering
 	\caption[Comparación entre arquitecturas]{Comparación entre arquitecturas CNN, LSTM y CNN-LSTM aplicadas al análisis de señales EEG.}
-	\begin{tabular}{L{2.5cm} L{3.5cm} L{3.5cm} L{3.5cm}}
+	\begin{tabular}{L{2.5cm} L{3cm} L{3.2cm} L{3.2cm}}
 		\toprule
 		\textbf{Característica} & \textbf{CNN} & \textbf{LSTM / GRU} & \textbf{CNN-LSTM} \\
 		\midrule
