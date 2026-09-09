@@ -1,15 +1,68 @@
-% Chapter Template
+% Chapter 4
 
 \chapter{Ensayos y resultados} % Main chapter title
 
-\label{Chapter4} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
-Todos los capítulos deben comenzar con un breve párrafo introductorio que indique cuál es el contenido que se encontrará al leerlo.  La redacción sobre el contenido de la memoria debe hacerse en presente y todo lo referido al proyecto en pasado, siempre de modo impersonal.
+\label{Chapter4} % For referencing this chapter elsewhere, use \ref{Chapter4}
+
+En este capítulo se presentan los ensayos realizados para evaluar el desempeño del sistema de clasificación de tareas de imaginación motriz. Se describe el protocolo experimental aplicado, el desempeño alcanzado por las arquitecturas implementadas, la capacidad predictiva del sistema y la comparación con enfoques tradicionales, junto con el análisis de los resultados obtenidos.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 
-\section{Pruebas funcionales del hardware}
-\label{sec:pruebasHW}
+\section{Ensayos de modelos}
+\label{sec:ensayosModelos}
 
-La idea de esta sección es explicar cómo se hicieron los ensayos, qué resultados se obtuvieron y analizarlos.
+Para el desarrollo de los ensayos se estableció un protocolo experimental orientado a evaluar el comportamiento de las tres arquitecturas implementadas sobre el conjunto Dreyer2023A. El protocolo definió de manera explícita la partición de los datos, la estrategia de evaluación, la configuración de los experimentos y el número de ejecuciones, con el fin de garantizar condiciones comparables entre los modelos y la reproducibilidad de los resultados.
+
+La partición del conjunto de datos se realizó considerando la organización del conjunto por sujetos. Se asignaron cuarenta y dos sujetos al conjunto de entrenamiento y los dieciocho restantes al conjunto de validación, lo que correspondió a una proporción de setenta por ciento y treinta por ciento, respectivamente. Esta división garantizó que los modelos no observaran durante el entrenamiento las señales de los sujetos empleados para su evaluación, de modo que las métricas obtenidas reflejaron la capacidad de generalización frente a usuarios no vistos. La asignación de sujetos a cada conjunto se mantuvo fija en todas las ejecuciones, lo que permitió comparar el desempeño de las arquitecturas sobre los mismos datos de validación.
+
+La estrategia de evaluación consistió en entrenar cada arquitectura sobre el conjunto de entrenamiento y cuantificar su desempeño sobre el conjunto de validación. Para cada muestra, el modelo generó un puntaje de pertenencia a las clases de imaginación motriz que se comparó con un umbral de decisión. A partir de los aciertos y errores desagregados por clase, se calcularon las métricas de exactitud, precisión, exhaustividad y puntuación F1, cuya definición se presentó en el protocolo de evaluación del capítulo anterior.
+
+La configuración estructural de cada arquitectura se obtuvo mediante el proceso de búsqueda de hiperparámetros descrito en el capítulo anterior. El entorno de optimización ejecutó cincuenta ensayos por arquitectura, explorando los rangos definidos para la tasa de aprendizaje, el tamaño del lote, el dropout y los parámetros estructurales específicos de cada modelo. La configuración que reportó el mayor desempeño en el conjunto de validación durante la búsqueda fue la adoptada para los ensayos definitivos.
+
+Con el fin de cuantificar la estabilidad del desempeño, cada arquitectura se entrenó y evaluó en diez ejecuciones independientes. Las ejecuciones difirieron únicamente en la inicialización aleatoria de los pesos y en la selección de los lotes de entrenamiento, manteniéndose idénticas la partición de los datos y la configuración de hiperparámetros. Para cada métrica se calculó el promedio y la desviación sobre las diez ejecuciones, de modo que los resultados presentados en las secciones siguientes reflejaron tanto el valor esperado del desempeño como su variabilidad.
+
+En la tabla \ref{tab:config_experimentos} se resume la configuración de los experimentos realizados.
+
+\begin{table}[htbp]
+\centering
+\caption{Configuración de los experimentos realizados.}
+\label{tab:config_experimentos}
+
+\begin{tabular}{L{6cm}L{6cm}}
+\toprule
+\textbf{Aspecto} & \textbf{Configuración} \\
+\midrule
+
+Conjunto de datos &
+Dreyer2023A \\ 
+
+Sujetos de entrenamiento &
+42 (70 \%) \\ 
+
+Sujetos de validación &
+18 (30 \%) \\ 
+
+Arquitecturas evaluadas &
+CNN, RNN-LSTM y CNN-LSTM \\ 
+
+Ensayos de optimización &
+50 por arquitectura \\ 
+
+Ejecuciones independientes &
+10 por arquitectura \\ 
+
+Métricas de desempeño &
+Exactitud, precisión, exhaustividad y F1 \\ 
+
+\end{tabular}
+\end{table}
+
+\FloatBarrier
+
+%----------------------------------------------------------------------------------------
+%	SECTION 2 (pendiente)
+%----------------------------------------------------------------------------------------
+
+% \section{Desempeño del modelo}

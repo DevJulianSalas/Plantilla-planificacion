@@ -280,3 +280,5 @@ TSWLatexianTemp*
 docs/
 AGE*
 l
+.agents/
+*.json

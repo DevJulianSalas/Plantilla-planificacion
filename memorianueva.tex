@@ -28,8 +28,14 @@
 \usepackage{hyperref}       % Manejo de hipervínculos y marcadores
 \usepackage{booktabs}
 \usepackage{float}
+\usepackage{placeins} % Impide que figuras y tablas crucen hacia otra sección (usar \FloatBarrier)
 \usepackage{lscape}
 \usepackage{multirow} % en el preámbulo
+
+% Alinear los flotantes al tope de la página cuando ocupan una página completa
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
 
 % Redefinición de caracteres problemáticos en marcadores
 \hypersetup{
